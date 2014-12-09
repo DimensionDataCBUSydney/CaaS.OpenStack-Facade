@@ -1,0 +1,3505 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DD.CBU.Compute.Api.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:AccountType">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.userName">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.password">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.fullName">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.firstName">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.lastName">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.emailAddress">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.department">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.customDefined1">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.customDefined2">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.orgId">
+            <remarks/>
+        </member>
+        <member name="P:AccountType.roles">
+            <remarks/>
+        </member>
+        <member name="T:RoleType">
+            <remarks/>
+        </member>
+        <member name="P:RoleType.name">
+            <remarks/>
+        </member>
+        <member name="T:Accounts">
+            <remarks/>
+        </member>
+        <member name="P:Accounts.Account">
+            <remarks/>
+        </member>
+        <member name="T:NewBackup">
+            <remarks/>
+        </member>
+        <member name="P:NewBackup.servicePlan">
+            <remarks/>
+        </member>
+        <member name="T:ServicePlan">
+            <remarks/>
+        </member>
+        <member name="F:ServicePlan.Essentials">
+            <remarks/>
+        </member>
+        <member name="F:ServicePlan.Advanced">
+            <remarks/>
+        </member>
+        <member name="F:ServicePlan.Enterprise">
+            <remarks/>
+        </member>
+        <member name="T:BackupClientTypes">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientTypes.backupClientType">
+            <remarks/>
+        </member>
+        <member name="T:BackupClientType">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientType.type">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientType.isFileSystem">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientType.description">
+            <remarks/>
+        </member>
+        <member name="T:BackupDetails">
+            <remarks/>
+        </member>
+        <member name="P:BackupDetails.backupClient">
+            <remarks/>
+        </member>
+        <member name="P:BackupDetails.assetId">
+            <remarks/>
+        </member>
+        <member name="P:BackupDetails.servicePlan">
+            <remarks/>
+        </member>
+        <member name="P:BackupDetails.state">
+            <remarks/>
+        </member>
+        <member name="T:BackupClientDetailsType">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.description">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.schedulePolicyName">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.storagePolicyName">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.alerting">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.times">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.totalBackupSizeGb">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.totalBackupSizeGbSpecified">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.downloadUrl">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.runningJob">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.id">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.type">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.isFileSystem">
+            <remarks/>
+        </member>
+        <member name="P:BackupClientDetailsType.status">
+            <remarks/>
+        </member>
+        <member name="T:AlertingType">
+            <remarks/>
+        </member>
+        <member name="P:AlertingType.emailAddress">
+            <remarks/>
+        </member>
+        <member name="P:AlertingType.trigger">
+            <remarks/>
+        </member>
+        <member name="T:TriggerType">
+            <remarks/>
+        </member>
+        <member name="F:TriggerType.ON_FAILURE">
+            <remarks/>
+        </member>
+        <member name="F:TriggerType.ON_SUCCESS">
+            <remarks/>
+        </member>
+        <member name="F:TriggerType.ON_SUCCESS_OR_FAILURE">
+            <remarks/>
+        </member>
+        <member name="T:BackupTimesType">
+            <remarks/>
+        </member>
+        <member name="P:BackupTimesType.lastBackup">
+            <remarks/>
+        </member>
+        <member name="P:BackupTimesType.lastBackupSpecified">
+            <remarks/>
+        </member>
+        <member name="P:BackupTimesType.nextBackup">
+            <remarks/>
+        </member>
+        <member name="P:BackupTimesType.nextBackupSpecified">
+            <remarks/>
+        </member>
+        <member name="P:BackupTimesType.lastOnline">
+            <remarks/>
+        </member>
+        <member name="P:BackupTimesType.lastOnlineSpecified">
+            <remarks/>
+        </member>
+        <member name="T:RunningJobType">
+            <remarks/>
+        </member>
+        <member name="P:RunningJobType.id">
+            <remarks/>
+        </member>
+        <member name="P:RunningJobType.name">
+            <remarks/>
+        </member>
+        <member name="P:RunningJobType.percentageComplete">
+            <remarks/>
+        </member>
+        <member name="P:RunningJobType.status">
+            <remarks/>
+        </member>
+        <member name="T:ClientStatusType">
+            <remarks/>
+        </member>
+        <member name="F:ClientStatusType.Active">
+            <remarks/>
+        </member>
+        <member name="F:ClientStatusType.Offline">
+            <remarks/>
+        </member>
+        <member name="F:ClientStatusType.Unregistered">
+            <remarks/>
+        </member>
+        <member name="T:BackupStoragePolicies">
+            <remarks/>
+        </member>
+        <member name="P:BackupStoragePolicies.storagePolicy">
+            <remarks/>
+        </member>
+        <member name="T:StoragePolicy">
+            <remarks/>
+        </member>
+        <member name="P:StoragePolicy.retentionPeriodInDays">
+            <remarks/>
+        </member>
+        <member name="P:StoragePolicy.name">
+            <remarks/>
+        </member>
+        <member name="P:StoragePolicy.secondaryLocation">
+            <remarks/>
+        </member>
+        <member name="T:BackupSchedulePolicies">
+            <remarks/>
+        </member>
+        <member name="P:BackupSchedulePolicies.schedulePolicy">
+            <remarks/>
+        </member>
+        <member name="T:SchedulePolicy">
+            <remarks/>
+        </member>
+        <member name="P:SchedulePolicy.name">
+            <remarks/>
+        </member>
+        <member name="P:SchedulePolicy.description">
+            <remarks/>
+        </member>
+        <member name="T:NewBackupClient">
+            <remarks/>
+        </member>
+        <member name="P:NewBackupClient.type">
+            <remarks/>
+        </member>
+        <member name="P:NewBackupClient.storagePolicyName">
+            <remarks/>
+        </member>
+        <member name="P:NewBackupClient.schedulePolicyName">
+            <remarks/>
+        </member>
+        <member name="P:NewBackupClient.alerting">
+            <remarks/>
+        </member>
+        <member name="T:ModifyBackup">
+            <remarks/>
+        </member>
+        <member name="P:ModifyBackup.servicePlan">
+            <remarks/>
+        </member>
+        <member name="T:ModifyBackupClient">
+            <remarks/>
+        </member>
+        <member name="P:ModifyBackupClient.storagePolicyName">
+            <remarks/>
+        </member>
+        <member name="P:ModifyBackupClient.schedulePolicyName">
+            <remarks/>
+        </member>
+        <member name="P:ModifyBackupClient.alerting">
+            <remarks/>
+        </member>
+        <member name="T:RestoreBackup">
+            <remarks/>
+        </member>
+        <member name="P:RestoreBackup.asAtDate">
+            <remarks/>
+        </member>
+        <member name="P:RestoreBackup.asAtDateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:RestoreBackup.targetServerId">
+            <remarks/>
+        </member>
+        <member name="T:RestoreTargetServers">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServers.server">
+            <remarks/>
+        </member>
+        <member name="T:RestoreTargetServerType">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.name">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.description">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.operatingSystem">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.cpuCount">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.memoryMb">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.disk">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.sourceImageId">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.softwareLabel">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.networkId">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.machineName">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.privateIp">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.created">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.backup">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.id">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerType.location">
+            <remarks/>
+        </member>
+        <member name="T:OSType">
+            <remarks/>
+        </member>
+        <member name="P:OSType.id">
+            <remarks/>
+        </member>
+        <member name="P:OSType.displayName">
+            <remarks/>
+        </member>
+        <member name="P:OSType.type">
+            <remarks/>
+        </member>
+        <member name="T:DiskWithSpeedType">
+            <remarks/>
+        </member>
+        <member name="P:DiskWithSpeedType.id">
+            <remarks/>
+        </member>
+        <member name="P:DiskWithSpeedType.scsiId">
+            <remarks/>
+        </member>
+        <member name="P:DiskWithSpeedType.sizeGb">
+            <remarks/>
+        </member>
+        <member name="P:DiskWithSpeedType.speed">
+            <remarks/>
+        </member>
+        <member name="P:DiskWithSpeedType.state">
+            <remarks/>
+        </member>
+        <member name="T:RestoreTargetServerTypeBackup">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerTypeBackup.assetId">
+            <remarks/>
+        </member>
+        <member name="P:RestoreTargetServerTypeBackup.servicePlan">
+            <remarks/>
+        </member>
+        <member name="T:Datacenters">
+            <remarks/>
+        </member>
+        <member name="P:Datacenters.datacenter">
+            <remarks/>
+        </member>
+        <member name="T:DatacenterType">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterType.location">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterType.displayName">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterType.city">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterType.state">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterType.country">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterType.vpnUrl">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterType.default">
+            <remarks/>
+        </member>
+        <member name="T:DatacentersWithLimits">
+            <remarks/>
+        </member>
+        <member name="P:DatacentersWithLimits.datacenterWithLimits">
+            <remarks/>
+        </member>
+        <member name="T:DatacenterWithLimitsType">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithLimitsType.location">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithLimitsType.displayName">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithLimitsType.city">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithLimitsType.state">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithLimitsType.country">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithLimitsType.vpnUrl">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithLimitsType.default">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithLimitsType.maxCpu">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithLimitsType.maxRamMb">
+            <remarks/>
+        </member>
+        <member name="T:DatacentersWithDiskSpeedDetails">
+            <remarks/>
+        </member>
+        <member name="P:DatacentersWithDiskSpeedDetails.datacenter">
+            <remarks/>
+        </member>
+        <member name="T:DatacenterWithDiskSpeedDetails">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.displayName">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.city">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.state">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.country">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.vpnUrl">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.maxCpu">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.maxRamMb">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.diskSpeed">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.location">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithDiskSpeedDetails.default">
+            <remarks/>
+        </member>
+        <member name="T:DiskSpeedAvailabilityType">
+            <remarks/>
+        </member>
+        <member name="P:DiskSpeedAvailabilityType.displayName">
+            <remarks/>
+        </member>
+        <member name="P:DiskSpeedAvailabilityType.abbreviation">
+            <remarks/>
+        </member>
+        <member name="P:DiskSpeedAvailabilityType.description">
+            <remarks/>
+        </member>
+        <member name="P:DiskSpeedAvailabilityType.unavailableReason">
+            <remarks/>
+        </member>
+        <member name="P:DiskSpeedAvailabilityType.id">
+            <remarks/>
+        </member>
+        <member name="P:DiskSpeedAvailabilityType.default">
+            <remarks/>
+        </member>
+        <member name="P:DiskSpeedAvailabilityType.available">
+            <remarks/>
+        </member>
+        <member name="T:DatacentersWithMaintenanceStatus">
+            <remarks/>
+        </member>
+        <member name="P:DatacentersWithMaintenanceStatus.datacenter">
+            <remarks/>
+        </member>
+        <member name="T:DatacenterWithMaintenanceStatusType">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.displayName">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.city">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.state">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.country">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.vpnUrl">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.networking">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.hypervisor">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.backup">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.default">
+            <remarks/>
+        </member>
+        <member name="P:DatacenterWithMaintenanceStatusType.location">
+            <remarks/>
+        </member>
+        <member name="T:NetworkingType">
+            <remarks/>
+        </member>
+        <member name="P:NetworkingType.property">
+            <remarks/>
+        </member>
+        <member name="P:NetworkingType.type">
+            <remarks/>
+        </member>
+        <member name="P:NetworkingType.maintenanceStatus">
+            <remarks/>
+        </member>
+        <member name="T:PropertyType">
+            <remarks/>
+        </member>
+        <member name="P:PropertyType.name">
+            <remarks/>
+        </member>
+        <member name="P:PropertyType.value">
+            <remarks/>
+        </member>
+        <member name="T:HypervisorType">
+            <remarks/>
+        </member>
+        <member name="P:HypervisorType.diskSpeed">
+            <remarks/>
+        </member>
+        <member name="P:HypervisorType.property">
+            <remarks/>
+        </member>
+        <member name="P:HypervisorType.type">
+            <remarks/>
+        </member>
+        <member name="P:HypervisorType.maintenanceStatus">
+            <remarks/>
+        </member>
+        <member name="T:BackupType">
+            <remarks/>
+        </member>
+        <member name="P:BackupType.property">
+            <remarks/>
+        </member>
+        <member name="P:BackupType.type">
+            <remarks/>
+        </member>
+        <member name="P:BackupType.maintenanceStatus">
+            <remarks/>
+        </member>
+        <member name="T:StatusType">
+            <remarks/>
+        </member>
+        <member name="P:StatusType.operation">
+            <remarks/>
+        </member>
+        <member name="P:StatusType.result">
+            <remarks/>
+        </member>
+        <member name="P:StatusType.resultDetail">
+            <remarks/>
+        </member>
+        <member name="P:StatusType.resultCode">
+            <remarks/>
+        </member>
+        <member name="P:StatusType.additionalInformation">
+            <remarks/>
+        </member>
+        <member name="T:ResultType">
+            <remarks/>
+        </member>
+        <member name="F:ResultType.ERROR">
+            <remarks/>
+        </member>
+        <member name="F:ResultType.SUCCESS">
+            <remarks/>
+        </member>
+        <member name="F:ResultType.WARNING">
+            <remarks/>
+        </member>
+        <member name="T:AdditionalInformationType">
+            <remarks/>
+        </member>
+        <member name="P:AdditionalInformationType.value">
+            <remarks/>
+        </member>
+        <member name="P:AdditionalInformationType.name">
+            <remarks/>
+        </member>
+        <member name="T:Networks">
+            <remarks/>
+        </member>
+        <member name="P:Networks.Network">
+            <remarks/>
+        </member>
+        <member name="T:NetworkType">
+            <remarks/>
+        </member>
+        <member name="P:NetworkType.id">
+            <remarks/>
+        </member>
+        <member name="P:NetworkType.resourcePath">
+            <remarks/>
+        </member>
+        <member name="P:NetworkType.name">
+            <remarks/>
+        </member>
+        <member name="P:NetworkType.description">
+            <remarks/>
+        </member>
+        <member name="P:NetworkType.multicast">
+            <remarks/>
+        </member>
+        <member name="P:NetworkType.multicastSpecified">
+            <remarks/>
+        </member>
+        <member name="T:NetworkWithLocationType">
+            <remarks/>
+        </member>
+        <member name="P:NetworkWithLocationType.id">
+            <remarks/>
+        </member>
+        <member name="P:NetworkWithLocationType.name">
+            <remarks/>
+        </member>
+        <member name="P:NetworkWithLocationType.description">
+            <remarks/>
+        </member>
+        <member name="P:NetworkWithLocationType.location">
+            <remarks/>
+        </member>
+        <member name="P:NetworkWithLocationType.privateNet">
+            <remarks/>
+        </member>
+        <member name="P:NetworkWithLocationType.multicast">
+            <remarks/>
+        </member>
+        <member name="T:NatRules">
+            <remarks/>
+        </member>
+        <member name="P:NatRules.NatRule">
+            <remarks/>
+        </member>
+        <member name="T:NatRuleType">
+            <remarks/>
+        </member>
+        <member name="P:NatRuleType.id">
+            <remarks/>
+        </member>
+        <member name="P:NatRuleType.name">
+            <remarks/>
+        </member>
+        <member name="P:NatRuleType.natIp">
+            <remarks/>
+        </member>
+        <member name="P:NatRuleType.sourceIp">
+            <remarks/>
+        </member>
+        <member name="T:IpList">
+            <remarks/>
+        </member>
+        <member name="P:IpList.subnetSize">
+            <remarks/>
+        </member>
+        <member name="P:IpList.ip">
+            <remarks/>
+        </member>
+        <member name="T:NewNetworkWithLocationType">
+            <remarks/>
+        </member>
+        <member name="P:NewNetworkWithLocationType.name">
+            <remarks/>
+        </member>
+        <member name="P:NewNetworkWithLocationType.description">
+            <remarks/>
+        </member>
+        <member name="P:NewNetworkWithLocationType.location">
+            <remarks/>
+        </member>
+        <member name="T:NetworkConfigurationType">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.network">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.hostName">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.agg">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.aggSpecified">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.location">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.context">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.contextSpecified">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.acePair">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.acePairSpecified">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.intVlan">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.intVlanSpecified">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.outVlan">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.outVlanSpecified">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.publicSnat">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.privateSnat">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.publicNet">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.privateNet">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.publicIps">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationType.privateIps">
+            <remarks/>
+        </member>
+        <member name="T:IpBlockType">
+            <remarks/>
+        </member>
+        <member name="P:IpBlockType.id">
+            <remarks/>
+        </member>
+        <member name="P:IpBlockType.baseIp">
+            <remarks/>
+        </member>
+        <member name="P:IpBlockType.subnetSize">
+            <remarks/>
+        </member>
+        <member name="P:IpBlockType.networkDefault">
+            <remarks/>
+        </member>
+        <member name="P:IpBlockType.serverToVipConnectivity">
+            <remarks/>
+        </member>
+        <member name="T:Ips">
+            <remarks/>
+        </member>
+        <member name="P:Ips.subnetSize">
+            <remarks/>
+        </member>
+        <member name="P:Ips.Ip">
+            <remarks/>
+        </member>
+        <member name="T:NetworkConfigurationWithLocationType">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.id">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.name">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.description">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.location">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.privateNet">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.multicast">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.privateSnat">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.publicSnat">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.publicIps">
+            <remarks/>
+        </member>
+        <member name="P:NetworkConfigurationWithLocationType.privateIps">
+            <remarks/>
+        </member>
+        <member name="T:AclRuleType">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.id">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.name">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.status">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.position">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.action">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.protocol">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.sourceIpRange">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.destinationIpRange">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.portRange">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.type">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleType.typeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:AclActionType">
+            <remarks/>
+        </member>
+        <member name="F:AclActionType.DENY">
+            <remarks/>
+        </member>
+        <member name="F:AclActionType.PERMIT">
+            <remarks/>
+        </member>
+        <member name="T:IpRangeType">
+            <remarks/>
+        </member>
+        <member name="P:IpRangeType.ipAddress">
+            <remarks/>
+        </member>
+        <member name="P:IpRangeType.netmask">
+            <remarks/>
+        </member>
+        <member name="T:PortRangeType">
+            <remarks/>
+        </member>
+        <member name="P:PortRangeType.type">
+            <remarks/>
+        </member>
+        <member name="P:PortRangeType.port1">
+            <remarks/>
+        </member>
+        <member name="P:PortRangeType.port1Specified">
+            <remarks/>
+        </member>
+        <member name="P:PortRangeType.port2">
+            <remarks/>
+        </member>
+        <member name="P:PortRangeType.port2Specified">
+            <remarks/>
+        </member>
+        <member name="T:PortRangeTypeType">
+            <remarks/>
+        </member>
+        <member name="F:PortRangeTypeType.ALL">
+            <remarks/>
+        </member>
+        <member name="F:PortRangeTypeType.EQUAL_TO">
+            <remarks/>
+        </member>
+        <member name="F:PortRangeTypeType.RANGE">
+            <remarks/>
+        </member>
+        <member name="F:PortRangeTypeType.GREATER_THAN">
+            <remarks/>
+        </member>
+        <member name="F:PortRangeTypeType.LESS_THAN">
+            <remarks/>
+        </member>
+        <member name="T:AclType">
+            <remarks/>
+        </member>
+        <member name="F:AclType.OPSOURCE_ACL">
+            <remarks/>
+        </member>
+        <member name="F:AclType.OUTSIDE_ACL">
+            <remarks/>
+        </member>
+        <member name="F:AclType.INSIDE_ACL">
+            <remarks/>
+        </member>
+        <member name="F:AclType.ALL_ACL">
+            <remarks/>
+        </member>
+        <member name="T:AclRuleListType">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleListType.name">
+            <remarks/>
+        </member>
+        <member name="P:AclRuleListType.AclRule">
+            <remarks/>
+        </member>
+        <member name="T:ServerImageType">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.id">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.resourcePath">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.name">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.description">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.operatingSystem">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.location">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.sourceResourcePath">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.cpuCount">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.memory">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.osStorage">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.additionalLocalStorage">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.additionalLocalStorageSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.created">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageType.createdSpecified">
+            <remarks/>
+        </member>
+        <member name="T:OperatingSystemType">
+            <remarks/>
+        </member>
+        <member name="P:OperatingSystemType.type">
+            <remarks/>
+        </member>
+        <member name="P:OperatingSystemType.displayName">
+            <remarks/>
+        </member>
+        <member name="T:ServerType">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.id">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.resourcePath">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.name">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.description">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.vlanResourcePath">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.imageResourcePath">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.operatingSystem">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.cpuCount">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.cpuCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.memory">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.memorySpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.osStorage">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.osStorageSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.additionalLocalStorage">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.additionalLocalStorageSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.machineName">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.administratorPassword">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.privateIPAddress">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.isDeployed">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.isStarted">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.created">
+            <remarks/>
+        </member>
+        <member name="P:ServerType.createdSpecified">
+            <remarks/>
+        </member>
+        <member name="T:SoftwareLabelType">
+            <remarks/>
+        </member>
+        <member name="P:SoftwareLabelType.displayName">
+            <remarks/>
+        </member>
+        <member name="P:SoftwareLabelType.description">
+            <remarks/>
+        </member>
+        <member name="P:SoftwareLabelType.pricedPer">
+            <remarks/>
+        </member>
+        <member name="P:SoftwareLabelType.runningUnits">
+            <remarks/>
+        </member>
+        <member name="P:SoftwareLabelType.stoppedUnits">
+            <remarks/>
+        </member>
+        <member name="P:SoftwareLabelType.id">
+            <remarks/>
+        </member>
+        <member name="T:PricedPerType">
+            <remarks/>
+        </member>
+        <member name="F:PricedPerType.SERVER">
+            <remarks/>
+        </member>
+        <member name="F:PricedPerType.CPU">
+            <remarks/>
+        </member>
+        <member name="T:PendingDeployServerType">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerType.id">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerType.name">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerType.description">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerType.machineSpecification">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerType.sourceImageId">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerType.networkId">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerType.privateIpAddress">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerType.status">
+            <remarks/>
+        </member>
+        <member name="T:MachineSpecificationType">
+            <remarks/>
+        </member>
+        <member name="P:MachineSpecificationType.cpuCount">
+            <remarks/>
+        </member>
+        <member name="P:MachineSpecificationType.memoryMb">
+            <remarks/>
+        </member>
+        <member name="P:MachineSpecificationType.osStorageGb">
+            <remarks/>
+        </member>
+        <member name="P:MachineSpecificationType.additionalLocalStorageGb">
+            <remarks/>
+        </member>
+        <member name="P:MachineSpecificationType.operatingSystem">
+            <remarks/>
+        </member>
+        <member name="T:ProgressStatusType">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusType.action">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusType.requestTime">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusType.userName">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusType.numberOfSteps">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusType.numberOfStepsSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusType.updateTime">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusType.updateTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusType.step">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusType.failureReason">
+            <remarks/>
+        </member>
+        <member name="T:ProgressStatusStepType">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusStepType.name">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusStepType.number">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusStepType.percentComplete">
+            <remarks/>
+        </member>
+        <member name="P:ProgressStatusStepType.percentCompleteSpecified">
+            <remarks/>
+        </member>
+        <member name="T:PendingDeployServerWithSoftwareLabelsType">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithSoftwareLabelsType.id">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithSoftwareLabelsType.name">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithSoftwareLabelsType.description">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithSoftwareLabelsType.machineSpecification">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithSoftwareLabelsType.sourceImageId">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithSoftwareLabelsType.networkId">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithSoftwareLabelsType.privateIpAddress">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithSoftwareLabelsType.status">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithSoftwareLabelsType.softwareLabel">
+            <remarks/>
+        </member>
+        <member name="T:PendingDeployServerWithDisksType">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServerWithDisksType.additionalDisk">
+            <remarks/>
+        </member>
+        <member name="T:DiskType">
+            <remarks/>
+        </member>
+        <member name="P:DiskType.id">
+            <remarks/>
+        </member>
+        <member name="P:DiskType.scsiId">
+            <remarks/>
+        </member>
+        <member name="P:DiskType.diskSizeGb">
+            <remarks/>
+        </member>
+        <member name="P:DiskType.state">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServerType">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.id">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.name">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.description">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.machineSpecification">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.sourceImageId">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.networkId">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.privateIpAddress">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.publicIpAddress">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.machineName">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.isStarted">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.deployedTime">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.deployedTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerType.status">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServerWithStatusType">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerWithStatusType.machineStatus">
+            <remarks/>
+        </member>
+        <member name="T:MachineStatusType">
+            <remarks/>
+        </member>
+        <member name="P:MachineStatusType.value">
+            <remarks/>
+        </member>
+        <member name="P:MachineStatusType.name">
+            <remarks/>
+        </member>
+        <member name="T:ServerStatusName">
+            <remarks/>
+        </member>
+        <member name="F:ServerStatusName.vmwareToolsVersionStatus">
+            <remarks/>
+        </member>
+        <member name="F:ServerStatusName.vmwareToolsRunningStatus">
+            <remarks/>
+        </member>
+        <member name="F:ServerStatusName.vmwareToolsApiVersion">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServerWithSoftwareLabelsType">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerWithSoftwareLabelsType.softwareLabel">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServerWithDisksType">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServerWithDisksType.additionalDisk">
+            <remarks/>
+        </member>
+        <member name="T:PendingDeployImageType">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageType.id">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageType.name">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageType.description">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageType.machineSpecification">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageType.sourceServerId">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageType.location">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageType.status">
+            <remarks/>
+        </member>
+        <member name="T:PendingDeployImageWithSoftwareLabelsType">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageWithSoftwareLabelsType.id">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageWithSoftwareLabelsType.name">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageWithSoftwareLabelsType.description">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageWithSoftwareLabelsType.machineSpecification">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageWithSoftwareLabelsType.sourceServerId">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageWithSoftwareLabelsType.location">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageWithSoftwareLabelsType.status">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImageWithSoftwareLabelsType.softwareLabel">
+            <remarks/>
+        </member>
+        <member name="T:DeployedImageType">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageType.id">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageType.name">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageType.description">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageType.machineSpecification">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageType.sourceServerId">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageType.deployedTime">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageType.deployedTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageType.location">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageType.status">
+            <remarks/>
+        </member>
+        <member name="T:DeployedImageWithSoftwareLabelsType">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.id">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.name">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.description">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.machineSpecification">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.sourceServerId">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.deployedTime">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.deployedTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.location">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.status">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithSoftwareLabelsType.softwareLabel">
+            <remarks/>
+        </member>
+        <member name="T:DeployedImageWithDisksType">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImageWithDisksType.additionalDisk">
+            <remarks/>
+        </member>
+        <member name="T:PendingDeployServers">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServers.PendingDeployServer">
+            <remarks/>
+        </member>
+        <member name="T:PendingDeployServersWithDisks">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployServersWithDisks.PendingDeployServerWithDisks">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServers">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServers.DeployedServer">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServersWithStatus">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServersWithStatus.DeployedServerWithStatus">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServersWithSoftwareLabels">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServersWithSoftwareLabels.DeployedServerWithSoftwareLabels">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServersWithDisks">
+            <remarks/>
+        </member>
+        <member name="P:DeployedServersWithDisks.DeployedServerWithDisks">
+            <remarks/>
+        </member>
+        <member name="T:PendingDeployImages">
+            <remarks/>
+        </member>
+        <member name="P:PendingDeployImages.PendingDeployImage">
+            <remarks/>
+        </member>
+        <member name="T:DeployedImages">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImages.DeployedImage">
+            <remarks/>
+        </member>
+        <member name="T:DeployedImagesWithSoftwareLabels">
+            <summary />
+        </member>
+        <member name="P:DeployedImagesWithSoftwareLabels.DeployedImageWithSoftwareLabels">
+            <remarks/>
+        </member>
+        <member name="T:DeployedImagesWithDisks">
+            <remarks/>
+        </member>
+        <member name="P:DeployedImagesWithDisks.DeployedImageWithDisks">
+            <remarks/>
+        </member>
+        <member name="T:ServerImagesWithState">
+            <remarks/>
+        </member>
+        <member name="P:ServerImagesWithState.serverImageWithState">
+            <remarks/>
+        </member>
+        <member name="T:ServerImageWithStateType">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.id">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.location">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.name">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.description">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.operatingSystem">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.cpuCount">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.memoryMb">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.osStorageGb">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.additionalDisk">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.softwareLabel">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.source">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.state">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.deployedTime">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.deployedTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.machineStatus">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateType.status">
+            <remarks/>
+        </member>
+        <member name="T:ServerImageWithStateTypeSource">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateTypeSource.artifact">
+            <remarks/>
+        </member>
+        <member name="P:ServerImageWithStateTypeSource.type">
+            <remarks/>
+        </member>
+        <member name="T:Artifact">
+            <remarks/>
+        </member>
+        <member name="P:Artifact.type">
+            <remarks/>
+        </member>
+        <member name="P:Artifact.value">
+            <remarks/>
+        </member>
+        <member name="P:Artifact.date">
+            <remarks/>
+        </member>
+        <member name="P:Artifact.dateSpecified">
+            <remarks/>
+        </member>
+        <member name="T:NewImageImport">
+            <remarks/>
+        </member>
+        <member name="P:NewImageImport.ovfPackage">
+            <remarks/>
+        </member>
+        <member name="P:NewImageImport.name">
+            <remarks/>
+        </member>
+        <member name="P:NewImageImport.location">
+            <remarks/>
+        </member>
+        <member name="P:NewImageImport.description">
+            <remarks/>
+        </member>
+        <member name="T:OvfPackages">
+            <remarks/>
+        </member>
+        <member name="P:OvfPackages.ovfPackage">
+            <remarks/>
+        </member>
+        <member name="T:OvfPackageType">
+            <remarks/>
+        </member>
+        <member name="P:OvfPackageType.name">
+            <remarks/>
+        </member>
+        <member name="P:OvfPackageType.timestamp">
+            <remarks/>
+        </member>
+        <member name="P:OvfPackageType.expiry">
+            <remarks/>
+        </member>
+        <member name="P:OvfPackageType.status">
+            <remarks/>
+        </member>
+        <member name="T:NewImageExport">
+            <remarks/>
+        </member>
+        <member name="P:NewImageExport.imageId">
+            <remarks/>
+        </member>
+        <member name="P:NewImageExport.ovfPackagePrefix">
+            <remarks/>
+        </member>
+        <member name="T:ImageExportType">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportType.image">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportType.status">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportType.id">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportType.ovfPackagePrefix">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportType.startDate">
+            <remarks/>
+        </member>
+        <member name="T:ImageSummaryType">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryType.name">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryType.description">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryType.location">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryType.operatingSystem">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryType.cpuCount">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryType.memoryMb">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryType.osStorageGb">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryType.additionalDisk">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryType.id">
+            <remarks/>
+        </member>
+        <member name="T:ImageSummaryTypeAdditionalDisk">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryTypeAdditionalDisk.scsiId">
+            <remarks/>
+        </member>
+        <member name="P:ImageSummaryTypeAdditionalDisk.sizeGb">
+            <remarks/>
+        </member>
+        <member name="T:ImageExports">
+            <remarks/>
+        </member>
+        <member name="P:ImageExports.imageExport">
+            <remarks/>
+        </member>
+        <member name="T:ImageNameExists">
+            <remarks/>
+        </member>
+        <member name="P:ImageNameExists.location">
+            <remarks/>
+        </member>
+        <member name="P:ImageNameExists.imageName">
+            <remarks/>
+        </member>
+        <member name="T:ImageExportHistory">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportHistory.imageExportRecord">
+            <remarks/>
+        </member>
+        <member name="T:ImageExportRecord">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.userName">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.image">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.endDate">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.result">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.resultDetail">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.resultCode">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.outputFile">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.id">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.ovfPackagePrefix">
+            <remarks/>
+        </member>
+        <member name="P:ImageExportRecord.startDate">
+            <remarks/>
+        </member>
+        <member name="T:OutputFileType">
+            <remarks/>
+        </member>
+        <member name="P:OutputFileType.type">
+            <remarks/>
+        </member>
+        <member name="P:OutputFileType.name">
+            <remarks/>
+        </member>
+        <member name="P:OutputFileType.sizeBytes">
+            <remarks/>
+        </member>
+        <member name="P:OutputFileType.date">
+            <remarks/>
+        </member>
+        <member name="P:OutputFileType.expiryDate">
+            <remarks/>
+        </member>
+        <member name="T:NewImageCopy">
+            <remarks/>
+        </member>
+        <member name="P:NewImageCopy.sourceImageId">
+            <remarks/>
+        </member>
+        <member name="P:NewImageCopy.targetImageName">
+            <remarks/>
+        </member>
+        <member name="P:NewImageCopy.targetImageDescription">
+            <remarks/>
+        </member>
+        <member name="P:NewImageCopy.targetLocation">
+            <remarks/>
+        </member>
+        <member name="P:NewImageCopy.ovfPackagePrefix">
+            <remarks/>
+        </member>
+        <member name="T:ImageCopyType">
+            <remarks/>
+        </member>
+        <member name="P:ImageCopyType.targetImage">
+            <remarks/>
+        </member>
+        <member name="P:ImageCopyType.imageCopyId">
+            <remarks/>
+        </member>
+        <member name="P:ImageCopyType.sourceLocation">
+            <remarks/>
+        </member>
+        <member name="P:ImageCopyType.sourceImageId">
+            <remarks/>
+        </member>
+        <member name="P:ImageCopyType.sourceImageName">
+            <remarks/>
+        </member>
+        <member name="P:ImageCopyType.ovfPackagePrefix">
+            <remarks/>
+        </member>
+        <member name="T:ImageCopies">
+            <remarks/>
+        </member>
+        <member name="P:ImageCopies.imageCopy">
+            <remarks/>
+        </member>
+        <member name="T:ServersWithState">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithState.serverWithState">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithState.pageNumber">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithState.pageNumberSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithState.pageCount">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithState.pageCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithState.totalCount">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithState.totalCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithState.pageSize">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithState.pageSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ServerWithStateType">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.name">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.description">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.operatingSystem">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.cpuCount">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.memoryMb">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.disk">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.softwareLabel">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.sourceImageId">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.networkId">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.machineName">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.privateIp">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.publicIp">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.created">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.isDeployed">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.isStarted">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.state">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.status">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.machineStatus">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.id">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithStateType.location">
+            <remarks/>
+        </member>
+        <member name="T:ServerWithBackupType">
+            <remarks/>
+        </member>
+        <member name="P:ServerWithBackupType.backup">
+            <remarks/>
+        </member>
+        <member name="T:ServerBackupType">
+            <remarks/>
+        </member>
+        <member name="P:ServerBackupType.assetId">
+            <remarks/>
+        </member>
+        <member name="P:ServerBackupType.state">
+            <remarks/>
+        </member>
+        <member name="P:ServerBackupType.servicePlan">
+            <remarks/>
+        </member>
+        <member name="T:ServersWithBackup">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackup.server">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackup.pageNumber">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackup.pageNumberSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackup.pageCount">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackup.pageCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackup.totalCount">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackup.totalCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackup.pageSize">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackup.pageSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:NewAntiAffinityRule">
+            <remarks/>
+        </member>
+        <member name="P:NewAntiAffinityRule.serverId">
+            <remarks/>
+        </member>
+        <member name="T:AntiAffinityRules">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRules.antiAffinityRule">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRules.pageNumber">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRules.pageNumberSpecified">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRules.pageCount">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRules.pageCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRules.totalCount">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRules.totalCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRules.pageSize">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRules.pageSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:AntiAffinityRuleType">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleType.serverSummary">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleType.id">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleType.state">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleType.created">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleType.location">
+            <remarks/>
+        </member>
+        <member name="T:AntiAffinityRuleTypeServerSummary">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleTypeServerSummary.name">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleTypeServerSummary.description">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleTypeServerSummary.privateIp">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleTypeServerSummary.networkId">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleTypeServerSummary.networkName">
+            <remarks/>
+        </member>
+        <member name="P:AntiAffinityRuleTypeServerSummary.id">
+            <remarks/>
+        </member>
+        <member name="T:NewQueueOvfCopyType">
+            <remarks/>
+        </member>
+        <member name="P:NewQueueOvfCopyType.destinationGeoId">
+            <remarks/>
+        </member>
+        <member name="P:NewQueueOvfCopyType.sourceOvfPackage">
+            <remarks/>
+        </member>
+        <member name="T:NewRemoteOvfCopy">
+            <remarks/>
+        </member>
+        <member name="P:NewRemoteOvfCopy.sourceGeoId">
+            <remarks/>
+        </member>
+        <member name="P:NewRemoteOvfCopy.sourceOvfPackage">
+            <remarks/>
+        </member>
+        <member name="T:OvfRemoteCopies">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopies.ovfCopy">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopies.pageNumber">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopies.pageNumberSpecified">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopies.pageCount">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopies.pageCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopies.totalCount">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopies.totalCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopies.pageSize">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopies.pageSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:OvfRemoteCopyType">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopyType.name">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopyType.state">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopyType.status">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopyType.remoteCopyId">
+            <remarks/>
+        </member>
+        <member name="P:OvfRemoteCopyType.sourceGeoKey">
+            <remarks/>
+        </member>
+        <member name="T:CopyRemoteOvfPackageHistory">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageHistory.copyRemoteOvfPackageRecord">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageHistory.pageNumber">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageHistory.pageNumberSpecified">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageHistory.pageCount">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageHistory.pageCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageHistory.totalCount">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageHistory.totalCountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageHistory.pageSize">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageHistory.pageSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:CopyRemoteOvfPackageRecordType">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.mfFile">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.ovfFile">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.vmdkFile">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.startDate">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.endDate">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.result">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.resultCode">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.resultDetail">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.id">
+            <remarks/>
+        </member>
+        <member name="P:CopyRemoteOvfPackageRecordType.sourceGeoKey">
+            <remarks/>
+        </member>
+        <member name="T:OvfPackageFileType">
+            <remarks/>
+        </member>
+        <member name="P:OvfPackageFileType.name">
+            <remarks/>
+        </member>
+        <member name="P:OvfPackageFileType.sizeBytes">
+            <remarks/>
+        </member>
+        <member name="T:ChangeDiskSpeed">
+            <remarks/>
+        </member>
+        <member name="P:ChangeDiskSpeed.speed">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Backup.BackupClientTypes">
+            <summary>
+            The backup client types
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupClientTypes.Items">
+            <summary>
+            the items
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Backup.BackupClientType">
+            <summary>
+            The backup client type
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupClientType.type">
+            <summary>
+            the type
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupClientType.isFileSystem">
+            <summary>
+            Is file system
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupClientType.description">
+            <summary>
+            The description
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Backup.BackupStoragePolicies">
+            <summary>
+            The backup storage policies
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupStoragePolicies.Items">
+            <summary>
+            The items
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Backup.BackupStoragePolicy">
+            <summary>
+            The backup storage policy
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupStoragePolicy.retentionPeriodInDays">
+            <summary>
+            The retention period in days
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupStoragePolicy.name">
+            <summary>
+            The name
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupStoragePolicy.secondaryLocation">
+            <summary>
+            The secondary location
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Backup.BackupSchedulePolicies">
+            <summary>
+            The backup schedule policies
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupSchedulePolicies.Items">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Backup.BackupSchedulePolicy">
+            <summary>
+            The backup schedule policy
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupSchedulePolicy.name">
+            <summary>
+            The name
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.BackupSchedulePolicy.description">
+            <summary>
+            The description
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Backup.NewBackupClient">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.NewBackupClient.type">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.NewBackupClient.storagePolicyName">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.NewBackupClient.schedulePolicyName">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Backup.NewBackupClient.alerting">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterDetail">
+            <summary>
+            	Represents CaaS data centre with disk speed details.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary">
+            <summary>
+            	Represents summary information about a CaaS data centre.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary">
+            <summary>
+            	Provides read-only access to summary information about a CaaS data centre.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary.IsDefault">
+            <summary>
+            	Is the data centre the default data centre for the caller's organisation?
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary.LocationCode">
+            <summary>
+            	The short location code used as a key to identity the data centre.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary.DisplayName">
+            <summary>
+            	The data centre display name.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary.City">
+            <summary>
+            	The name of the city in which the data centre is located.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary.State">
+            <summary>
+            	The name of the state in which the data centre is located.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary.Country">
+            <summary>
+            	The name of the country in which the data centre is located.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary.VpnUrl">
+            <summary>
+            	The access URL for the data centre VPN.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary.MaxCpu">
+            <summary>
+            	The maximum number of CPUs per virtual machine supported by the data centre.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterSummary.MaxRamMB">
+            <summary>
+            	The maximum RAM (in MB) per virtual machine supported by the data centre.
+            </summary>
+        </member>
+        <member name="M:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.#ctor">
+            <summary>
+            	Create a new <see cref="T:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary"/>.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.IsDefault">
+            <summary>
+            	Is the data centre the default data centre for the caller's organisation?
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.LocationCode">
+            <summary>
+            	The short location code used as a key to identity the data centre.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.DisplayName">
+            <summary>
+            	The data centre display name.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.City">
+            <summary>
+            	The name of the city in which the data centre is located.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.State">
+            <summary>
+            	The name of the state in which the data centre is located.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.Country">
+            <summary>
+            	The name of the country in which the data centre is located.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.VpnUrl">
+            <summary>
+            	The access URL for the data centre VPN.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.MaxCpu">
+            <summary>
+            	The maximum number of CPUs per virtual machine supported by the data centre.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterSummary.MaxRamMB">
+            <summary>
+            	The maximum RAM (in MB) per virtual machine supported by the data centre.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterDetail">
+            <summary>
+            	Provides read-only access to summary information about a CaaS data centre (with disk speed detail).
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDatacenterDetail.DiskSpeedDetails">
+            <summary>
+            	Detailed information about disk speeds available at the data centre.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterDetail._diskSpeedDetails">
+            <summary>
+            	Detailed information about disk speeds available at the data centre.
+            </summary>
+        </member>
+        <member name="M:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterDetail.#ctor">
+            <summary>
+            	Create a new <see cref="T:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterDetail"/>.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterDetail.DiskSpeedDetails">
+            <summary>
+            	Detailed information about disk speeds available at the data centre.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacenterDetail.DD#CBU#Compute#Api#Contracts#Datacenter#IDatacenterDetail#DiskSpeedDetails">
+            <summary>
+            	Detailed information about disk speeds available at the data centre.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Datacenter.DatacentersWithDiskSpeedDetails">
+            <summary>
+            	An XML-serialisable data contract that represents a list of data centres with disk speed details, returned by the CaaS API.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Datacenter.DatacentersWithDiskSpeedDetails._datacenters">
+            <summary>
+            	The data centres.
+            </summary>
+        </member>
+        <member name="M:DD.CBU.Compute.Api.Contracts.Datacenter.DatacentersWithDiskSpeedDetails.#ctor">
+            <summary>
+            	Create a new <see cref="T:DD.CBU.Compute.Api.Contracts.Datacenter.DatacentersWithDiskSpeedDetails"/> data contract.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DatacentersWithDiskSpeedDetails.Datacenters">
+            <summary>
+            	The data centres (with disk speed details).
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Datacenter.DiskSpeedDetail">
+            <summary>
+            	Represents detailed information about a disk speed specification.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Datacenter.IDiskSpeedDetail">
+            <summary>
+            	Provides read-only access to detailed information about a disk speed specification.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDiskSpeedDetail.IsAvailable">
+            <summary>
+            	Is the disk speed available at the parent data centre?
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDiskSpeedDetail.IsDefault">
+            <summary>
+            	Is the disk speed the default disk speed at the parent data centre?
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDiskSpeedDetail.Id">
+            <summary>
+            	The disk speed Id.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDiskSpeedDetail.DisplayName">
+            <summary>
+            	A display name for the disk speed.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDiskSpeedDetail.Abbreviation">
+            <summary>
+            	An abbreviated name for the disk speed.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.IDiskSpeedDetail.Description">
+            <summary>
+            	A description of the disk speed.
+            </summary>
+        </member>
+        <member name="M:DD.CBU.Compute.Api.Contracts.Datacenter.DiskSpeedDetail.#ctor">
+            <summary>
+            	Create a new <see cref="T:DD.CBU.Compute.Api.Contracts.Datacenter.DiskSpeedDetail"/>.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DiskSpeedDetail.IsAvailable">
+            <summary>
+            	Is the disk speed available at the parent data centre?
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DiskSpeedDetail.IsDefault">
+            <summary>
+            	Is the disk speed the default disk speed at the parent data centre?
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DiskSpeedDetail.Id">
+            <summary>
+            	The disk speed Id.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DiskSpeedDetail.DisplayName">
+            <summary>
+            	A display name for the disk speed.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DiskSpeedDetail.Abbreviation">
+            <summary>
+            	An abbreviated name for the disk speed.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.DiskSpeedDetail.Description">
+            <summary>
+            	A description of the disk speed.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Datacenter.Region">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.Region.id">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.Region.geoKey">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.Region.name">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.Region.cloudUiUrl">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.Region.cloudApiUrl">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.Region.isHome">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.Region.productKey">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.Region.pricingUrl">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Datacenter.Region.state">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Datacenter.Geos">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Datacenter.Geos.Items">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Directory.Account">
+            <summary>
+            	Represents a CaaS user account.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Directory.IAccount">
+            <summary>
+            	Provides read-only access to information about a CaaS account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.UserName">
+            <summary>
+            	The user login name associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.FullName">
+            <summary>
+            	The full name of the user associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.FirstName">
+            <summary>
+            	The first name of the user associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.LastName">
+            <summary>
+            	The last name of the user associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.EmailAddress">
+            <summary>
+            	The e-mail address of the user associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.Department">
+            <summary>
+            	The name of the department to which the account's user belongs.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.CustomDefined1">
+            <summary>
+            	Custom field 1.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.CustomDefined2">
+            <summary>
+            	Custom field 2.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.OrganizationId">
+            <summary>
+            	The Id of the organisation to which the account belongs.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IAccount.MemberOfRoles">
+            <summary>
+            	Roles (if any) to which the account belongs.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Directory.Account._memberOfRoles">
+            <summary>
+            	Roles (if any) to which the account belongs.
+            </summary>
+        </member>
+        <member name="M:DD.CBU.Compute.Api.Contracts.Directory.Account.#ctor">
+            <summary>
+            	Create a new CaaS user account data-contract.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.UserName">
+            <summary>
+            	The user login name associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.FullName">
+            <summary>
+            	The full name of the user associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.FirstName">
+            <summary>
+            	The first name of the user associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.LastName">
+            <summary>
+            	The last name of the user associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.EmailAddress">
+            <summary>
+            	The e-mail address of the user associated with the account.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.Department">
+            <summary>
+            	The name of the department to which the account's user belongs.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.CustomDefined1">
+            <summary>
+            	Custom field 1.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.CustomDefined2">
+            <summary>
+            	Custom field 2.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.OrganizationId">
+            <summary>
+            	The Id of the organisation to which the account belongs.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.Password">
+            <summary>
+            The password
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.MemberOfRoles">
+            <summary>
+            	Roles (if any) to which the account belongs.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Account.DD#CBU#Compute#Api#Contracts#Directory#IAccount#MemberOfRoles">
+            <summary>
+            	Roles (if any) to which the account belongs.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Directory.Accounts">
+            <summary>
+            The accounts
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Directory.Accounts.Items">
+            <summary>
+            The items
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Directory.IRole">
+            <summary>
+            	Provides read-only access to information about a role in the CaaS API.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.IRole.Name">
+            <summary>
+            	The name of the CaaS role.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Directory.Role">
+            <summary>
+            	Represents a role in the CaaS API.
+            </summary>
+        </member>
+        <member name="M:DD.CBU.Compute.Api.Contracts.Directory.Role.#ctor">
+            <summary>
+            	Create a new CaaS role data-contract.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Directory.Role.Name">
+            <summary>
+            	The name of the CaaS role.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.General.ApiStatus">
+            <summary>
+            	Represents a generic response to a CaaS API call.
+            </summary>
+        </member>
+        <member name="M:DD.CBU.Compute.Api.Contracts.General.ApiStatus.#ctor">
+            <summary>
+            	Create a generic CaaS response data-contract.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.General.ApiStatus.Operation">
+            <summary>
+            	The operation that was requested.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.General.ApiStatus.Result">
+            <summary>
+            	The result of the operation.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.General.ApiStatus.ResultDetail">
+            <summary>
+            	Detailed information (if available) about the operation result.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.General.ApiStatus.ResultCode">
+            <summary>
+            	A result code that can be used to further identify the nature of the result.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Provisioning.CustomerGeoSignUp">
+            <summary>
+            A new customer to sign up
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.CustomerGeoSignUp.geoId">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.CustomerGeoSignUp.pricingPlanKey">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Provisioning.CustomerProvision">
+            <summary>
+            A new customer to do provisioning
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.CustomerProvision.companyName">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.CustomerProvision.trustLevel">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.CustomerProvision.billingDetails">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.CustomerProvision.primaryAdministrator">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.CustomerProvision.contact">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Provisioning.BillingDetails">
+            <summary>
+            A new customer contact details
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.BillingDetails.referrerId">
+            <remarks>
+            optional
+            </remarks>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.BillingDetails.vatNumber">
+            <remarks>
+            optional
+            </remarks>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.BillingDetails.externalID">
+            <remarks>
+            optional
+            </remarks>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.BillingDetails.whereDidYouFirstHearAbout">
+            <remarks>
+            optional
+            </remarks>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.BillingDetails.promotionCode">
+            <remarks>
+            optional
+            </remarks>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.BillingDetails.pricingPlanKey">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Provisioning.Contact">
+            <summary>
+            A new customer contact details
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.email">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.firstName">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.lastName">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.address1">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.address2">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.city">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.state">
+            <remarks>
+            optional
+            </remarks>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.zip">
+            <remarks>
+            optional
+            </remarks>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.country">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.Contact.phoneNumber">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Provisioning.PrimaryAdministrator">
+            <summary>
+            Primary Administrator
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.PrimaryAdministrator.userName">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Provisioning.PrimaryAdministrator.password">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Billing.PricingPlans">
+            <summary>
+            Get pricing plans
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlans.pricingPlans">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Billing.PricingPlan">
+            <summary>
+            Get pricing plan
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlan.key">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlan.name">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlan.description">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlan.currency">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlan.hasPromotionCodes">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlan.subscriptionPrice">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlan.pricingPlanItems">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Billing.PricingPlanItem">
+            <summary>
+            Get pricing plan
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlanItem.key">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlanItem.name">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlanItem.description">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlanItem.unlimited">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlanItem.quantity">
+            <remarks>
+            Optional
+            </remarks>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Billing.PricingPlanItem.pricePerAdditional">
+            <remarks>
+            Optional
+            </remarks>
+        </member>
+        <member name="T:Servers">
+            <remarks/>
+        </member>
+        <member name="F:Servers.Items">
+            <remarks/>
+        </member>
+        <member name="T:Server">
+            <remarks/>
+        </member>
+        <member name="F:Server.id">
+            <remarks/>
+        </member>
+        <member name="F:Server.location">
+            <summary/>
+        </member>
+        <member name="F:Server.name">
+            <remarks/>
+        </member>
+        <member name="F:Server.description">
+            <remarks/>
+        </member>
+        <member name="F:Server.operatingSystem">
+            <summary/>
+        </member>
+        <member name="F:Server.cpuCount">
+            <remarks/>
+        </member>
+        <member name="F:Server.memoryMb">
+            <remarks/>
+        </member>
+        <member name="F:Server.disk">
+            <remarks/>
+        </member>
+        <member name="F:Server.sourceImageId">
+            <remarks/>
+        </member>
+        <member name="F:Server.networkId">
+            <remarks/>
+        </member>
+        <member name="F:Server.machineName">
+            <remarks/>
+        </member>
+        <member name="F:Server.privateIp">
+            <remarks/>
+        </member>
+        <member name="F:Server.created">
+            <remarks/>
+        </member>
+        <member name="F:Server.isDeployed">
+            <remarks/>
+        </member>
+        <member name="F:Server.isStarted">
+            <remarks/>
+        </member>
+        <member name="F:Server.state">
+            <remarks/>
+        </member>
+        <member name="F:Server.machineStatus">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServersWithDisksDeployedServerWithDisksMachineSpecification">
+            <remarks/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineSpecification.cpuCount">
+            <remarks/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineSpecification.memoryMb">
+            <remarks/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineSpecification.osStorageGb">
+            <remarks/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineSpecification.additionalLocalStorageGb">
+            <remarks/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineSpecification.operatingSystem">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServersWithDisksDeployedServerWithDisksMachineSpecificationOperatingSystem">
+            <remarks/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineSpecificationOperatingSystem.id">
+            <summary/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineSpecificationOperatingSystem.type">
+            <remarks/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineSpecificationOperatingSystem.displayName">
+            <remarks/>
+        </member>
+        <member name="T:DeployedServersWithDisksDeployedServerWithDisksMachineStatus">
+            <remarks/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineStatus.value">
+            <remarks/>
+        </member>
+        <member name="F:DeployedServersWithDisksDeployedServerWithDisksMachineStatus.name">
+            <remarks/>
+        </member>
+        <member name="T:Disk">
+            <remarks/>
+        </member>
+        <member name="F:Disk.id">
+            <remarks/>
+        </member>
+        <member name="F:Disk.scsiId">
+            <remarks/>
+        </member>
+        <member name="F:Disk.sizeGb">
+            <remarks/>
+        </member>
+        <member name="F:Disk.speed">
+            <summary/>
+        </member>
+        <member name="F:Disk.state">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Server.ICustomImageDetail">
+            <summary>
+            	Provides read-only access to detailed information for a user-created CaaS image (with labels for its included software).
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.ICustomImageDetail.SourceServerId">
+            <summary>
+            	The Id of the server from which the image was created.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Server.IImageDetail">
+            <summary>
+            	Provides read-only access to information about a deployed CaaS image (with labels for its included software).
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IImageDetail.Id">
+            <summary>
+            	The image Id.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IImageDetail.Name">
+            <summary>
+            	The image name.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IImageDetail.Description">
+            <summary>
+            	The image description.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IImageDetail.MachineSpecification">
+            <summary>
+            	The specifications of the image's associated virtual machine template.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IImageDetail.CreatedUtc">
+            <summary>
+            	The UTC date / time that the image was created.
+            </summary>
+            <remarks>
+            	Optional, if the image is a custom (user-created) image.
+            </remarks>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IImageDetail.Location">
+            <summary>
+            	The location in which the image exists.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Server.IMachineSpecification">
+            <summary>
+            	Provides read-only access to information about specifications for a CaaS virtual machine.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IMachineSpecification.CpuCount">
+            <summary>
+            	The virtual machine's number of CPUs.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IMachineSpecification.MemoryMB">
+            <summary>
+            	The virtual machine's memory size (in MB).
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IMachineSpecification.OSStorageGB">
+            <summary>
+            	The size of the virtual machine's OS disk (in GB).
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IMachineSpecification.AdditionalLocalStorageGB">
+            <summary>
+            	The size of the virtual machine's additional local disks (in GB).
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IMachineSpecification.OperatingSystem">
+            <summary>
+            	Information about the machine's operating system.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Server.IOperatingSystem">
+            <summary>
+            	Provides read-only access to information about a well-known operating system for CaaS virtual machines.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IOperatingSystem.OperatingSystemType">
+            <summary>
+            	The operating system type.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.IOperatingSystem.DisplayName">
+            <summary>
+            	The operating system display-name.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Server.MachineSpecification">
+            <summary>
+            	Represents the specifications for a CaaS virtual machine.
+            </summary>
+        </member>
+        <member name="M:DD.CBU.Compute.Api.Contracts.Server.MachineSpecification.#ctor">
+            <summary>
+            	Create a new <see cref="T:DD.CBU.Compute.Api.Contracts.Server.MachineSpecification"/>.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.MachineSpecification.CpuCount">
+            <summary>
+            	The virtual machine's number of CPUs.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.MachineSpecification.MemoryMB">
+            <summary>
+            	The virtual machine's memory size (in MB).
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.MachineSpecification.OSStorageGB">
+            <summary>
+            	The size of the virtual machine's OS disk (in GB).
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.MachineSpecification.AdditionalLocalStorageGB">
+            <summary>
+            	The size of the virtual machine's additional local disks (in GB).
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.MachineSpecification.OperatingSystem">
+            <summary>
+            	Information about the machine's operating system.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.MachineSpecification.DD#CBU#Compute#Api#Contracts#Server#IMachineSpecification#OperatingSystem">
+            <summary>
+            	Information about the machine's operating system.
+            </summary>
+        </member>
+        <member name="T:NetworkWithLocations">
+            <remarks/>
+        </member>
+        <member name="F:NetworkWithLocations.Items">
+            <remarks/>
+        </member>
+        <member name="T:NetworkWithLocationsNetwork">
+            <remarks/>
+        </member>
+        <member name="F:NetworkWithLocationsNetwork.id">
+            <remarks/>
+        </member>
+        <member name="F:NetworkWithLocationsNetwork.name">
+            <remarks/>
+        </member>
+        <member name="F:NetworkWithLocationsNetwork.description">
+            <remarks/>
+        </member>
+        <member name="F:NetworkWithLocationsNetwork.location">
+            <remarks/>
+        </member>
+        <member name="F:NetworkWithLocationsNetwork.privateNet">
+            <remarks/>
+        </member>
+        <member name="F:NetworkWithLocationsNetwork.multicast">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Server.NewServerToDeploy">
+            <summary>
+            A new server to deploy
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Server.NewServerToDeploy.name">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Server.NewServerToDeploy.description">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Server.NewServerToDeploy.vlanResourcePath">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Server.NewServerToDeploy.imageResourcePath">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Server.NewServerToDeploy.administratorPassword">
+            <remarks/>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Server.NewServerToDeploy.isStarted">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Server.OperatingSystem">
+            <summary>
+            	Represents a well-known operating system for CaaS virtual machines.
+            </summary>
+        </member>
+        <member name="M:DD.CBU.Compute.Api.Contracts.Server.OperatingSystem.#ctor">
+            <summary>
+            	Create a new operating system.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.OperatingSystem.OperatingSystemType">
+            <summary>
+            	The operating system type.
+            </summary>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Server.OperatingSystem.DisplayName">
+            <summary>
+            	The operating system display-name.
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Server.OperatingSystemType">
+            <summary>
+            	Well-known operating system types.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Server.OperatingSystemType.Unknown">
+            <summary>
+            	An unknown type of operating system.
+            </summary>
+            <remarks>
+            	Used to detect uninitialised values; do not use directly.
+            </remarks>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Server.OperatingSystemType.Windows">
+            <summary>
+            	A windows operating system.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.Server.OperatingSystemType.Unix">
+            <summary>
+            	A UNIX-style operating system.
+            </summary>
+        </member>
+        <member name="T:ServersWithBackupServerOperatingSystem">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerOperatingSystem.id">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerOperatingSystem.displayName">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerOperatingSystem.type">
+            <remarks/>
+        </member>
+        <member name="T:ServersWithBackupServerDisk">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerDisk.id">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerDisk.scsiId">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerDisk.sizeGb">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerDisk.speed">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerDisk.state">
+            <remarks/>
+        </member>
+        <member name="T:ServersWithBackupServerMachineStatus">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerMachineStatus.value">
+            <remarks/>
+        </member>
+        <member name="P:ServersWithBackupServerMachineStatus.name">
+            <remarks/>
+        </member>
+        <member name="T:NewDataSet">
+            <remarks/>
+        </member>
+        <member name="P:NewDataSet.Items">
+            <remarks/>
+        </member>
+        <member name="T:ServerImages">
+            <remarks/>
+        </member>
+        <member name="F:ServerImages.Items">
+            <remarks/>
+        </member>
+        <member name="T:ServerImage">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.id">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.resourcePath">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.name">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.description">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.location">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.cpuCount">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.memory">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.osStorage">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.additionalLocalStorage">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.created">
+            <remarks/>
+        </member>
+        <member name="F:ServerImage.operatingSystem">
+            <remarks/>
+        </member>
+        <member name="T:ServerImagesServerImageOperatingSystem">
+            <remarks/>
+        </member>
+        <member name="F:ServerImagesServerImageOperatingSystem.type">
+            <remarks/>
+        </member>
+        <member name="F:ServerImagesServerImageOperatingSystem.displayName">
+            <remarks/>
+        </member>
+        <member name="T:Status">
+            <remarks/>
+        </member>
+        <member name="P:Status.operation">
+            <remarks/>
+        </member>
+        <member name="P:Status.result">
+            <remarks/>
+        </member>
+        <member name="P:Status.resultDetail">
+            <remarks/>
+        </member>
+        <member name="P:Status.resultCode">
+            <remarks/>
+        </member>
+        <member name="P:Status.additionalInformation">
+            <summary>
+            The additional information
+            </summary>
+        </member>
+        <member name="T:AdditionalInformation">
+            <summary>
+            The additional information
+            </summary>
+        </member>
+        <member name="P:AdditionalInformation.name">
+            <summary>
+            The name
+            </summary>
+        </member>
+        <member name="P:AdditionalInformation.value">
+            <summary>
+            The value
+            </summary>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Software.SoftwareLabels">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Software.SoftwareLabels.Items">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.Software.SoftwareLabel">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Software.SoftwareLabel.displayName">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Software.SoftwareLabel.description">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Software.SoftwareLabel.pricedPer">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Software.SoftwareLabel.runningUnits">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Software.SoftwareLabel.stoppedUnits">
+            <remarks/>
+        </member>
+        <member name="P:DD.CBU.Compute.Api.Contracts.Software.SoftwareLabel.id">
+            <remarks/>
+        </member>
+        <member name="T:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants">
+            <summary>
+            	XML namespace constants for the CaaS API.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Server">
+            <summary>
+            	The CaaS server XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Storage">
+            <summary>
+            	The CaaS storage XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.MultiGeo">
+            <summary>
+            	The CaaS multiple-geographic-region XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.WhiteLabel">
+            <summary>
+            	The CaaS white-label XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.VirtualIP">
+            <summary>
+            	The CaaS virtual-IP XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Reset">
+            <summary>
+            	The CaaS reset XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.General">
+            <summary>
+            	The CaaS general XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Support">
+            <summary>
+            	The CaaS support XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Admin">
+            <summary>
+            	The CaaS administration XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.ManualImport">
+            <summary>
+            	The CaaS manual-import XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Backup">
+            <summary>
+            	The CaaS cloud backup XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Datacenter">
+            <summary>
+            	The CaaS data centre XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Directory">
+            <summary>
+            	The CaaS directory XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Network">
+            <summary>
+            	The CaaS reset XML namespace.
+            </summary>
+        </member>
+        <member name="F:DD.CBU.Compute.Api.Contracts.XmlNamespaceConstants.Organization">
+            <summary>
+            	The CaaS organisation XML namespace.
+            </summary>
+        </member>
+    </members>
+</doc>
