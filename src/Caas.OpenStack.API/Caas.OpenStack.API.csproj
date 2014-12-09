@@ -104,9 +104,6 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="ConfigurationHelpers.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FlavorController.cs" />
