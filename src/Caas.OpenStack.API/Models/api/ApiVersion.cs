@@ -16,7 +16,8 @@ namespace Caas.OpenStack.API.Models.api
 			Updated = DateTime.UtcNow.ToString("s");
 			Links  = new RestLink[]
 			{
-				new RestLink(_baseUrl + "v2/", RestLink.Self), 
+				new RestLink(
+					String.Format("{0}{1}/",_baseUrl,Constants.CurrentApiVersion), RestLink.Self), 
 			};
 		}
 

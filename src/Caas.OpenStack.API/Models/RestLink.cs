@@ -6,6 +6,7 @@ namespace Caas.OpenStack.API.Models
 	public class RestLink
 	{
 		public const string Self = "self";
+		public const string Bookmark = "bookmark";
 
 		public RestLink(string href, string rel)
 		{

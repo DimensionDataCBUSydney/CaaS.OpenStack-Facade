@@ -107,6 +107,7 @@
     <Compile Include="ConfigurationHelpers.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FlavorController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ServerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

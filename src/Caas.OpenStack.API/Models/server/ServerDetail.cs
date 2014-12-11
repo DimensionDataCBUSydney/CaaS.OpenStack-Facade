@@ -84,7 +84,7 @@ namespace Caas.OpenStack.API.Models.server
 		public Guid Id { get; set; }
 
 		[DataMember(Name = "image")]
-		public ServerImage Image { get; set; }
+		public image.ServerImage Image { get; set; }
 
 		[DataMember(Name = "links")]
 		public RestLink[] Links { get; set; }
