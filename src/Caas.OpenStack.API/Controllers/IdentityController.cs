@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Caas.OpenStack.API.Models.identity;
 using Caas.OpenStack.API.Models.serviceCatalog;
@@ -22,8 +24,14 @@ namespace Caas.OpenStack.API.Controllers
 	    [Route("tokens")]
 	    [Route(Constants.CurrentApiVersion + "/tokens")]
 	    [HttpPost]
-	    public TokenIssueResponse IssueToken(TokenIssueRequest request)
+	    public async Task<TokenIssueResponse> IssueToken(TokenIssueRequest request)
 	    {
+			// Login to CaaS
+		    _computeClient.LoginAsync(
+				new NetworkCredential(
+					request.Message.Credentials.UserName,
+					request.Message.Credentials.Password));
+
 		    return new TokenIssueResponse()
 		    {
 			    AccessToken = new AccessToken()
