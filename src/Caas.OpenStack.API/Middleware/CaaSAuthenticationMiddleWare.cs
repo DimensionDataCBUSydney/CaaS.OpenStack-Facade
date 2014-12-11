@@ -26,30 +26,30 @@ namespace Caas.OpenStack.API.Middleware
 
 			var header = request.Headers["Authorization"];
 
-			var authtoken = request.Headers["X-Auth-Token"];
-			if (!String.IsNullOrWhiteSpace(authtoken))
-			{
-				string token = Encoding.UTF8.GetString(Convert.FromBase64String(authtoken));
-				var parts = token.Split(':');
+            var authtoken = request.Headers["X-Auth-Token"];
+            if (!String.IsNullOrWhiteSpace(authtoken))
+            {
+                string token = Encoding.UTF8.GetString(Convert.FromBase64String(authtoken));
+                var parts = token.Split(':');
 
-				string userName = parts[0];
-				string password = parts[1];
+                string userName = parts[0];
+                string password = parts[1];
 
-				if (_apiClient.Account != null)
-				{
-					_apiClient.WebApi.Logout();
-				}
+                if (_apiClient.Account != null)
+                {
+                    _apiClient.WebApi.Logout();
+                }
 
-				await _apiClient.LoginAsync(new NetworkCredential(userName, password));
+                await _apiClient.LoginAsync(new NetworkCredential(userName, password));
 
-				var claims = new[]
+                var claims = new[]
 					{
 						new Claim(ClaimTypes.Name, userName)
 					};
-				var identity = new ClaimsIdentity(claims, "Basic");
+                var identity = new ClaimsIdentity(claims, "Basic");
 
-				request.User = new ClaimsPrincipal(identity);
-			}
+                request.User = new ClaimsPrincipal(identity);
+            }
 
 			if (!String.IsNullOrWhiteSpace(header))
 			{
