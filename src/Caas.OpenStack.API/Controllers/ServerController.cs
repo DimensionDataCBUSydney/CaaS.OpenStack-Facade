@@ -70,7 +70,7 @@ namespace Caas.OpenStack.API.Controllers
 		/// <param name="tenant_id">The tenant_id.</param>
 		/// <param name="server_id">The server_id.</param>
 		/// <returns></returns>
-		[Route("{tenant_id}/servers/detail/{server_id}")]
+		[Route("{tenant_id}/servers/{server_id}")]
 		public async Task<ServerDetail> GetServerDetail(string tenant_id, string server_id)
 		{
 			ServerWithBackupType caasServer = (await _computeClient.GetDeployedServers()).First(server => server.id == server_id);
@@ -84,7 +84,7 @@ namespace Caas.OpenStack.API.Controllers
 				AccessIPv4 = server.privateIp,
 				AccessIPv6 = "", // IPv6 not supported at present
 				CreatedDate = server.created.ToString("s"),
-				HostId = server.id,
+				HostId = server.name,
 				Id = Guid.Parse(server.id),
 				Image = new ServerImage()
 				{
