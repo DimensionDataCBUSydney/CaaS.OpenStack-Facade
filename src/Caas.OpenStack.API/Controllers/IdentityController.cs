@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.UI.WebControls;
 using Caas.OpenStack.API.Models.identity;
 using Caas.OpenStack.API.Models.serviceCatalog;
 using DD.CBU.Compute.Api.Client.Interfaces;
@@ -38,6 +40,11 @@ namespace Caas.OpenStack.API.Controllers
 			IEnumerable<DatacenterWithMaintenanceStatusType> dataCenters =
 				await _computeClient.GetDataCentersWithMaintenanceStatuses();
 
+			string loginToken = request.Message.Credentials.UserName + ":" + request.Message.Credentials.Password;
+
+            byte[] buffer = new byte[loginToken.Length];
+            string loginTokenEncoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(loginToken));
+
 			List<Endpoint> endPoints = new List<Endpoint>();
 			foreach (var dataCenter in dataCenters)
 			{
@@ -55,7 +62,7 @@ namespace Caas.OpenStack.API.Controllers
 		    {
 			    AccessToken = new AccessToken()
 			    {
-				    Token = new Token(request.Message.TenantName, request.Message.TenantName),
+					Token = new Token(request.Message.TenantName, request.Message.TenantName, loginTokenEncoded),
 					Catalog = new ServiceCatalogEntry[]
 					{
 						new ServiceCatalogEntry()
