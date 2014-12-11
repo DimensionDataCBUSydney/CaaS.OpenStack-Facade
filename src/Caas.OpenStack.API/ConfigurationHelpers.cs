@@ -18,5 +18,15 @@ namespace Caas.OpenStack.API
 		{
 			return new Uri(ConfigurationManager.AppSettings["ApiEndpoint"]);
 		}
+
+		public static string GetTenantUrl(string tenant)
+		{
+			return string.Format(
+				"{0}{1}/{2}",
+				ConfigurationHelpers.GetBaseUrl(),
+				Constants.CurrentApiVersion,
+				tenant
+				);
+		}
 	}
 }
