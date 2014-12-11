@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationHelpers.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FlavorController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
