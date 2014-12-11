@@ -24,7 +24,7 @@ namespace Caas.OpenStack.API.Controllers
 	    [HttpPost]
 	    public TokenIssueResponse IssueToken(TokenIssueRequest request)
 	    {
-		    return new TokenIssueResponse()
+		    TokenIssueResponse response = new TokenIssueResponse()
 		    {
 			    AccessToken = new AccessToken()
 			    {
@@ -43,9 +43,31 @@ namespace Caas.OpenStack.API.Controllers
 									Region = "au1" // TODO: Map to region.
 								}
 							},
-							EndpointsLinks = new string[]{},
-							Name = "test",
+							EndpointsLinks = new string[]
+                            {
+                                ConfigurationHelpers.GetTenantUrl(request.Message.TenantName)
+                            },
+							Name = "nova",
 							Type = EndpointType.compute
+						},
+                        new ServiceCatalogEntry()
+						{
+							Endpoints = new Endpoint[]
+							{
+								new Endpoint(){
+									Url = ConfigurationHelpers.GetBaseUrlVersion(),
+									Id = Guid.NewGuid().ToString(), // TODO: Map to cloud id?
+									InternalURL = ConfigurationHelpers.GetBaseUrlVersion(),
+									PublicURL = ConfigurationHelpers.GetBaseUrlVersion(),
+									Region = "au1" // TODO: Map to region.
+								}
+							},
+							EndpointsLinks = new string[]
+                            {
+                                ConfigurationHelpers.GetTenantUrl(request.Message.TenantName)
+                            },
+							Name = "keystone",
+							Type = EndpointType.identity
 						}
 					},
 					User = new User()
@@ -58,6 +80,7 @@ namespace Caas.OpenStack.API.Controllers
 					}
 			    }
 		    };
+            return response;
 	    }
 	}
 }

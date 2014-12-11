@@ -4,6 +4,7 @@
 	{
 		compute,
 		network,
-		storage
+		storage,
+        identity
 	}
 }

@@ -28,5 +28,14 @@ namespace Caas.OpenStack.API
 				tenant
 				);
 		}
+
+        public static string GetBaseUrlVersion()
+        {
+            return string.Format(
+                "{0}{1}",
+                ConfigurationHelpers.GetBaseUrl(),
+                Constants.CurrentApiVersion
+                );
+        }
 	}
 }
