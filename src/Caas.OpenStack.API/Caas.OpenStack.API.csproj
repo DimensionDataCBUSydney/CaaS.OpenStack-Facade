@@ -132,6 +132,7 @@
     <Compile Include="Models\server\IPAddressCollection.cs" />
     <Compile Include="Models\server\ServerDetail.cs" />
     <Compile Include="Models\server\ServerDetailList.cs" />
+    <Compile Include="Models\server\ServerDetailResponse.cs" />
     <Compile Include="Models\server\ServerStatus.cs" />
     <Compile Include="Models\serviceCatalog\Endpoint.cs" />
     <Compile Include="Models\serviceCatalog\EndpointType.cs" />
