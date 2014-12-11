@@ -6,11 +6,11 @@ namespace Caas.OpenStack.API.Models.identity
 	[DataContract]
 	public class Token
 	{
-		public Token(string tenantName, string tenantId)
+		public Token(string tenantName, string tenantId, string token)
 		{
 			this.issuedAt = DateTime.Now;
 			this.expires = issuedAt.AddMinutes(60);
-			this.Id = Guid.NewGuid().ToString();
+			this.Id = token;
 			this.Tenant = new Tenant(null, tenantName, tenantId);
 		}
 

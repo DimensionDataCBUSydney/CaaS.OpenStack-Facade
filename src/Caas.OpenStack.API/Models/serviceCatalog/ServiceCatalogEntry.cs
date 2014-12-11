@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.serviceCatalog
 {
@@ -11,7 +12,21 @@ namespace Caas.OpenStack.API.Models.serviceCatalog
 		[DataMember(Name = "endpoints_links")]
 		public string[] EndpointsLinks { get; set; }
 
-		[DataMember(Name = "type")]
+        [DataMember(Name = "type")]
+        public string EndpointTypeString {
+            get
+            {
+                return Type.ToString();
+            }
+            set{
+                EndpointType newtype;
+                if (!Enum.TryParse<EndpointType>(value, out newtype))
+                {
+                    Type = newtype;
+                }
+            } 
+        }
+
 		public EndpointType Type { get; set; }
 
 		[DataMember(Name = "name")]

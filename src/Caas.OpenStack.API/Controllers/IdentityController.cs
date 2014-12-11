@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Caas.OpenStack.API.Models.identity;
 using Caas.OpenStack.API.Models.serviceCatalog;
 using DD.CBU.Compute.Api.Client.Interfaces;
+using DD.CBU.Compute.Api.Contracts.Directory;
 
 namespace Caas.OpenStack.API.Controllers
 {
@@ -21,18 +23,35 @@ namespace Caas.OpenStack.API.Controllers
 			_computeClient = apiClient(ConfigurationHelpers.GetApiUri());
 		}
 
-	    [Route("tokens")]
-	    [Route(Constants.CurrentApiVersion + "/tokens")]
-	    [HttpPost]
-	    public async Task<TokenIssueResponse> IssueToken(TokenIssueRequest request)
-	    {
+		[Route("tokens")]
+		[Route(Constants.CurrentApiVersion + "/tokens")]
+		[HttpPost]
+		public async Task<TokenIssueResponse> IssueToken(TokenIssueRequest request)
+		{
 			// Login to CaaS
-		    _computeClient.LoginAsync(
+			IAccount account = await _computeClient.LoginAsync(
 				new NetworkCredential(
 					request.Message.Credentials.UserName,
 					request.Message.Credentials.Password));
 
-		    return new TokenIssueResponse()
+			// Get available clouds
+			IEnumerable<DatacenterWithMaintenanceStatusType> dataCenters =
+				await _computeClient.GetDataCentersWithMaintenanceStatuses();
+
+			List<Endpoint> endPoints = new List<Endpoint>();
+			foreach (var dataCenter in dataCenters)
+			{
+				endPoints.Add(new Endpoint()
+				{
+					Url = ConfigurationHelpers.GetTenantUrl(request.Message.TenantName),
+					Id = dataCenter.location, // TODO: Map to cloud id?
+					InternalURL = ConfigurationHelpers.GetTenantUrl(request.Message.TenantName),
+					PublicURL = ConfigurationHelpers.GetTenantUrl(request.Message.TenantName),
+					Region = "Dimension Data " + dataCenter.displayName 
+				});
+			}
+
+		TokenIssueResponse response = new TokenIssueResponse()
 		    {
 			    AccessToken = new AccessToken()
 			    {
@@ -41,31 +60,36 @@ namespace Caas.OpenStack.API.Controllers
 					{
 						new ServiceCatalogEntry()
 						{
-							Endpoints = new Endpoint[]
-							{
-								new Endpoint(){
-									Url = ConfigurationHelpers.GetTenantUrl(request.Message.TenantName),
-									Id = Guid.NewGuid().ToString(), // TODO: Map to cloud id?
-									InternalURL = ConfigurationHelpers.GetTenantUrl(request.Message.TenantName),
-									PublicURL = ConfigurationHelpers.GetTenantUrl(request.Message.TenantName),
-									Region = "au1" // TODO: Map to region.
-								}
-							},
-							EndpointsLinks = new string[]{},
-							Name = "test",
+							Endpoints = endPoints.ToArray(),
+							EndpointsLinks = new string[]
+                            {
+                                ConfigurationHelpers.GetTenantUrl(request.Message.TenantName)
+                            },
+							Name = "nova",
 							Type = EndpointType.compute
+						},
+                        new ServiceCatalogEntry()
+						{
+							Endpoints = endPoints.ToArray(),
+							EndpointsLinks = new string[]
+                            {
+                                ConfigurationHelpers.GetTenantUrl(request.Message.TenantName)
+                            },
+							Name = "keystone",
+							Type = EndpointType.identity
 						}
 					},
 					User = new User()
 					{
 						Id = Guid.NewGuid().ToString(),
-						Name = request.Message.Credentials.UserName,
+						Name = account.FullName,
 						Roles = new User.Role[] { },
 						RolesLinks = new string[]{},
 						UserName = request.Message.Credentials.UserName
 					}
 			    }
 		    };
+            return response;
 	    }
 	}
 }
