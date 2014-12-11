@@ -107,6 +107,7 @@
     <Compile Include="ConfigurationHelpers.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ExtensionsController.cs" />
     <Compile Include="Controllers\FlavorController.cs" />
     <Compile Include="Controllers\IdentityController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
@@ -117,6 +118,8 @@
     <Compile Include="Middleware\CaaSAuthenticationMiddleWare.cs" />
     <Compile Include="Models\api\ApiVersion.cs" />
     <Compile Include="Models\api\ApiVersionList.cs" />
+    <Compile Include="Models\api\ExtensionList.cs" />
+    <Compile Include="Models\api\ExtensionResponse.cs" />
     <Compile Include="Models\identity\AccessToken.cs" />
     <Compile Include="Models\identity\Tenant.cs" />
     <Compile Include="Models\identity\Token.cs" />
