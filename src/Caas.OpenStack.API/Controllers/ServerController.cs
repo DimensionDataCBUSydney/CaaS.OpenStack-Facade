@@ -113,7 +113,8 @@ namespace Caas.OpenStack.API.Controllers
 					{
 						new RestLink(ServerController.GetServerUri(tenant_id, server.id), RestLink.Self) 
 					},
-				Metadata = new KeyValuePair<string, string>() // TODO: decide what metadata should be shown.
+				Metadata = new KeyValuePair<string, string>(), // TODO: decide what metadata should be shown.
+				Status = ServerStatus.Active // TODO : Map CaaS status.
 			};
 		}
 	}
