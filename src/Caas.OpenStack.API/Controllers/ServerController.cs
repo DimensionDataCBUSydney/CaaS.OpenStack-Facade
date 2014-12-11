@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web.Configuration;
 using System.Web.Http;
 using DD.CBU.Compute.Api.Client.Interfaces;
 
@@ -16,17 +18,38 @@ namespace Caas.OpenStack.API.Controllers
 	{
 		private IComputeApiClient _computeClient;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ServerController"/> class.
+		/// </summary>
+		/// <param name="apiClient">The API client.</param>
 		public ServerController(Func<Uri, IComputeApiClient> apiClient)
 		{
 			_computeClient = apiClient(ConfigurationHelpers.GetApiUri());
 		}
 
+		/// <summary>
+		/// Gets the server detail list for a given tenant
+		/// TODO: implement tenant selection.
+		/// </summary>
+		/// <param name="tenant_id">The tenant_id.</param>
+		/// <returns></returns>
 		[Route("{tenant_id}/servers/detail")]
-		public ServerDetailList GetServerDetailList(string tenant_id)
+		public async Task<ServerDetailList> GetServerDetailList(string tenant_id)
 		{
-			_computeClient.GetDeployedServers();
+			ServerWithBackupType[] servers = (await _computeClient.GetDeployedServers()).ToArray();
+			ServerDetailList serverList = new ServerDetailList();
+			serverList.Servers = new ServerDetail[servers.Count()];
 
-			return new ServerDetailList();
+			for (int i = 0; i < servers.Count(); i++)
+			{
+				serverList.Servers[i] = new ServerDetail()
+				{
+					AccessIPv4 = servers[i].privateIp,
+					Name = servers[i].name
+				};
+			}
+
+			return serverList;
 		}
 
 		[Route("{tenant_id}/servers/detail/{server_id}")]

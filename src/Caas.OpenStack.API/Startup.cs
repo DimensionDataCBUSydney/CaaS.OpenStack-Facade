@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Configuration;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Autofac;
+using Autofac.Integration.WebApi;
 using Caas.OpenStack.API.Middleware;
 using DD.CBU.Compute.Api.Client;
 using DD.CBU.Compute.Api.Client.Interfaces;
@@ -27,6 +29,7 @@ namespace Caas.OpenStack.API
 			builder.RegisterType<ComputeApiClient>()
 				.As<IComputeApiClient>()
 				.InstancePerRequest();
+
 			builder.Register<Func<Uri, IComputeApiClient>>(c =>
 				{
 					var context = c.Resolve<IComponentContext>();
@@ -35,6 +38,9 @@ namespace Caas.OpenStack.API
 
 			builder.RegisterType<CaaSAuthenticationMiddleWare>()
 				.InstancePerRequest();
+
+			// Register our controllers.
+			builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
 			ILifetimeScope scope = builder.Build();
 
@@ -48,6 +54,7 @@ namespace Caas.OpenStack.API
 
 			// Use a custom authentication module
 			app.UseAutofacWebApi(config);
+			app.UseWebApi(config);
 		}
 	}
 }
