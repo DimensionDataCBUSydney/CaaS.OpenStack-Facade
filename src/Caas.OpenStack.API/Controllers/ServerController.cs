@@ -95,7 +95,7 @@ namespace Caas.OpenStack.API.Controllers
 				Id = Guid.Parse(server.id),
 				Image = new ServerImage()
 				{
-					Id = Guid.Parse(server.sourceImageId),
+					Id = server.sourceImageId,
 					Links = new RestLink[]
 						{
 							new RestLink(

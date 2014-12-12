@@ -73,6 +73,7 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Extensions">
@@ -127,6 +128,7 @@
     <Compile Include="Models\identity\TokenIssueResponse.cs" />
     <Compile Include="Models\identity\User.cs" />
     <Compile Include="Models\image\ServerImage.cs" />
+    <Compile Include="Models\image\ServerImageResponse.cs" />
     <Compile Include="Models\RestLink.cs" />
     <Compile Include="Models\server\IPAddress.cs" />
     <Compile Include="Models\server\IPAddressCollection.cs" />
