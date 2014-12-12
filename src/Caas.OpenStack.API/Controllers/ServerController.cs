@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Caas.OpenStack.API.Models;
+using DD.CBU.Compute.Api.Client.ImportExportImages;
 using DD.CBU.Compute.Api.Client.Interfaces;
 
 namespace Caas.OpenStack.API.Controllers
@@ -121,6 +122,16 @@ namespace Caas.OpenStack.API.Controllers
 				Metadata = new KeyValuePair<string, string>(), // TODO: decide what metadata should be shown.
 				Status = ServerStatus.Active // TODO : Map CaaS status.
 			};
+		}
+
+		[Route("{tenant_id}/servers/{server_id}/action")]
+		[HttpPost]
+		public void PerformServerAction(ServerActionRequest request, string tenant_id, string server_id)
+		{
+			if (request.CreateImage != null)
+			{
+				// TODO : Provision image as customer image template?
+			}
 		}
 	}
 }
