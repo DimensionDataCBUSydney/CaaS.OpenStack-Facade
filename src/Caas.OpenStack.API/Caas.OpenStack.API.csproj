@@ -130,6 +130,7 @@
     <Compile Include="Models\RestLink.cs" />
     <Compile Include="Models\server\IPAddress.cs" />
     <Compile Include="Models\server\IPAddressCollection.cs" />
+    <Compile Include="Models\server\ServerActionRequest.cs" />
     <Compile Include="Models\server\ServerDetail.cs" />
     <Compile Include="Models\server\ServerDetailList.cs" />
     <Compile Include="Models\server\ServerDetailResponse.cs" />
