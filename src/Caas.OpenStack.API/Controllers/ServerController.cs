@@ -11,6 +11,7 @@ namespace Caas.OpenStack.API.Controllers
 {
 	using Models.server;
 	using Caas.OpenStack.API.Models.image;
+    using System.Net.Http;
 
 	[Authorize]
 	[RoutePrefix(Constants.CurrentApiVersion)]
@@ -126,12 +127,31 @@ namespace Caas.OpenStack.API.Controllers
 
 		[Route("{tenant_id}/servers/{server_id}/action")]
 		[HttpPost]
-		public void PerformServerAction(ServerActionRequest request, string tenant_id, string server_id)
+		public async Task<HttpResponseMessage> PerformServerAction(ServerActionRequest request, string tenant_id, string server_id)
 		{
 			if (request.CreateImage != null)
 			{
-				// TODO : Provision image as customer image template?
+				// Get base image
+                var servers = await _computeClient.GetDeployedServers();
+                if (servers == null)
+                    return new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
+
+                var server = servers.First(s => s.id == server_id);
+                if (server == null)
+                    return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest);
+                HttpResponseMessage response = new HttpResponseMessage(System.Net.HttpStatusCode.Accepted)
+                response.Headers.Add("Location", ImageController.GetImageUri(tenant_id, server.sourceImageId) );
+
+                return response;
 			}
+            if (request.ChangePassword != null)
+            {
+                return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
+            }
+            else
+            {
+                return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
+            }
 		}
 	}
 }
