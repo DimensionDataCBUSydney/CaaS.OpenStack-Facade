@@ -23,10 +23,10 @@ namespace Caas.OpenStack.API.Controllers
 		/// Initializes a new instance of the <see cref="ServerController"/> class.
 		/// </summary>
 		/// <param name="apiClient">The API client.</param>
-		public ServerController(Func<Uri, IComputeApiClient> apiClient)
-		{
-			_computeClient = apiClient(ConfigurationHelpers.GetApiUri());
-		}
+        public ServerController(Func<Uri, IComputeApiClient> apiClient)
+        {
+            _computeClient = apiClient(ConfigurationHelpers.GetApiUri());
+        }
 
 		/// <summary>
 		/// Gets the server detail list for a given tenant
@@ -35,7 +35,8 @@ namespace Caas.OpenStack.API.Controllers
 		/// <param name="tenant_id">The tenant_id.</param>
 		/// <returns></returns>
 		[Route("{tenant_id}/servers/detail")]
-		public async Task<ServerDetailList> GetServerDetailList(string tenant_id)
+        [HttpGet]
+		public async Task<ServerDetailList> GetServerDetailList([FromUri]string tenant_id)
 		{
 			ServerWithBackupType[] servers = (await _computeClient.GetDeployedServers()).ToArray();
 			ServerDetailList serverList = new ServerDetailList();
@@ -73,7 +74,8 @@ namespace Caas.OpenStack.API.Controllers
 		/// <param name="server_id">The server_id.</param>
 		/// <returns></returns>
 		[Route("{tenant_id}/servers/{server_id}")]
-		public async Task<ServerDetailResponse> GetServerDetail(string tenant_id, string server_id)
+        [HttpGet]
+		public async Task<ServerDetailResponse> GetServerDetail([FromUri]string tenant_id, [FromUri]string server_id)
 		{
 			ServerWithBackupType caasServer = (await _computeClient.GetDeployedServers()).First(server => server.id == server_id);
             return
@@ -127,7 +129,7 @@ namespace Caas.OpenStack.API.Controllers
 
 		[Route("{tenant_id}/servers/{server_id}/action")]
 		[HttpPost]
-		public async Task<HttpResponseMessage> PerformServerAction(ServerActionRequest request, string tenant_id, string server_id)
+		public async Task<HttpResponseMessage> PerformServerAction([FromBody]ServerActionRequest request, [FromUri] string tenant_id, [FromUri] string server_id)
 		{
 			if (request.CreateImage != null)
 			{
