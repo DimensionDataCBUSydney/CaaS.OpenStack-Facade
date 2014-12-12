@@ -27,6 +27,7 @@ namespace Caas.OpenStack.API.Controllers
 
 		[Route("tokens")]
 		[Route(Constants.CurrentApiVersion + "/tokens")]
+        [Route(Constants.CurrentApiVersionLong + "/tokens")]
 		[HttpPost]
 		public async Task<TokenIssueResponse> IssueToken(TokenIssueRequest request)
 		{
