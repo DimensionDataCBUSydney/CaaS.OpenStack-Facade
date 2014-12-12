@@ -4,7 +4,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.UI.WebControls;
 using Caas.OpenStack.API.Models.identity;
 using Caas.OpenStack.API.Models.serviceCatalog;
 using DD.CBU.Compute.Api.Client.Interfaces;

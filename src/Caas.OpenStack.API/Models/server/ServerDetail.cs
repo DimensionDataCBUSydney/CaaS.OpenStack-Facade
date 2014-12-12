@@ -99,6 +99,19 @@ namespace Caas.OpenStack.API.Models.server
 		public int Progress { get; set; }
 
 		[DataMember(Name = "status")]
+		public string ServerStatusString
+		{
+			get { return Status.ToString(); }
+			set
+			{
+				ServerStatus status;
+				if (Enum.TryParse(value, out status))
+				{
+					Status = status;
+				}
+			}
+		}
+
 		public ServerStatus Status { get; set; }
 
 		[DataMember(Name = "tenant_id")]
