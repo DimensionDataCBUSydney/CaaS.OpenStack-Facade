@@ -139,7 +139,7 @@ namespace Caas.OpenStack.API.Controllers
                 var server = servers.First(s => s.id == server_id);
                 if (server == null)
                     return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest);
-                HttpResponseMessage response = new HttpResponseMessage(System.Net.HttpStatusCode.Accepted)
+                HttpResponseMessage response = new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
                 response.Headers.Add("Location", ImageController.GetImageUri(tenant_id, server.sourceImageId) );
 
                 return response;
