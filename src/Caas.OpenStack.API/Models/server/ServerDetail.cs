@@ -101,7 +101,7 @@ namespace Caas.OpenStack.API.Models.server
 		[DataMember(Name = "status")]
 		public string ServerStatusString
 		{
-			get { return Status.ToString(); }
+			get { return Status.ToString().ToUpper(); }
 			set
 			{
 				ServerStatus status;
