@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.image
 {
@@ -27,9 +26,11 @@ namespace Caas.OpenStack.API.Models.image
 		[DataMember(Name = "minRam")]
 		public int MinRam { get; set; }
 
-		[DataMember(Name = "progress")] public int Progress = 100; // This has no related attribute.
+		[DataMember(Name = "progress")] 
+		public int Progress = 100; // This has no related attribute.
 
-		[DataMember(Name = "status")] public string Status = "ACTIVE"; // No related status
+		[DataMember(Name = "status")] 
+		public string Status = "ACTIVE"; // No related status
 
 		[DataMember(Name = "updated")]
 		public string UpdatedDate { get; set; }

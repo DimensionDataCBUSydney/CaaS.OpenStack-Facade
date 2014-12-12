@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Caas.OpenStack.API.Models;
-using DD.CBU.Compute.Api.Client.ImportExportImages;
 using DD.CBU.Compute.Api.Client.Interfaces;
 
 namespace Caas.OpenStack.API.Controllers
@@ -101,7 +100,7 @@ namespace Caas.OpenStack.API.Controllers
 					Links = new RestLink[]
 						{
 							new RestLink(
-								ImageController.GetImageUri(tenant_id, server.sourceImageId), 
+								UrlGenerator.GetImageUri(tenant_id, server.sourceImageId), 
 								RestLink.Bookmark
 								)
 						}
@@ -142,7 +141,7 @@ namespace Caas.OpenStack.API.Controllers
                 if (server == null)
                     return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest);
                 HttpResponseMessage response = new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
-                response.Headers.Add("Location", ImageController.GetImageUri(tenant_id, server.sourceImageId) );
+                response.Headers.Add("Location", UrlGenerator.GetImageUri(tenant_id, server.sourceImageId) );
 
                 return response;
 			}
