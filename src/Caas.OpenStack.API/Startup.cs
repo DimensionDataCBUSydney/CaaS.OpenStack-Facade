@@ -48,6 +48,7 @@ namespace Caas.OpenStack.API
 
 			// Map our controller routes.
 			config.MapHttpAttributeRoutes();
+			config.EnableSystemDiagnosticsTracing();
 
 			// Setup WebApi and Autofac with OWIN support
 			app.UseAutofacMiddleware(scope);
