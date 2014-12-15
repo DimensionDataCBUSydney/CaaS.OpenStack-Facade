@@ -11,7 +11,7 @@ namespace Caas.OpenStack.API.Models.identity
 			this.issuedAt = DateTime.Now;
 			this.expires = issuedAt.AddMinutes(60);
 			this.Id = token;
-			this.Tenant = new Tenant(null, tenantName, tenantId);
+			this.Tenant = new Tenant(tenantName, tenantName, tenantId);
 		}
 
 		[DataMember(Name = "issued_at")]

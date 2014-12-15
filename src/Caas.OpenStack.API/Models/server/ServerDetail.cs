@@ -90,8 +90,16 @@ namespace Caas.OpenStack.API.Models.server
 		public RestLink[] Links { get; set; }
 
 		[DataMember(Name = "metadata")]
-		public KeyValuePair<string, string> Metadata { get; set; }
- 
+		public dynamic Metadata { get; set; }
+
+        // Workaround for a bug in libcloud that tries to lowercase a boolean! https://github.com/apache/libcloud/commit/c3522251163208f975b478ce632ac09b8af411d6
+        // This field isn't in the API documentation.
+        [DataMember(Name = "config_drive")]
+        public string ConfigDrive = "false";
+
+        [DataMember(Name = "flavor")]
+        public Flavor Flavor { get; set; }
+
 		[DataMember(Name = "name")]
 		public string Name { get; set; }
 

@@ -50,10 +50,10 @@ namespace Caas.OpenStack.API.Controllers
 			{
 				endPoints.Add(new Endpoint()
 				{
-					Url = ConfigurationHelpers.GetTenantUrl(request.Message.TenantName),
+					Url = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Id = dataCenter.location, // TODO: Map to cloud id?
-					InternalURL = ConfigurationHelpers.GetTenantUrl(request.Message.TenantName),
-					PublicURL = ConfigurationHelpers.GetTenantUrl(request.Message.TenantName),
+                    InternalURL = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    PublicURL = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Region = "Dimension Data " + dataCenter.displayName 
 				});
 			}
@@ -70,7 +70,7 @@ namespace Caas.OpenStack.API.Controllers
 							Endpoints = endPoints.ToArray(),
 							EndpointsLinks = new string[]
                             {
-                                ConfigurationHelpers.GetTenantUrl(request.Message.TenantName)
+                                ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName)
                             },
 							Name = "nova",
 							Type = EndpointType.compute
@@ -80,7 +80,7 @@ namespace Caas.OpenStack.API.Controllers
 							Endpoints = endPoints.ToArray(),
 							EndpointsLinks = new string[]
                             {
-                                ConfigurationHelpers.GetTenantUrl(request.Message.TenantName)
+                                ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName)
                             },
 							Name = "keystone",
 							Type = EndpointType.identity

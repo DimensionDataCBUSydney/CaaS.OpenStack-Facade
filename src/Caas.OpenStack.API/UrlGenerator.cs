@@ -14,5 +14,16 @@ namespace Caas.OpenStack.API
 				imageId
 				);
 		}
+
+        public static string GetImageUri(string host, string tenantId, string imageId)
+        {
+            return String.Format(
+                "{0}{1}/{2}/images/{3}",
+                ConfigurationHelpers.GetBaseUrl(host),
+                Constants.CurrentApiVersion,
+                tenantId,
+                imageId
+                );
+        }
 	}
 }

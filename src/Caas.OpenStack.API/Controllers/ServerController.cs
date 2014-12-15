@@ -55,11 +55,11 @@ namespace Caas.OpenStack.API.Controllers
 		/// <param name="tenantId">The tenant identifier.</param>
 		/// <param name="id">The identifier.</param>
 		/// <returns></returns>
-		private static string GetServerUri(string tenantId, string id)
+		private static string GetServerUri(string host, string tenantId, string id)
 		{
 			return String.Format(
 				"{0}{1}/{2}/servers/{3}",
-				ConfigurationHelpers.GetBaseUrl(),
+				ConfigurationHelpers.GetBaseUrl(host),
 				Constants.CurrentApiVersion,
 				tenantId,
 				id
@@ -87,43 +87,49 @@ namespace Caas.OpenStack.API.Controllers
 
 		public ServerDetail CaaSServerToServerDetail(ServerWithBackupType server, string tenant_id)
 		{
-			return new ServerDetail()
-			{
-				AccessIPv4 = server.privateIp,
-				AccessIPv6 = "", // IPv6 not supported at present
-				CreatedDate = server.created.ToString("s"),
-				HostId = server.name,
-				Id = Guid.Parse(server.id),
-				Image = new ServerImage()
-				{
-					Id = server.sourceImageId,
-					Links = new RestLink[]
+            return new ServerDetail()
+            {
+                AccessIPv4 = server.privateIp,
+                AccessIPv6 = "", // IPv6 not supported at present
+                CreatedDate = server.created.ToString("s"),
+                HostId = server.name,
+                Id = Guid.Parse(server.id),
+                Image = new ServerImage()
+                {
+                    Id = server.sourceImageId,
+                    Links = new RestLink[]
 						{
 							new RestLink(
-								UrlGenerator.GetImageUri(tenant_id, server.sourceImageId), 
+								UrlGenerator.GetImageUri(Request.RequestUri.Host, tenant_id, server.sourceImageId), 
 								RestLink.Bookmark
 								)
 						}
-				},
-				IpAddressCollection = new IPAddressCollection()
-				{
-					PrivateAddresses = new IPAddress[]
+                },
+                IpAddressCollection = new IPAddressCollection()
+                {
+                    PrivateAddresses = new IPAddress[]
 						{
 							new IPAddress(server.privateIp)
 						},
-					PublicAddresses = new IPAddress[]
+                    PublicAddresses = new IPAddress[]
  						{
  							new IPAddress(server.publicIp)
  						}
-				},
-				Name = server.name,
-				Links = new RestLink[]
+                },
+                Flavor = new Flavor(),
+                Name = server.name,
+                Links = new RestLink[]
 					{
-						new RestLink(ServerController.GetServerUri(tenant_id, server.id), RestLink.Self) 
+						new RestLink(ServerController.GetServerUri(Request.RequestUri.Host, tenant_id, server.id), RestLink.Self) 
 					},
-				Metadata = new KeyValuePair<string, string>(), // TODO: decide what metadata should be shown.
-				Status = ServerStatus.Active // TODO : Map CaaS status.
-			};
+                UserId = Request.GetRequestContext().Principal.Identity.Name,
+                TenantId = tenant_id,
+                Metadata = new
+                {
+                    MyServerName = server.name
+                }, // TODO: decide what metadata should be shown.
+                Status = ServerStatus.Active // TODO : Map CaaS status.
+            };
 		}
 
 		[Route("{tenant_id}/servers/{server_id}/action")]
@@ -141,7 +147,7 @@ namespace Caas.OpenStack.API.Controllers
                 if (server == null)
                     return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest);
                 HttpResponseMessage response = new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
-                response.Headers.Add("Location", UrlGenerator.GetImageUri(tenant_id, server.sourceImageId) );
+                response.Headers.Add("Location", UrlGenerator.GetImageUri(Request.RequestUri.Host, tenant_id, server.sourceImageId));
 
                 return response;
 			}

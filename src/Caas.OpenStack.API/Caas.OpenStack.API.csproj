@@ -133,6 +133,7 @@
     <Compile Include="Models\image\ServerImage.cs" />
     <Compile Include="Models\image\ServerImageResponse.cs" />
     <Compile Include="Models\RestLink.cs" />
+    <Compile Include="Models\server\Flavor.cs" />
     <Compile Include="Models\server\IPAddress.cs" />
     <Compile Include="Models\server\IPAddressCollection.cs" />
     <Compile Include="Models\server\ServerActionRequest.cs" />

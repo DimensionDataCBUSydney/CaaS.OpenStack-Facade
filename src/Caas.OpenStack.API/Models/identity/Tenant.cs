@@ -12,6 +12,7 @@ namespace Caas.OpenStack.API.Models.identity
 			Description = description;
 			Name = name;
 			Id = id;
+            Enabled = true;
 		}
 
 		[DataMember(Name = "description")]
