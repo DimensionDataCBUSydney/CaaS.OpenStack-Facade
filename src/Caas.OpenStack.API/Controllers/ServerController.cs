@@ -27,6 +27,24 @@ namespace Caas.OpenStack.API.Controllers
             _computeClient = apiClient(ConfigurationHelpers.GetApiUri());
         }
 
+		[Route("{tenant_id}/servers")]
+		[HttpGet]
+		public async Task<BaseServerResponse> GetServerList([FromUri] string tenant_id)
+		{
+			ServerWithBackupType[] remoteServerCollection = (await _computeClient.GetDeployedServers()).ToArray();
+			List<BaseServer> servers = new List<BaseServer>();
+
+			for (int i = 0; i < servers.Count(); i++)
+			{
+				servers.Add(CaaSServerToServer(remoteServerCollection[i], tenant_id));
+			}
+
+			return new BaseServerResponse()
+			{
+				Servers = servers.ToArray()
+			};
+		}
+
 		/// <summary>
 		/// Gets the server detail list for a given tenant
 		/// TODO: implement tenant selection.
@@ -83,6 +101,19 @@ namespace Caas.OpenStack.API.Controllers
                     Server = CaaSServerToServerDetail(caasServer, tenant_id)
                 };
                 
+		}
+
+		public BaseServer CaaSServerToServer(ServerWithBackupType server, string tenant_id)
+		{
+			return new BaseServer()
+			{
+				Id = Guid.Parse(server.id),
+				Name = server.name,
+				Links = new RestLink[]
+					{
+						new RestLink(ServerController.GetServerUri(Request.RequestUri.Host, tenant_id, server.id), RestLink.Self) 
+					}
+			};
 		}
 
 		public ServerDetail CaaSServerToServerDetail(ServerWithBackupType server, string tenant_id)

@@ -130,9 +130,14 @@
     <Compile Include="Models\identity\TokenIssueRequest.cs" />
     <Compile Include="Models\identity\TokenIssueResponse.cs" />
     <Compile Include="Models\identity\User.cs" />
+    <Compile Include="Models\image\BaseServerImageListResponse.cs" />
     <Compile Include="Models\image\ServerImage.cs" />
+    <Compile Include="Models\image\ServerImageListResponse.cs" />
     <Compile Include="Models\image\ServerImageResponse.cs" />
     <Compile Include="Models\RestLink.cs" />
+    <Compile Include="Models\server\BaseServer.cs" />
+    <Compile Include="Models\image\BaseServerImage.cs" />
+    <Compile Include="Models\server\BaseServerResponse.cs" />
     <Compile Include="Models\server\Flavor.cs" />
     <Compile Include="Models\server\IPAddress.cs" />
     <Compile Include="Models\server\IPAddressCollection.cs" />

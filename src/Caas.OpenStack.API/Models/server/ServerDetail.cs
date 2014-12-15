@@ -1,66 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using Caas.OpenStack.API.Models.image;
 
 namespace Caas.OpenStack.API.Models.server
 {
-	/*
-        {
-            "accessIPv4": "",
-            "accessIPv6": "",
-            "addresses": {
-                "private": [
-                    {
-                        "addr": "192.168.0.3",
-                        "version": 4
-                    }
-                ]
-            },
-            "created": "2012-09-07T16:56:37Z",
-            "flavor": {
-                "id": "1",
-                "links": [
-                    {
-                        "href": "http://openstack.example.com/openstack/flavors/1",
-                        "rel": "bookmark"
-                    }
-                ]
-            },
-            "hostId": "16d193736a5cfdb60c697ca27ad071d6126fa13baeb670fc9d10645e",
-            "id": "05184ba3-00ba-4fbc-b7a2-03b62b884931",
-            "image": {
-                "id": "70a599e0-31e7-49b7-b260-868f441e862b",
-                "links": [
-                    {
-                        "href": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b",
-                        "rel": "bookmark"
-                    }
-                ]
-            },
-            "links": [
-                {
-                    "href": "http://openstack.example.com/v2/openstack/servers/05184ba3-00ba-4fbc-b7a2-03b62b884931",
-                    "rel": "self"
-                },
-                {
-                    "href": "http://openstack.example.com/openstack/servers/05184ba3-00ba-4fbc-b7a2-03b62b884931",
-                    "rel": "bookmark"
-                }
-            ],
-            "metadata": {
-                "My Server Name": "Apache1"
-            },
-            "name": "new-server-test",
-            "progress": 0,
-            "status": "ACTIVE",
-            "tenant_id": "openstack",
-            "updated": "2012-09-07T16:56:37Z",
-            "user_id": "fake"
-        }
-    */
 	[DataContract]
-	public class ServerDetail
+	public class ServerDetail : BaseServer
 	{
 		[DataMember(Name = "accessIPv4")]
 		public string AccessIPv4 { get; set; }
@@ -79,15 +23,9 @@ namespace Caas.OpenStack.API.Models.server
 
 		[DataMember(Name = "hostId")]
 		public string HostId { get; set; }
-		
-		[DataMember(Name = "id")]
-		public Guid Id { get; set; }
 
 		[DataMember(Name = "image")]
 		public image.ServerImage Image { get; set; }
-
-		[DataMember(Name = "links")]
-		public RestLink[] Links { get; set; }
 
 		[DataMember(Name = "metadata")]
 		public dynamic Metadata { get; set; }
@@ -99,9 +37,6 @@ namespace Caas.OpenStack.API.Models.server
 
         [DataMember(Name = "flavor")]
         public Flavor Flavor { get; set; }
-
-		[DataMember(Name = "name")]
-		public string Name { get; set; }
 
 		[DataMember(Name = "progress")]
 		public int Progress { get; set; }

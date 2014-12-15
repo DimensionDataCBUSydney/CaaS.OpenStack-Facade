@@ -3,19 +3,10 @@
 namespace Caas.OpenStack.API.Models.image
 {
 	[DataContract]
-	public class ServerImage
+	public class ServerImage : BaseServerImage
 	{
-		[DataMember(Name = "id")]
-		public string Id { get; set; }
-
-		[DataMember(Name = "links")]
-		public RestLink[] Links { get; set; }
-
 		[DataMember(Name = "created")]
 		public string CreatedDate { get; set; }
-
-		[DataMember(Name = "name")]
-		public string Name { get; set; }
 
 		[DataMember(Name = "metadata")]
 		public dynamic Metadata { get; set; }
