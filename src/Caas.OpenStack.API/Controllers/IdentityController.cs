@@ -7,6 +7,7 @@ using System.Web.Http;
 using Caas.OpenStack.API.Models.identity;
 using Caas.OpenStack.API.Models.serviceCatalog;
 using DD.CBU.Compute.Api.Client.Interfaces;
+using DD.CBU.Compute.Api.Contracts.Datacenter;
 using DD.CBU.Compute.Api.Contracts.Directory;
 
 namespace Caas.OpenStack.API.Controllers
@@ -46,6 +47,14 @@ namespace Caas.OpenStack.API.Controllers
             string loginTokenEncoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(loginToken));
 
 			List<Endpoint> endPoints = new List<Endpoint>();
+			endPoints.Add(new Endpoint()
+				{
+					Url = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+					Id = "AU1", // TODO: Map to cloud id?
+                    InternalURL = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    PublicURL = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+					Region = "RegionOne" 
+				});
 			foreach (var dataCenter in dataCenters)
 			{
 				endPoints.Add(new Endpoint()
