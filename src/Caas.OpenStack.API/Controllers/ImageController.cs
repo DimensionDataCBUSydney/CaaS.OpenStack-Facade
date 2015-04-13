@@ -36,7 +36,7 @@ namespace Caas.OpenStack.API.Controllers
 		[Route("{tenant}/images")]
 		public async Task<BaseServerImageListResponse> GetServerImages(string tenant)
 		{
-			var remoteImageCollection = await _computeClient.GetImages(String.Empty);
+			var remoteImageCollection = await _computeClient.GetImages(String.Empty, String.Empty, String.Empty, String.Empty, String.Empty);
 
 			return new BaseServerImageListResponse
 			{
@@ -58,18 +58,22 @@ namespace Caas.OpenStack.API.Controllers
 		[Route("{tenant}/images/detail")]
 		public async Task<ServerImageListResponse> GetServerImagesDetailed(string tenant)
 		{
-			var remoteImageCollection = await _computeClient.GetImages(String.Empty);
+			var remoteImageCollection = await _computeClient.GetImages(String.Empty, String.Empty, String.Empty, String.Empty, String.Empty);
 
 			return new ServerImageListResponse
 			{
-				Images = remoteImageCollection.Select(image => new Models.image.ServerImage
+				Images = remoteImageCollection.Select(image => new ServerImage
 				{
-					Id = image.id, CreatedDate = image.deployedTime.ToString("s"), Links = new[]
+					Id = image.id, 
+					CreatedDate = DateTime.Parse(image.created).ToString("s"), 
+					Links = new[]
 					{
 						new RestLink(ImageUriFactory.GetImageUri(tenant, image.id), RestLink.Self)
 					},
 					MinDisk = 1, // No equivalent?
-					MinRam = image.machineSpecification.memoryMb, Name = image.name, UpdatedDate = image.deployedTime.ToString("s")
+					MinRam = 1024, // No equivalent 
+					Name = image.name,
+					UpdatedDate = DateTime.Parse(image.created).ToString("s")
 				}).ToArray()
 			};
 		}
@@ -84,7 +88,7 @@ namespace Caas.OpenStack.API.Controllers
 		[Route("{tenant}/images/{image}")]
 	    public async Task<ServerImageResponse> GetServerImage(string tenant, string image)
 		{
-			var images = await _computeClient.GetImages("AU1");
+			var images = await _computeClient.GetImages(String.Empty, String.Empty, String.Empty, String.Empty, String.Empty);
 			var selectedImage = images.First(i => i.id == image);
 			
 			if (selectedImage == null)
@@ -92,18 +96,18 @@ namespace Caas.OpenStack.API.Controllers
 
 			return new ServerImageResponse
 			{
-				Image = new Models.image.ServerImage
+				Image = new ServerImage
 				{
 					Id = selectedImage.id,
-					CreatedDate = selectedImage.deployedTime.ToString("s"),
+					CreatedDate = DateTime.Parse(selectedImage.created).ToString("s"),
 					Links = new[]
 					{
 						new RestLink(ImageUriFactory.GetImageUri(tenant, image), RestLink.Self) 
 					},
 					MinDisk = 1, // No equivalent?
-					MinRam = selectedImage.machineSpecification.memoryMb,
+					MinRam = 1024, // No  equivalent
 					Name = selectedImage.name,
-					UpdatedDate = selectedImage.deployedTime.ToString("s")
+					UpdatedDate = DateTime.Parse(selectedImage.created).ToString("s")
 				}
 			};
 		}

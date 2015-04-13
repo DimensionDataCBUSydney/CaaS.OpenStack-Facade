@@ -3,6 +3,7 @@ using System.Net.Http;
 using Caas.OpenStack.API.Models;
 using Caas.OpenStack.API.Models.server;
 using Caas.OpenStack.API.UriFactories;
+using DD.CBU.Compute.Api.Contracts.Server;
 
 namespace Caas.OpenStack.API.Translators
 {

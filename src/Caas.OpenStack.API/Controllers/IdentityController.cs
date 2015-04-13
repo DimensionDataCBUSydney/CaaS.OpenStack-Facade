@@ -7,6 +7,7 @@ using System.Web.Http;
 using Caas.OpenStack.API.Models.identity;
 using Caas.OpenStack.API.Models.serviceCatalog;
 using DD.CBU.Compute.Api.Client.Interfaces;
+using DD.CBU.Compute.Api.Contracts.Datacenter;
 using DD.CBU.Compute.Api.Contracts.Directory;
 
 namespace Caas.OpenStack.API.Controllers

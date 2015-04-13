@@ -15,6 +15,8 @@ using Caas.OpenStack.API.Models.api;
 using Caas.OpenStack.API.Translators;
 using Caas.OpenStack.API.UriFactories;
 using DD.CBU.Compute.Api.Client.Interfaces;
+using DD.CBU.Compute.Api.Contracts.General;
+using DD.CBU.Compute.Api.Contracts.Server;
 
 namespace Caas.OpenStack.API.Controllers
 {
@@ -91,7 +93,7 @@ namespace Caas.OpenStack.API.Controllers
 		public async Task<ServerProvisioningResponse> CreateServer(string tenantId, [FromBody] ServerProvisioningRequest request)
 		{
 			// Get the image
-			var imageResult = (await _computeClient.GetImages(String.Empty)).FirstOrDefault(image => image.id == request.Server.ImageRef);
+			var imageResult = (await _computeClient.GetImages(request.Server.ImageRef, String.Empty, String.Empty, String.Empty, String.Empty)).FirstOrDefault();
 
 			if (imageResult == null)
 				throw new ImageNotFoundException();
