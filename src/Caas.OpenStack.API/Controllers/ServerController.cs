@@ -1,22 +1,34 @@
-﻿using System;
+﻿// <author>Anthony.Shaw@dimensiondata.com</author>
+// <date>4/13/2015</date>
+// <summary>API Actions for server management</summary>
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Caas.OpenStack.API.Exceptions;
+using Caas.OpenStack.API.Interfaces;
 using Caas.OpenStack.API.Models;
+using Caas.OpenStack.API.Translators;
+using Caas.OpenStack.API.UriFactories;
 using DD.CBU.Compute.Api.Client.Interfaces;
 
 namespace Caas.OpenStack.API.Controllers
 {
 	using Models.server;
-	using Caas.OpenStack.API.Models.image;
-    using System.Net.Http;
 
+	/// <summary>	A controller for handling servers. </summary>
+	/// <remarks>	Anthony, 4/13/2015. </remarks>
+	/// <seealso cref="T:System.Web.Http.ApiController"/>
+	/// <seealso cref="T:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController"/>
 	[Authorize]
 	[RoutePrefix(Constants.CurrentApiVersion)]
-	public class ServerController : ApiController
+	public class ServerController : ApiController, IOpenStackApiServerController
 	{
-		private IComputeApiClient _computeClient;
+		/// <summary>	The compute client. </summary>
+		private readonly IComputeApiClient _computeClient;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ServerController"/> class.
@@ -27,169 +39,148 @@ namespace Caas.OpenStack.API.Controllers
             _computeClient = apiClient(ConfigurationHelpers.GetApiUri());
         }
 
-		[Route("{tenant_id}/servers")]
+		/// <summary>	(An Action that handles HTTP GET requests) gets server list. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="tenantId">	The tenantId. </param>
+		/// <returns>	The server list. </returns>
+		[Route("{tenantId}/servers")]
 		[HttpGet]
-		public async Task<BaseServerResponse> GetServerList([FromUri] string tenant_id)
+		public async Task<BaseServerResponse> GetServerList([FromUri] string tenantId)
 		{
 			ServerWithBackupType[] remoteServerCollection = (await _computeClient.GetDeployedServers()).ToArray();
 			List<BaseServer> servers = new List<BaseServer>();
 
 			for (int i = 0; i < servers.Count(); i++)
 			{
-				servers.Add(CaaSServerToServer(remoteServerCollection[i], tenant_id));
+				servers.Add(Request.CaaSServerToServer(remoteServerCollection[i], tenantId));
 			}
 
-			return new BaseServerResponse()
+			return new BaseServerResponse
 			{
 				Servers = servers.ToArray()
 			};
 		}
 
-		/// <summary>
-		/// Gets the server detail list for a given tenant
-		/// TODO: implement tenant selection.
-		/// </summary>
-		/// <param name="tenant_id">The tenant_id.</param>
-		/// <returns></returns>
-		[Route("{tenant_id}/servers/detail")]
+		/// <summary> Creates a server. OpenStack equivalent: POST/v2/​{tenantId}​/servers -> "Create
+		/// 	Server". </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="tenantId">	Identifier for the tenant. </param>
+		/// <param name="request"> 	The request. </param>
+		/// <returns>	The new server. </returns>
+		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController.CreateServer(string,ServerProvisioningRequest)"/>
+		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController.CreateServer(ServerProvisioningRequest)"/>
+		[HttpPost]
+		[Route("{tenantId}​/servers")]
+		public async Task<ServerProvisioningResponse> CreateServer(string tenantId, [FromBody] ServerProvisioningRequest request)
+		{
+			// Get the image
+			var imageResult = (await _computeClient.GetImages(String.Empty)).FirstOrDefault(image => image.id == request.Server.ImageRef);
+
+			if (imageResult == null)
+				throw new ImageNotFoundException();
+
+			// Generate secret.
+			byte[] buffer = new byte[9];
+			using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+				rng.GetBytes(buffer);
+			string adminPass = Convert.ToBase64String(buffer).Substring(0, 10).Replace('/', '0').Replace('+', '1');
+
+			// Provision a server.
+			Status status = await _computeClient.DeployServerImageTask(
+				request.Server.Name,
+				String.Empty,
+				request.Server.Networks.First().Uuid, // NB: Support for multiple networks in MCP2.0
+				request.Server.ImageRef,
+				adminPass, 
+				true);
+
+			if (status.result == "SUCCESS")
+			{
+				var newServerId = status.additionalInformation.First(item => item.name == "serverId").value;
+				return new ServerProvisioningResponse
+				{
+					Server = new ServerProvisioningResponseServer
+					{
+						Id = newServerId, // This is the server code.
+						AdminPass = adminPass,
+						Links = new[]
+						{
+							new RestLink(ServerUriFactory.GetServerUri(Request.RequestUri.Host, tenantId, newServerId), RestLink.Self)
+						}
+					}
+				};
+			}
+
+			throw new ServerProvisioningRequestFailedException();
+		}
+
+		/// <summary> Gets the server detail list for a given tenant.</summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="tenantId">	The tenantId. </param>
+		/// <returns>	The server detail list. </returns>
+		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController.GetServerDetailList(string)"/>
+		[Route("{tenantId}/servers/detail")]
         [HttpGet]
-		public async Task<ServerDetailList> GetServerDetailList([FromUri]string tenant_id)
+		public async Task<ServerDetailList> GetServerDetailList([FromUri] string tenantId)
 		{
 			ServerWithBackupType[] servers = (await _computeClient.GetDeployedServers()).ToArray();
-			ServerDetailList serverList = new ServerDetailList();
-			serverList.Servers = new ServerDetail[servers.Count()];
+			ServerDetailList serverList = new ServerDetailList
+			{
+				Servers = new ServerDetail[servers.Count()]
+			};
 
 			for (int i = 0; i < servers.Count(); i++)
 			{
-				serverList.Servers[i] = CaaSServerToServerDetail(servers[i], tenant_id);
+				serverList.Servers[i] = Request.CaaSServerToServerDetail(servers[i], tenantId);
 			}
 
 			return serverList;
 		}
 
-		/// <summary>
-		/// Gets the server URI.
-		/// </summary>
-		/// <param name="tenantId">The tenant identifier.</param>
-		/// <param name="id">The identifier.</param>
-		/// <returns></returns>
-		private static string GetServerUri(string host, string tenantId, string id)
+		/// <summary>	Gets details about a particular server. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="tenantId">	The tenantId. </param>
+		/// <param name="serverId">	The serverId. </param>
+		/// <returns>	The server detail. </returns>
+		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController.GetServerDetail(string,string)"/>
+		[Route("{tenantId}/servers/{serverId}")]
+		[HttpGet]
+		public async Task<ServerDetailResponse> GetServerDetail([FromUri]string tenantId, [FromUri]string serverId)
 		{
-			return String.Format(
-				"{0}{1}/{2}/servers/{3}",
-				ConfigurationHelpers.GetBaseUrl(host),
-				Constants.CurrentApiVersion,
-				tenantId,
-				id
-				);
+			ServerWithBackupType caasServer = (await _computeClient.GetDeployedServers()).First(server => server.id == serverId);
+			return
+				new ServerDetailResponse
+				{
+					Server = Request.CaaSServerToServerDetail(caasServer, tenantId)
+				};
 		}
 
-		/// <summary>
-		/// Gets the server detail.
-		/// </summary>
-		/// <param name="tenant_id">The tenant_id.</param>
-		/// <param name="server_id">The server_id.</param>
-		/// <returns></returns>
-		[Route("{tenant_id}/servers/{server_id}")]
-        [HttpGet]
-		public async Task<ServerDetailResponse> GetServerDetail([FromUri]string tenant_id, [FromUri]string server_id)
+		/// <summary>	Updates the server. PUT/v2/​{tenant_id}​/servers/​{server_id}​. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="tenantId">			  	Identifier for the tenant. </param>
+		/// <param name="serverId">			  	Identifier for the server. </param>
+		/// <param name="updateServerRequest">	The update server request. </param>
+		/// <returns>	The new server; </returns>
+		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController.UpdateServer(string,string,dynamic)"/>
+		[Route("​{tenantId}​/servers/​{serverId}​")]
+		[HttpPut]
+		public Task<ServerDetailResponse> UpdateServer(string tenantId, string serverId, dynamic updateServerRequest)
 		{
-			ServerWithBackupType caasServer = (await _computeClient.GetDeployedServers()).First(server => server.id == server_id);
-            return
-                new ServerDetailResponse()
-                {
-                    Server = CaaSServerToServerDetail(caasServer, tenant_id)
-                };
-                
+			// TODO : Process update fields.
+			return GetServerDetail(tenantId, serverId);
 		}
 
-		public BaseServer CaaSServerToServer(ServerWithBackupType server, string tenant_id)
+		/// <summary> Deletes the server. DELETE/v2/​{tenant_id}​/servers/​{server_id}​ -> Remove Server. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="tenantId">	Identifier for the tenant. </param>
+		/// <param name="serverId">	Identifier for the server. </param>
+		/// <returns>	A Task. </returns>
+		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController.DeleteServer(string,string)"/>
+		[Route("{tenantId}​/servers/​{serverId}")]
+		[HttpDelete]
+		public async Task DeleteServer(string tenantId, string serverId)
 		{
-			return new BaseServer()
-			{
-				Id = Guid.Parse(server.id),
-				Name = server.name,
-				Links = new RestLink[]
-					{
-						new RestLink(ServerController.GetServerUri(Request.RequestUri.Host, tenant_id, server.id), RestLink.Self) 
-					}
-			};
-		}
-
-		public ServerDetail CaaSServerToServerDetail(ServerWithBackupType server, string tenant_id)
-		{
-            return new ServerDetail()
-            {
-                AccessIPv4 = server.privateIp,
-                AccessIPv6 = "", // IPv6 not supported at present
-                CreatedDate = server.created.ToString("s"),
-                HostId = server.name,
-                Id = Guid.Parse(server.id),
-                Image = new ServerImage()
-                {
-                    Id = server.sourceImageId,
-                    Links = new RestLink[]
-						{
-							new RestLink(
-								UrlGenerator.GetImageUri(Request.RequestUri.Host, tenant_id, server.sourceImageId), 
-								RestLink.Bookmark
-								)
-						}
-                },
-                IpAddressCollection = new IPAddressCollection()
-                {
-                    PrivateAddresses = new IPAddress[]
-						{
-							new IPAddress(server.privateIp)
-						},
-                    PublicAddresses = new IPAddress[]
- 						{
- 							new IPAddress(server.publicIp)
- 						}
-                },
-                Flavor = new Flavor(),
-                Name = server.name,
-                Links = new RestLink[]
-					{
-						new RestLink(ServerController.GetServerUri(Request.RequestUri.Host, tenant_id, server.id), RestLink.Self) 
-					},
-                UserId = Request.GetRequestContext().Principal.Identity.Name,
-                TenantId = tenant_id,
-                Metadata = new
-                {
-                    MyServerName = server.name
-                }, // TODO: decide what metadata should be shown.
-                Status = ServerStatus.Active // TODO : Map CaaS status.
-            };
-		}
-
-		[Route("{tenant_id}/servers/{server_id}/action")]
-		[HttpPost]
-		public async Task<HttpResponseMessage> PerformServerAction([FromBody]ServerActionRequest request, [FromUri] string tenant_id, [FromUri] string server_id)
-		{
-			if (request.CreateImage != null)
-			{
-				// Get base image
-                var servers = await _computeClient.GetDeployedServers();
-                if (servers == null)
-                    return new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
-
-                var server = servers.First(s => s.id == server_id);
-                if (server == null)
-                    return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest);
-                HttpResponseMessage response = new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
-                response.Headers.Add("Location", UrlGenerator.GetImageUri(Request.RequestUri.Host, tenant_id, server.sourceImageId));
-
-                return response;
-			}
-            if (request.ChangePassword != null)
-            {
-                return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
-            }
-            else
-            {
-                return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
-            }
+			Status response = await _computeClient.ServerDelete(serverId);
 		}
 	}
 }
