@@ -3,23 +3,35 @@ using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using DD.CBU.Compute.Api.Client;
 using DD.CBU.Compute.Api.Client.Interfaces;
 using Microsoft.Owin;
 
 namespace Caas.OpenStack.API.Middleware
 {
+	/// <summary>	Authentication middleware to take a token and decrypt into username/password pair.. </summary>
+	/// <remarks>	Anthony, 4/13/2015. </remarks>
+	/// <seealso cref="T:Microsoft.Owin.OwinMiddleware"/>
 	public class CaaSAuthenticationMiddleWare
 		: OwinMiddleware
 	{
-		private IComputeApiClient _apiClient;
+		/// <summary>	The API client. </summary>
+		private readonly IComputeApiClient _apiClient;
 
+		/// <summary> Initializes a new instance of the CaaSAuthenticationMiddleWare class. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="next">			The next. </param>
+		/// <param name="apiClient">	The API client. </param>
 		public CaaSAuthenticationMiddleWare(OwinMiddleware next, Func<Uri, IComputeApiClient> apiClient)
 			: base(next)
 		{
 			_apiClient = apiClient(ConfigurationHelpers.GetApiUri());
 		}
 
+		/// <summary>	Process an individual request. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="context">	The OWIN context. </param>
+		/// <returns>	A Task. </returns>
+		/// <seealso cref="M:Microsoft.Owin.OwinMiddleware.Invoke(IOwinContext)"/>
 		public async override Task Invoke(IOwinContext context)
 		{
 			var request = context.Request;

@@ -50,20 +50,20 @@ namespace Caas.OpenStack.API.Translators
 					Links = new[]
 						{
 							new RestLink(
-								UrlGenerator.GetImageUri(request.RequestUri.Host, tenantId, server.sourceImageId), 
+								ImageUriFactory.GetImageUri(request.RequestUri.Host, tenantId, server.sourceImageId), 
 								RestLink.Bookmark
 								)
 						}
 				},
-				IpAddressCollection = new IPAddressCollection
+				IpAddressCollection = new IpAddressCollection
 				{
 					PrivateAddresses = new[]
 						{
-							new IPAddress(server.privateIp)
+							new IpAddress(server.privateIp)
 						},
 					PublicAddresses = new[]
  						{
- 							new IPAddress(server.publicIp)
+ 							new IpAddress(server.publicIp)
  						}
 				},
 				Flavor = new Flavor(),

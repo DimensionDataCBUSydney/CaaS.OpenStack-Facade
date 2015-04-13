@@ -2,16 +2,12 @@
 
 namespace Caas.OpenStack.API.Models.api
 {
-	/* As per documentation.
-	 * {
-    "versions": [
-        {
-            
-        },
-	 */
+	/// <summary>	List of API versions. </summary>
+	/// <remarks>	Anthony, 4/13/2015. </remarks>
 	[DataContract]
 	public class ApiVersionList
 	{
+		/// <summary>	URL of the base. </summary>
 		private string _baseUrl;
 
 		/// <summary>

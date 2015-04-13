@@ -22,5 +22,22 @@ namespace Caas.OpenStack.API.UriFactories
 				id
 				);
 		}
+
+		/// <summary>	Gets flavor URI. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="host">	   	The host. </param>
+		/// <param name="tenantId">	The tenant identifier. </param>
+		/// <param name="id">	   	The identifier. </param>
+		/// <returns>	The flavor URI. </returns>
+		public static string GetFlavorUri(string host, string tenantId, int id)
+		{
+			return String.Format(
+				"{0}{1}/{2}/flavors/{3}",
+				ConfigurationHelpers.GetBaseUrl(host),
+				Constants.CurrentApiVersion,
+				tenantId,
+				id
+				);
+		}
 	}
 }

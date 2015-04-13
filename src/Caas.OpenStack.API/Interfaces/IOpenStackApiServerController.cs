@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Caas.OpenStack.API.Models.api;
 using Caas.OpenStack.API.Models.server;
 
 namespace Caas.OpenStack.API.Interfaces
@@ -17,6 +18,12 @@ namespace Caas.OpenStack.API.Interfaces
 	/// <remarks>	Anthony, 4/13/2015. </remarks>
 	public interface IOpenStackApiServerController
 	{
+		/// <summary>	Gets the limits. 
+		/// 			OpenStack equivalent GET/v2/​{tenant_id}​/limits</summary>
+		/// <param name="tenantId">	Identifier for the tenant. </param>
+		/// <returns>	The limits. </returns>
+		Task<LimitsResponse> GetLimits(string tenantId);
+
 		/// <summary>	Gets server list.
 		/// 			OpenStack equivalent : GET/v2/​{tenant_id}​/servers -> "Get Servers"  </summary>
 		/// <param name="tenantId">	Identifier for the tenant. </param>
@@ -56,5 +63,11 @@ namespace Caas.OpenStack.API.Interfaces
 		/// <param name="serverId">	Identifier for the server. </param>
 		/// <returns>	A Task. </returns>
 		Task DeleteServer(string tenantId, string serverId);
+
+		/// <summary>	List extensions
+		/// 			OpenStack equivalent- > GET/v2/​{tenant_id}​/extensions. </summary>
+		/// <param name="tenantId">	Identifier for the tenant. </param>
+		/// <returns>	A list of. </returns>
+		Task<ExtensionCollectionResponse> ListExtensions(string tenantId);
 	}
 }

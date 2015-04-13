@@ -1,19 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
+using Caas.OpenStack.API.Interfaces;
 using Caas.OpenStack.API.Models.server;
+using Caas.OpenStack.API.UriFactories;
 using DD.CBU.Compute.Api.Client.Interfaces;
 
 namespace Caas.OpenStack.API.Controllers
 {
-    public class ServerActionController : ApiController
+    /// <summary>	A controller for handling server actions. </summary>
+    /// <remarks>	Anthony, 4/13/2015. </remarks>
+    /// <seealso cref="T:System.Web.Http.ApiController"/>
+	[Authorize]
+	[RoutePrefix(Constants.CurrentApiVersion)]
+    public class ServerActionController : ApiController, IOpenStackApiServerActionController
     {
 		/// <summary>	The compute client. </summary>
-		private IComputeApiClient _computeClient;
+		private readonly IComputeApiClient _computeClient;
 
 		/// <summary>	Initializes a new instance of the <see cref="ServerController"/> class. </summary>
 		/// <remarks>	Anthony, 4/13/2015. </remarks>
@@ -23,9 +28,15 @@ namespace Caas.OpenStack.API.Controllers
             _computeClient = apiClient(ConfigurationHelpers.GetApiUri());
         }
 
-		[System.Web.Mvc.Route("{tenant_id}/servers/{server_id}/action")]
-		[System.Web.Http.HttpPost]
-		public async Task<HttpResponseMessage> PerformServerAction([FromBody]ServerActionRequest request, [FromUri] string tenant_id, [FromUri] string server_id)
+		/// <summary>	Performs the server action. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="request">  	The request. </param>
+		/// <param name="tenantId">	Identifier for the tenant. </param>
+		/// <param name="serverId">	Identifier for the server. </param>
+		/// <returns>	A HttpResponseMessage </returns>
+		[System.Web.Mvc.Route("{tenantId}/servers/{server_id}/action")]
+		[HttpPost]
+		public async Task<HttpResponseMessage> PerformServerAction([FromBody]ServerActionRequest request, [FromUri] string tenantId, [FromUri] string serverId)
 		{
 			if (request.CreateImage != null)
 			{
@@ -34,11 +45,11 @@ namespace Caas.OpenStack.API.Controllers
 				if (servers == null)
 					return new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
 
-				var server = servers.First(s => s.id == server_id);
+				var server = servers.First(s => s.id == serverId);
 				if (server == null)
 					return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest);
 				HttpResponseMessage response = new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
-				response.Headers.Add("Location", UrlGenerator.GetImageUri(Request.RequestUri.Host, tenant_id, server.sourceImageId));
+				response.Headers.Add("Location", ImageUriFactory.GetImageUri(Request.RequestUri.Host, tenantId, server.sourceImageId));
 
 				return response;
 			}
@@ -46,10 +57,7 @@ namespace Caas.OpenStack.API.Controllers
 			{
 				return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
 			}
-			else
-			{
-				return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
-			}
+			return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
 		}
     }
 }

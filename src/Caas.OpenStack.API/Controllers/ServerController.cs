@@ -11,6 +11,7 @@ using System.Web.Http;
 using Caas.OpenStack.API.Exceptions;
 using Caas.OpenStack.API.Interfaces;
 using Caas.OpenStack.API.Models;
+using Caas.OpenStack.API.Models.api;
 using Caas.OpenStack.API.Translators;
 using Caas.OpenStack.API.UriFactories;
 using DD.CBU.Compute.Api.Client.Interfaces;
@@ -38,6 +39,22 @@ namespace Caas.OpenStack.API.Controllers
         {
             _computeClient = apiClient(ConfigurationHelpers.GetApiUri());
         }
+
+		/// <summary>	Gets the limits. OpenStack equivalent GET/v2/​{tenant_id}​/limits. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="tenantId">	Identifier for the tenant. </param>
+		/// <returns>	The limits. </returns>
+		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController.GetLimits(string)"/>
+		[HttpGet]
+		[Route("{tenantId}/limits")]
+		public Task<LimitsResponse> GetLimits(string tenantId)
+		{
+			// TODO : Call the compute APIs to match up the limit specifications in OpenStack.
+			return Task.FromResult(new LimitsResponse
+			{
+				Limits = new Limits()
+			});
+		}
 
 		/// <summary>	(An Action that handles HTTP GET requests) gets server list. </summary>
 		/// <remarks>	Anthony, 4/13/2015. </remarks>
@@ -180,7 +197,23 @@ namespace Caas.OpenStack.API.Controllers
 		[HttpDelete]
 		public async Task DeleteServer(string tenantId, string serverId)
 		{
-			Status response = await _computeClient.ServerDelete(serverId);
+			await _computeClient.ServerDelete(serverId);
+		}
+
+		/// <summary>	List extensions OpenStack equivalent- > GET/v2/​{tenant_id}​/extensions. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="tenantId">	Identifier for the tenant. </param>
+		/// <returns>	A list of. </returns>
+		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController.ListExtensions(string)"/>
+		[HttpGet]
+		[Route("{tenantId}/extensions")]
+		public Task<ExtensionCollectionResponse> ListExtensions(string tenantId)
+		{
+			// No extensions are supported.
+			return Task.FromResult(new ExtensionCollectionResponse
+			{
+				Extensions = new Extension[0]
+			});
 		}
 	}
 }

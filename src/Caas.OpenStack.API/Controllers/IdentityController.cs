@@ -7,14 +7,17 @@ using System.Web.Http;
 using Caas.OpenStack.API.Models.identity;
 using Caas.OpenStack.API.Models.serviceCatalog;
 using DD.CBU.Compute.Api.Client.Interfaces;
-using DD.CBU.Compute.Api.Contracts.Datacenter;
 using DD.CBU.Compute.Api.Contracts.Directory;
 
 namespace Caas.OpenStack.API.Controllers
 {
+	/// <summary>	A controller for handling identities. </summary>
+	/// <remarks>	Anthony, 4/13/2015. </remarks>
+	/// <seealso cref="T:System.Web.Http.ApiController"/>
 	public class IdentityController : ApiController
 	{
-		private IComputeApiClient _computeClient;
+		/// <summary>	The compute client. </summary>
+		private readonly IComputeApiClient _computeClient;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ServerController"/> class.
@@ -25,6 +28,10 @@ namespace Caas.OpenStack.API.Controllers
 			_computeClient = apiClient(ConfigurationHelpers.GetApiUri());
 		}
 
+		/// <summary>	(An Action that handles HTTP POST requests) issue token. </summary>
+		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <param name="request">	The request. </param>
+		/// <returns>	A Task&lt;TokenIssueResponse&gt; </returns>
 		[Route("tokens")]
 		[Route(Constants.CurrentApiVersion + "/tokens")]
         [Route(Constants.CurrentApiVersionLong + "/tokens")]
@@ -43,51 +50,50 @@ namespace Caas.OpenStack.API.Controllers
 
 			string loginToken = request.Message.Credentials.UserName + ":" + request.Message.Credentials.Password;
 
-            byte[] buffer = new byte[loginToken.Length];
             string loginTokenEncoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(loginToken));
 
 			List<Endpoint> endPoints = new List<Endpoint>();
-			endPoints.Add(new Endpoint()
+			endPoints.Add(new Endpoint
 				{
 					Url = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Id = "AU1", // TODO: Map to cloud id?
-                    InternalURL = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
-                    PublicURL = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    InternalUrl = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    PublicUrl = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Region = "RegionOne" 
 				});
 			foreach (var dataCenter in dataCenters)
 			{
-				endPoints.Add(new Endpoint()
+				endPoints.Add(new Endpoint
 				{
 					Url = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Id = dataCenter.location, // TODO: Map to cloud id?
-                    InternalURL = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
-                    PublicURL = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    InternalUrl = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    PublicUrl = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Region = "Dimension Data " + dataCenter.displayName 
 				});
 			}
 
-		TokenIssueResponse response = new TokenIssueResponse()
+		TokenIssueResponse response = new TokenIssueResponse
 		    {
-			    AccessToken = new AccessToken()
+			    AccessToken = new AccessToken
 			    {
 					Token = new Token(request.Message.TenantName, request.Message.TenantName, loginTokenEncoded),
-					Catalog = new ServiceCatalogEntry[]
+					Catalog = new[]
 					{
-						new ServiceCatalogEntry()
+						new ServiceCatalogEntry
 						{
 							Endpoints = endPoints.ToArray(),
-							EndpointsLinks = new string[]
+							EndpointsLinks = new[]
                             {
                                 ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName)
                             },
 							Name = "nova",
 							Type = EndpointType.compute
 						},
-                        new ServiceCatalogEntry()
+                        new ServiceCatalogEntry
 						{
 							Endpoints = endPoints.ToArray(),
-							EndpointsLinks = new string[]
+							EndpointsLinks = new[]
                             {
                                 ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName)
                             },
@@ -95,12 +101,12 @@ namespace Caas.OpenStack.API.Controllers
 							Type = EndpointType.identity
 						}
 					},
-					User = new User()
+					User = new User
 					{
 						Id = Guid.NewGuid().ToString(),
 						Name = account.FullName,
 						Roles = new User.Role[] { },
-						RolesLinks = new string[]{},
+						RolesLinks = new string[] { },
 						UserName = request.Message.Credentials.UserName
 					}
 			    }
