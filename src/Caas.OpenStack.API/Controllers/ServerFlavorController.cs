@@ -12,7 +12,7 @@ namespace Caas.OpenStack.API.Controllers
     /// <seealso cref="T:System.Web.Http.ApiController"/>
     /// <seealso cref="T:Caas.OpenStack.API.Interfaces.IOpenStackApiFlavorController"/>
 	[Authorize]
-	[RoutePrefix(Constants.CurrentApiVersion)]
+	[RoutePrefix(Constants.ServerPrefix)]
     public class ServerFlavorController : ApiController, IOpenStackApiFlavorController
     {
 		/// <summary>	Gets the flavours. OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors. </summary>

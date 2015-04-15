@@ -15,7 +15,7 @@ namespace Caas.OpenStack.API.Controllers
     /// <remarks>	Anthony, 4/15/2015. </remarks>
     /// <seealso cref="T:System.Web.Mvc.Controller"/>
 	[Authorize]
-	[RoutePrefix(Constants.CurrentApiVersion)]
+	[RoutePrefix(Constants.NetworkPrefix)]
     public class NetworkController : ApiController, IOpenStackApiNetworkController
     {
 		/// <summary>	The compute client. </summary>
@@ -35,6 +35,8 @@ namespace Caas.OpenStack.API.Controllers
 		/// <param name="request">	The request. </param>
 		/// <returns>	The new network. </returns>
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiNetworkController.CreateNetwork(NetworkCreateRequest)"/>
+		[HttpPost]
+		[Route("networks")]
 		public Task<NetworkDetailResponse> CreateNetwork(NetworkCreateRequest request)
 	    {
 		    throw new NotImplementedException();
@@ -44,6 +46,8 @@ namespace Caas.OpenStack.API.Controllers
 	    /// <remarks>	Anthony, 4/15/2015. </remarks>
 	    /// <returns>	A NetworkCollectionResponse. </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiNetworkController.GetNetworks()"/>
+	    [HttpGet]
+		[Route("networks")]
 	    public async Task<NetworkCollectionResponse> GetNetworks()
 	    {
 		    var networks = await _computeClient.GetNetworksTask();
@@ -60,6 +64,8 @@ namespace Caas.OpenStack.API.Controllers
 	    /// <param name="networkId">	Identifier for the network. </param>
 	    /// <returns>	A NetworkDetailResponse. </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiNetworkController.ShowNetwork(string)"/>
+		[HttpGet]
+		[Route("networks/{networkId}")]
 	    public async Task<NetworkDetailResponse> ShowNetwork(string networkId)
 	    {
 		    var network = (await _computeClient.GetNetworksTask()).FirstOrDefault(net => net.id == networkId);
@@ -79,6 +85,8 @@ namespace Caas.OpenStack.API.Controllers
 	    /// <param name="request">  	The request. </param>
 	    /// <returns>	A NetworkDetailResponse. </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiNetworkController.UpdateNetwork(string,NetworkUpdateRequest)"/>
+	    [HttpPut]
+		[Route("networks/{networkId}")]
 	    public Task<NetworkDetailResponse> UpdateNetwork(string networkId, NetworkUpdateRequest request)
 	    {
 		    throw new NotImplementedException();
@@ -90,6 +98,8 @@ namespace Caas.OpenStack.API.Controllers
 	    /// <param name="networkId">	Identifier for the network. </param>
 	    /// <returns>	A Task. </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiNetworkController.DeleteNetwork(string)"/>
+	    [HttpDelete]
+		[Route("networks/{networkId}")]
 	    public Task DeleteNetwork(string networkId)
 	    {
 		    throw new NotImplementedException();

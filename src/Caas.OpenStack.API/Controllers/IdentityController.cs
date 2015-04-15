@@ -40,6 +40,9 @@ namespace Caas.OpenStack.API.Controllers
 		public async Task<TokenIssueResponse> IssueToken(TokenIssueRequest request)
 		{
 			// Login to CaaS
+			if (_computeClient.WebApi.IsLoggedIn)
+				_computeClient.WebApi.Logout();
+
 			IAccount account = await _computeClient.LoginAsync(
 				new NetworkCredential(
 					request.Message.Credentials.UserName,
@@ -56,20 +59,20 @@ namespace Caas.OpenStack.API.Controllers
 			List<Endpoint> endPoints = new List<Endpoint>();
 			endPoints.Add(new Endpoint
 				{
-					Url = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+					Url = ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Id = "AU1", // TODO: Map to cloud id?
-                    InternalUrl = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
-                    PublicUrl = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    InternalUrl = ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    PublicUrl = ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Region = "RegionOne" 
 				});
 			foreach (var dataCenter in dataCenters)
 			{
 				endPoints.Add(new Endpoint
 				{
-					Url = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+					Url = ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Id = dataCenter.location, // TODO: Map to cloud id?
-                    InternalUrl = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
-                    PublicUrl = ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    InternalUrl = ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName),
+                    PublicUrl = ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName),
 					Region = "Dimension Data " + dataCenter.displayName 
 				});
 			}
@@ -86,7 +89,7 @@ namespace Caas.OpenStack.API.Controllers
 							Endpoints = endPoints.ToArray(),
 							EndpointsLinks = new[]
                             {
-                                ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName)
+                                ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName)
                             },
 							Name = "nova",
 							Type = EndpointType.compute
@@ -96,10 +99,30 @@ namespace Caas.OpenStack.API.Controllers
 							Endpoints = endPoints.ToArray(),
 							EndpointsLinks = new[]
                             {
-                                ConfigurationHelpers.GetTenantUrl(Request.RequestUri.Host, request.Message.TenantName)
+                                ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName)
                             },
 							Name = "keystone",
 							Type = EndpointType.identity
+						},
+						new ServiceCatalogEntry
+						{
+							Endpoints = new[]
+							{
+								new Endpoint
+								{
+									Id = "1",
+									InternalUrl = ConfigurationHelpers.GetNetworkUrl(Request.RequestUri.Host),
+									PublicUrl = ConfigurationHelpers.GetNetworkUrl(Request.RequestUri.Host),
+									Region = "AU1", // TODO : Map to region
+									Url = ConfigurationHelpers.GetNetworkUrl(Request.RequestUri.Host),
+								}
+							},
+							EndpointsLinks = new[]
+                            {
+                                ConfigurationHelpers.GetNetworkUrl(Request.RequestUri.Host)
+                            },
+							Name = "neutron",
+							Type = EndpointType.network
 						}
 					},
 					User = new User

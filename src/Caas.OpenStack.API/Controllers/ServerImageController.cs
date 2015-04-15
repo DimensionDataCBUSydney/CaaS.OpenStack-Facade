@@ -14,17 +14,17 @@ namespace Caas.OpenStack.API.Controllers
     /// <remarks>	Anthony, 4/13/2015. </remarks>
     /// <seealso cref="T:System.Web.Http.ApiController"/>
 	[Authorize]
-	[RoutePrefix(Constants.CurrentApiVersion)]
-    public class ImageController : ApiController
+	[RoutePrefix(Constants.ServerPrefix)]
+    public class ServerImageController : ApiController
     {
-		/// <summary>	The compute client. </summary>
+	    /// <summary>	The compute client. </summary>
 		private readonly IComputeApiClient _computeClient;
 
 		/// <summary> Initializes a new instance of the ImageController
 		/// 	class. </summary>
 		/// <remarks>	Anthony, 4/13/2015. </remarks>
 		/// <param name="apiClient">	The API client. </param>
-		public ImageController(Func<Uri, IComputeApiClient> apiClient)
+		public ServerImageController(Func<Uri, IComputeApiClient> apiClient)
 		{
 			_computeClient = apiClient(ConfigurationHelpers.GetApiUri());
 		}

@@ -38,40 +38,42 @@ namespace Caas.OpenStack.API
         /// <param name="host">  	The host. </param>
         /// <param name="tenant">	The tenant. </param>
         /// <returns>	The tenant URL. </returns>
-        public static string GetTenantUrl(string host, string tenant)
+        public static string GetServerUrl(string host, string tenant)
         {
             return string.Format(
                 "{0}{1}/{2}",
                 ConfigurationHelpers.GetBaseUrl(host),
-                Constants.CurrentApiVersion,
+                Constants.ServerPrefix,
                 tenant
                 );
         }
 
-		/// <summary>	Gets tenant URL. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
+		/// <summary>	Gets image URL. </summary>
+		/// <remarks>	Anthony, 4/15/2015. </remarks>
+		/// <param name="host">  	The host. </param>
 		/// <param name="tenant">	The tenant. </param>
-		/// <returns>	The tenant URL. </returns>
-		public static string GetTenantUrl(string tenant)
+		/// <returns>	The image URL. </returns>
+		public static string GetImageUrl(string host, string tenant)
 		{
 			return string.Format(
 				"{0}{1}/{2}",
-				ConfigurationHelpers.GetBaseUrl(),
-				Constants.CurrentApiVersion,
+				ConfigurationHelpers.GetBaseUrl(host),
+				Constants.ImagePrefix,
 				tenant
 				);
 		}
 
-        /// <summary>	Gets base URL version. </summary>
-        /// <remarks>	Anthony, 4/13/2015. </remarks>
-        /// <returns>	The base URL version. </returns>
-        public static string GetBaseUrlVersion()
-        {
-            return string.Format(
-                "{0}{1}",
-                ConfigurationHelpers.GetBaseUrl(),
-                Constants.CurrentApiVersion
-                );
-        }
+		/// <summary>	Gets network URL. </summary>
+		/// <remarks>	Anthony, 4/15/2015. </remarks>
+		/// <param name="host">  	The host. </param>
+		/// <returns>	The network URL. </returns>
+		public static string GetNetworkUrl(string host)
+		{
+			return string.Format(
+				"{0}{1}",
+				ConfigurationHelpers.GetBaseUrl(host),
+				Constants.NetworkPrefix
+				);
+		}
 	}
 }

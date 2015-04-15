@@ -11,17 +11,17 @@ namespace Caas.OpenStack.API.Models.server
 	{
 		/// <summary>	Gets or sets a value indicating whether this object is disabled. </summary>
 		/// <value>	true if disabled, false if not. </value>
-		[DataMember(Name = "")]
+		[DataMember(Name = "disabled")]
 		public bool Disabled { get; set; }
 
 		/// <summary>	Gets or sets the disk. </summary>
 		/// <value>	The disk. </value>
-		[DataMember(Name = "")]
+		[DataMember(Name = "disk")]
 		public int Disk { get; set; }
 
 		/// <summary>	Gets or sets the ephemeral. </summary>
 		/// <value>	The ephemeral. </value>
-		[DataMember(Name = "")]
+		[DataMember(Name = "ephemeral")]
 		public int Ephemeral { get; set; }
 
 		/// <summary>	Gets or sets a value indicating whether this object is public. </summary>
@@ -53,7 +53,7 @@ namespace Caas.OpenStack.API.Models.server
 		/// <seealso cref="M:Caas.OpenStack.API.Models.server.Flavor.GenerateDefaultFlavor(HttpRequestMessage,string)"/>
 		public new static FlavorDetail GenerateDefaultFlavor(HttpRequestMessage request, string tenantId)
 		{
-			return new FlavorDetail()
+			return new FlavorDetail
 			{
 				Disabled = false,
 				Disk = 50,

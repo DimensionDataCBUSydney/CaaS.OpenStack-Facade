@@ -11,7 +11,7 @@ namespace Caas.OpenStack.API.Controllers
     /// <seealso cref="T:System.Web.Http.ApiController"/>
     /// <seealso cref="T:Caas.OpenStack.API.Interfaces.IOpenStackApiServerMetadataController"/>
 	[Authorize]
-	[RoutePrefix(Constants.CurrentApiVersion)]
+	[RoutePrefix(Constants.ServerPrefix)]
     public class ServerMetadataController : ApiController, IOpenStackApiServerMetadataController
     {
 	    /// <summary> Gets server metadata. OpenStack API equivalent - >

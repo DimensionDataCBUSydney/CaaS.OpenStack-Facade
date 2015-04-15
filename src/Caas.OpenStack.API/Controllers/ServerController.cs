@@ -27,7 +27,7 @@ namespace Caas.OpenStack.API.Controllers
 	/// <seealso cref="T:System.Web.Http.ApiController"/>
 	/// <seealso cref="T:Caas.OpenStack.API.Interfaces.IOpenStackApiServerController"/>
 	[Authorize]
-	[RoutePrefix(Constants.CurrentApiVersion)]
+	[RoutePrefix(Constants.ServerPrefix)]
 	public class ServerController : ApiController, IOpenStackApiServerController
 	{
 		/// <summary>	The compute client. </summary>

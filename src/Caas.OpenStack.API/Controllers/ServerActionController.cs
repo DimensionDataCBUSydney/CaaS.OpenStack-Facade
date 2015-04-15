@@ -14,7 +14,7 @@ namespace Caas.OpenStack.API.Controllers
     /// <remarks>	Anthony, 4/13/2015. </remarks>
     /// <seealso cref="T:System.Web.Http.ApiController"/>
 	[Authorize]
-	[RoutePrefix(Constants.CurrentApiVersion)]
+	[RoutePrefix(Constants.ServerPrefix)]
     public class ServerActionController : ApiController, IOpenStackApiServerActionController
     {
 		/// <summary>	The compute client. </summary>
@@ -34,7 +34,7 @@ namespace Caas.OpenStack.API.Controllers
 		/// <param name="tenantId">	Identifier for the tenant. </param>
 		/// <param name="serverId">	Identifier for the server. </param>
 		/// <returns>	A HttpResponseMessage </returns>
-		[System.Web.Mvc.Route("{tenantId}/servers/{server_id}/action")]
+		[Route("{tenantId}/servers/{server_id}/action")]
 		[HttpPost]
 		public async Task<HttpResponseMessage> PerformServerAction([FromBody]ServerActionRequest request, [FromUri] string tenantId, [FromUri] string serverId)
 		{

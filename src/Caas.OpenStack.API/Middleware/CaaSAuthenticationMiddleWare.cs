@@ -47,7 +47,7 @@ namespace Caas.OpenStack.API.Middleware
                 string userName = parts[0];
                 string password = parts[1];
 
-                if (_apiClient.Account != null)
+                if (_apiClient.WebApi.IsLoggedIn)
                 {
                     _apiClient.WebApi.Logout();
                 }
@@ -79,7 +79,7 @@ namespace Caas.OpenStack.API.Middleware
 					string userName = parts[0];
 					string password = parts[1];
 
-					if (_apiClient.Account != null)
+					if (_apiClient.WebApi.IsLoggedIn)
 					{
 						_apiClient.WebApi.Logout();
 					}
