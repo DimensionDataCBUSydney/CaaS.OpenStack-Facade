@@ -13,7 +13,7 @@ namespace Caas.OpenStack.API.Controllers
     /// <seealso cref="T:Caas.OpenStack.API.Interfaces.IOpenStackApiFlavorController"/>
 	[Authorize]
 	[RoutePrefix(Constants.CurrentApiVersion)]
-    public class FlavorController : ApiController, IOpenStackApiFlavorController
+    public class ServerFlavorController : ApiController, IOpenStackApiFlavorController
     {
 		/// <summary>	Gets the flavours. OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors. </summary>
 		/// <remarks>	Anthony, 4/13/2015. </remarks>
@@ -41,14 +41,14 @@ namespace Caas.OpenStack.API.Controllers
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiFlavorController.GetFlavorsDetails(string)"/>
 		[HttpGet]
 		[Route("{tenantId}/flavors/detail")]
-		public Task<FlavorCollection> GetFlavorsDetails(string tenantId)
+		public Task<FlavorDetailCollection> GetFlavorsDetails(string tenantId)
 		{
 			return Task.FromResult(
-				new FlavorCollection
+				new FlavorDetailCollection
 				{
 					Flavors = new[]
 					{
-						Flavor.GenerateDefaultFlavor(Request, tenantId)
+						FlavorDetail.GenerateDefaultFlavor(Request, tenantId)
 					}
 				});
 		}
@@ -61,12 +61,12 @@ namespace Caas.OpenStack.API.Controllers
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiFlavorController.GetFlavor(string,string)"/>
 		[HttpGet]
 		[Route("{tenantId}/flavors/{flavorId}")]
-		public Task<FlavorResponse> GetFlavor(string tenantId, string flavorId)
+		public Task<FlavorDetailResponse> GetFlavor(string tenantId, string flavorId)
 		{
 			return Task.FromResult(
-				new FlavorResponse
+				new FlavorDetailResponse
 				{
-					Flavor = Flavor.GenerateDefaultFlavor(Request, tenantId)
+					Flavor = FlavorDetail.GenerateDefaultFlavor(Request, tenantId)
 				});
 		}
     }

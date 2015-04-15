@@ -18,13 +18,13 @@ namespace Caas.OpenStack.API.Interfaces
 		/// 			OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors/detail. </summary>
 		/// <param name="tenantId">	Identifier for the tenant. </param>
 		/// <returns>	The flavors details. </returns>
-		Task<FlavorCollection> GetFlavorsDetails(string tenantId);
+		Task<FlavorDetailCollection> GetFlavorsDetails(string tenantId);
 
 		/// <summary>	Gets a flavor.
 		/// 			OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors/{flavor_id} </summary>
 		/// <param name="tenantId">	Identifier for the tenant. </param>
 		/// <param name="flavorId">	Identifier for the flavor. </param>
 		/// <returns>	The flavor. </returns>
-		Task<FlavorResponse> GetFlavor(string tenantId, string flavorId);
+		Task<FlavorDetailResponse> GetFlavor(string tenantId, string flavorId);
 	}
 }

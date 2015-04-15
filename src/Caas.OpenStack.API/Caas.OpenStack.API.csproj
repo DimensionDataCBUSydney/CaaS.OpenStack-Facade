@@ -138,7 +138,8 @@
     <Compile Include="ConfigurationHelpers.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\FlavorController.cs" />
+    <Compile Include="Controllers\NetworkController.cs" />
+    <Compile Include="Controllers\ServerFlavorController.cs" />
     <Compile Include="Controllers\IdentityController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ServerActionController.cs" />
@@ -146,11 +147,13 @@
     <Compile Include="Controllers\ServerController.cs" />
     <Compile Include="Controllers\ServerMetadataController.cs" />
     <Compile Include="Exceptions\ImageNotFoundException.cs" />
+    <Compile Include="Exceptions\NetworkNotFoundException.cs" />
     <Compile Include="Exceptions\ServerProvisioningRequestFailedException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IOpenStackApiFlavorController.cs" />
+    <Compile Include="Interfaces\IOpenStackApiNetworkController.cs" />
     <Compile Include="Interfaces\IOpenStackApiServerActionController.cs" />
     <Compile Include="Interfaces\IOpenStackApiServerAddressController.cs" />
     <Compile Include="Interfaces\IOpenStackApiServerController.cs" />
@@ -175,12 +178,20 @@
     <Compile Include="Models\image\ServerImage.cs" />
     <Compile Include="Models\image\ServerImageListResponse.cs" />
     <Compile Include="Models\image\ServerImageResponse.cs" />
+    <Compile Include="Models\network\Network.cs" />
+    <Compile Include="Models\network\NetworkCollectionResponse.cs" />
+    <Compile Include="Models\network\NetworkCreateRequest.cs" />
+    <Compile Include="Models\network\NetworkDetailResponse.cs" />
+    <Compile Include="Models\network\NetworkUpdateRequest.cs" />
     <Compile Include="Models\RestLink.cs" />
     <Compile Include="Models\server\BaseServer.cs" />
     <Compile Include="Models\image\BaseServerImage.cs" />
     <Compile Include="Models\server\BaseServerResponse.cs" />
+    <Compile Include="Models\server\FlavorDetailCollection.cs" />
+    <Compile Include="Models\server\FlavorDetail.cs" />
     <Compile Include="Models\server\Flavor.cs" />
     <Compile Include="Models\server\FlavorCollection.cs" />
+    <Compile Include="Models\server\FlavorDetailResponse.cs" />
     <Compile Include="Models\server\FlavorResponse.cs" />
     <Compile Include="Models\server\IPAddress.cs" />
     <Compile Include="Models\server\IPAddressCollection.cs" />
@@ -199,6 +210,7 @@
     <Compile Include="Models\serviceCatalog\ServiceCatalogEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Translators\NetworkTranslators.cs" />
     <Compile Include="Translators\ServerTranslators.cs" />
     <Compile Include="UriFactories\ServerUriFactory.cs" />
     <Compile Include="UriFactories\ImageUriFactory.cs" />
@@ -216,7 +228,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\network\" />
+    <Folder Include="Views\Network\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
