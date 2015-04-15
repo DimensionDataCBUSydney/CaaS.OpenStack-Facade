@@ -6,6 +6,9 @@
       <Value>flavor</Value>
       <Value>flavors</Value>
       <Value>ips</Value>
+      <Value>keypair</Value>
+      <Value>keypairs</Value>
+      <Value>os-keypairs</Value>
     </CollectionProperty>
   </GlobalSettings>
 </StyleCopSettings>

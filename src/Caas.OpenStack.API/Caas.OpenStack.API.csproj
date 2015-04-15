@@ -110,7 +110,9 @@
     <Compile Include="ConfigurationHelpers.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\KeyPairController.cs" />
     <Compile Include="Controllers\NetworkController.cs" />
+    <Compile Include="Controllers\NetworkSubnetController.cs" />
     <Compile Include="Controllers\ServerFlavorController.cs" />
     <Compile Include="Controllers\IdentityController.cs" />
     <Compile Include="Controllers\ServerImageController.cs" />
@@ -125,11 +127,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IOpenStackApiFlavorController.cs" />
+    <Compile Include="Interfaces\IOpenStackApiKeyPairController.cs" />
     <Compile Include="Interfaces\IOpenStackApiNetworkController.cs" />
+    <Compile Include="Interfaces\IOpenStackApiNetworkSubnetsController.cs" />
     <Compile Include="Interfaces\IOpenStackApiServerActionController.cs" />
     <Compile Include="Interfaces\IOpenStackApiServerAddressController.cs" />
     <Compile Include="Interfaces\IOpenStackApiServerController.cs" />
     <Compile Include="Interfaces\IOpenStackApiServerMetadataController.cs" />
+    <Compile Include="Models\keypair\Keypair.cs" />
+    <Compile Include="Models\keypair\KeyPairCollectionResponse.cs" />
+    <Compile Include="Models\keypair\KeyPairCreateRequest.cs" />
+    <Compile Include="Models\keypair\KeyPairDetailResponse.cs" />
+    <Compile Include="Models\network\SubnetCollectionResponse.cs" />
     <Compile Include="Middleware\CaaSAuthenticationMiddleWare.cs" />
     <Compile Include="Models\api\AbsoluteLimits.cs" />
     <Compile Include="Models\api\ApiVersion.cs" />
@@ -155,6 +164,9 @@
     <Compile Include="Models\network\NetworkCreateRequest.cs" />
     <Compile Include="Models\network\NetworkDetailResponse.cs" />
     <Compile Include="Models\network\NetworkUpdateRequest.cs" />
+    <Compile Include="Models\network\SubnetCreateRequest.cs" />
+    <Compile Include="Models\network\SubnetDetail.cs" />
+    <Compile Include="Models\network\SubnetDetailResponse.cs" />
     <Compile Include="Models\RestLink.cs" />
     <Compile Include="Models\server\BaseServer.cs" />
     <Compile Include="Models\image\BaseServerImage.cs" />

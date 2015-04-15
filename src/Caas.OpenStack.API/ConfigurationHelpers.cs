@@ -72,7 +72,7 @@ namespace Caas.OpenStack.API
 			return string.Format(
 				"{0}{1}",
 				ConfigurationHelpers.GetBaseUrl(host),
-				Constants.NetworkPrefix
+				"network"
 				);
 		}
 	}

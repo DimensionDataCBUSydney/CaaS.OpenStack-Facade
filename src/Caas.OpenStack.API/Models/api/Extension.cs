@@ -36,5 +36,23 @@ namespace Caas.OpenStack.API.Models.api
 		/// <value>	The updated. </value>
 		[DataMember(Name = "updated")]
 		public string Updated { get; set; }
+
+		/// <summary>	Gets the key pair extension type. </summary>
+		/// <value>	The key pair extension. </value>
+		public static Extension KeyPairExtension
+		{
+			get
+			{
+				return new Extension
+				{
+					Alias = "os-keypairs",
+					Description = "Keypair Support.",
+					Links = new RestLink[0],
+					Name = "Keypairs",
+					Namespace = "http://docs.openstack.org/compute/ext/keypairs/api/v1.1",
+					Updated = "2011-08-08T00:00:00+00:00"
+				};
+			}
+		}
 	}
 }

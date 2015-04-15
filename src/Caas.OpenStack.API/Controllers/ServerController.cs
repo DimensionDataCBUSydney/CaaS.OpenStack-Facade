@@ -214,7 +214,10 @@ namespace Caas.OpenStack.API.Controllers
 			// No extensions are supported.
 			return Task.FromResult(new ExtensionCollectionResponse
 			{
-				Extensions = new Extension[0]
+				Extensions = new[]
+				{
+					Extension.KeyPairExtension
+				}
 			});
 		}
 	}

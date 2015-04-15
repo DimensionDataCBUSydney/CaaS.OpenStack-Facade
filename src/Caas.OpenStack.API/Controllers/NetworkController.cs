@@ -50,8 +50,9 @@ namespace Caas.OpenStack.API.Controllers
 		[Route("networks")]
 	    public async Task<NetworkCollectionResponse> GetNetworks()
 	    {
+		    var account = _computeClient.Account.OrganizationId.ToString();
 		    var networks = await _computeClient.GetNetworksTask();
-		    var openStackNetworks = NetworkTranslators.CaaSNetworkToNetwork(networks);
+			var openStackNetworks = NetworkTranslators.CaaSNetworksToNetworks(networks, account);
 
 		    return new NetworkCollectionResponse
 		    {
@@ -75,7 +76,7 @@ namespace Caas.OpenStack.API.Controllers
 
 		    return new NetworkDetailResponse
 		    {
-			    Network = NetworkTranslators.CaaSNetworkToNetwork(network)
+				Network = NetworkTranslators.CaaSNetworkToNetwork(network, _computeClient.Account.OrganizationId.ToString())
 		    };
 	    }
 

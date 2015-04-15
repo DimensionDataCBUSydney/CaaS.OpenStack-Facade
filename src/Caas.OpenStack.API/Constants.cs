@@ -19,7 +19,7 @@ namespace Caas.OpenStack.API
 		public const string CurrentImagesApiVersion = "v2";
 
 		/// <summary>	The current networking API version. </summary>
-		public const string CurrentNetworkingApiVersion = "v2";
+		public const string CurrentNetworkingApiVersion = "v2.0";
 
 		/// <summary>	The network prefix. </summary>
 		public const string NetworkPrefix = "network/" + CurrentNetworkingApiVersion;

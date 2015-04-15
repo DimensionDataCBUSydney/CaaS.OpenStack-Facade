@@ -81,7 +81,7 @@ namespace Caas.OpenStack.API.Controllers
 		    {
 			    AccessToken = new AccessToken
 			    {
-					Token = new Token(request.Message.TenantName, request.Message.TenantName, loginTokenEncoded),
+					Token = new Token(request.Message.TenantName, _computeClient.Account.OrganizationId.ToString(), loginTokenEncoded),
 					Catalog = new[]
 					{
 						new ServiceCatalogEntry
@@ -113,7 +113,7 @@ namespace Caas.OpenStack.API.Controllers
 									Id = "1",
 									InternalUrl = ConfigurationHelpers.GetNetworkUrl(Request.RequestUri.Host),
 									PublicUrl = ConfigurationHelpers.GetNetworkUrl(Request.RequestUri.Host),
-									Region = "AU1", // TODO : Map to region
+									Region = "RegionOne", // TODO : Map to region
 									Url = ConfigurationHelpers.GetNetworkUrl(Request.RequestUri.Host),
 								}
 							},
