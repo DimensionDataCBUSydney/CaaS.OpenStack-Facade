@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="NetworkNotFoundException.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   Exception for signalling network not found errors.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 
 namespace Caas.OpenStack.API.Exceptions
 {

@@ -1,4 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="IPAddress.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   An IP address.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.server
 {
@@ -7,9 +18,16 @@ namespace Caas.OpenStack.API.Models.server
 	[DataContract]
 	public class IpAddress
 	{
-		/// <summary> Initializes a new instance of the IP Address class. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="address">	The address. </param>
+		/// <summary>
+		/// Initialises a new instance of the <see cref="IpAddress"/> class. 
+		/// Initializes a new instance of the IP Address class. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="address">
+		/// 	The address. 
+		/// </param>
 		public IpAddress(string address)
 		{
 			Address = address;

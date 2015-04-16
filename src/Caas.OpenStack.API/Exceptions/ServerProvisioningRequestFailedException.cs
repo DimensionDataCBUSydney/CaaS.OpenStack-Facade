@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerProvisioningRequestFailedException.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   Exception for signalling server provisioning request failed errors.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 
 namespace Caas.OpenStack.API.Exceptions
 {

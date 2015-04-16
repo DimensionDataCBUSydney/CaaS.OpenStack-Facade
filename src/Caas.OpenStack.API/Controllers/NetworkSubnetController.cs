@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="NetworkSubnetController.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A controller for handling network subnets.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,9 +36,12 @@ namespace Caas.OpenStack.API.Controllers
 		private readonly IComputeApiClient _computeClient;
 
 		/// <summary>
+		/// Initialises a new instance of the <see cref="NetworkSubnetController"/> class. 
 		/// Initializes a new instance of the <see cref="ServerController"/> class.
 		/// </summary>
-		/// <param name="apiClient">The API client.</param>
+		/// <param name="apiClient">
+		/// The API client.
+		/// </param>
 		public NetworkSubnetController(Func<Uri, IComputeApiClient> apiClient)
         {
             _computeClient = apiClient(ConfigurationHelpers.GetApiUri());
@@ -49,10 +63,18 @@ namespace Caas.OpenStack.API.Controllers
 			};
 		}
 
-		/// <summary>	Creates a subnet. POST/v2.0/subnets. </summary>
-		/// <remarks>	Anthony, 4/15/2015. </remarks>
-		/// <param name="request">	The request. </param>
-		/// <returns>	The new subnet. </returns>
+		/// <summary>
+		/// 	Creates a subnet. POST/v2.0/subnets. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/15/2015. 
+		/// </remarks>
+		/// <param name="request">
+		/// 	The request. 
+		/// </param>
+		/// <returns>
+		/// 	The new subnet. 
+		/// </returns>
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiNetworkSubnetsController.CreateSubnet(SubnetCreateRequest)"/>
 		[HttpPost]
 		[Route("subnets")]
@@ -61,10 +83,18 @@ namespace Caas.OpenStack.API.Controllers
 			throw new NotImplementedException();
 		}
 
-		/// <summary>	Gets a subnet. GET/v2.0/subnets/​{subnet_id} </summary>
-		/// <remarks>	Anthony, 4/15/2015. </remarks>
-		/// <param name="subnetId">	Identifier for the subnet. </param>
-		/// <returns>	The subnet. </returns>
+		/// <summary>
+		/// 	Gets a subnet. GET/v2.0/subnets/​{subnet_id} 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/15/2015. 
+		/// </remarks>
+		/// <param name="subnetId">
+		/// 	Identifier for the subnet. 
+		/// </param>
+		/// <returns>
+		/// 	The subnet. 
+		/// </returns>
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiNetworkSubnetsController.GetSubnet(string)"/>
 		[HttpGet]
 		[Route("subnets/{subnetId}")]
@@ -83,10 +113,18 @@ namespace Caas.OpenStack.API.Controllers
 			};
 		}
 
-		/// <summary>	Updates the subnet described by subnetId. PUT/v2.0/subnets/​{subnet_id}​. </summary>
-		/// <remarks>	Anthony, 4/15/2015. </remarks>
-		/// <param name="subnetId">	Identifier for the subnet. </param>
-		/// <returns>	A Task&lt;SubnetDetailResponse&gt; </returns>
+		/// <summary>
+		/// 	Updates the subnet described by subnetId. PUT/v2.0/subnets/​{subnet_id}​. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/15/2015. 
+		/// </remarks>
+		/// <param name="subnetId">
+		/// 	Identifier for the subnet. 
+		/// </param>
+		/// <returns>
+		/// 	A Task&lt;SubnetDetailResponse&gt; 
+		/// </returns>
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiNetworkSubnetsController.UpdateSubnet(string)"/>
 		[HttpPut]
 		[Route("subnets/{subnetId}")]
@@ -95,10 +133,18 @@ namespace Caas.OpenStack.API.Controllers
 			throw new NotImplementedException();
 		}
 
-		/// <summary> Deletes the subnet described by subnetId. DELETE/v2.0/subnets/​{subnet_id} </summary>
-		/// <remarks>	Anthony, 4/15/2015. </remarks>
-		/// <param name="subnetId">	Identifier for the subnet. </param>
-		/// <returns>	A Task. </returns>
+		/// <summary>
+		/// Deletes the subnet described by subnetId. DELETE/v2.0/subnets/​{subnet_id} 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/15/2015. 
+		/// </remarks>
+		/// <param name="subnetId">
+		/// 	Identifier for the subnet. 
+		/// </param>
+		/// <returns>
+		/// 	A Task. 
+		/// </returns>
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiNetworkSubnetsController.DeleteSubnet(string)"/>
 		[HttpDelete]
 		[Route("subnets/{subnetId}")]

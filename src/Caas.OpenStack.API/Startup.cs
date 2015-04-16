@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Startup.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A startup.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Reflection;
 using System.Web.Http;
 using Autofac;
@@ -8,6 +19,7 @@ using DD.CBU.Compute.Api.Client;
 using DD.CBU.Compute.Api.Client.Interfaces;
 using Microsoft.Owin;
 using Owin;
+
 [assembly: OwinStartup(typeof(Caas.OpenStack.API.Startup))]
 
 namespace Caas.OpenStack.API
@@ -16,9 +28,15 @@ namespace Caas.OpenStack.API
 	/// <remarks>	Anthony, 4/13/2015. </remarks>
 	public class Startup
 	{
-		/// <summary>	Configurations the given application. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="app">	The application. </param>
+		/// <summary>
+		/// 	Configurations the given application. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="app">
+		/// 	The application. 
+		/// </param>
 		public void Configuration(IAppBuilder app)
 		{
 			ContainerBuilder builder = new ContainerBuilder();

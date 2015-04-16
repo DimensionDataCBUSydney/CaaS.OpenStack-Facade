@@ -1,4 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="BaseServerImage.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A base server image.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.image
 {

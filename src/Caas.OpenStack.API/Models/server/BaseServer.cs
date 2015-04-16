@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="BaseServer.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A base server.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.server

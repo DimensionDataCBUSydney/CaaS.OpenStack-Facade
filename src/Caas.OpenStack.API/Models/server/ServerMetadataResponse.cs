@@ -1,4 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerMetadataResponse.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A server metadata response.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.server
 {

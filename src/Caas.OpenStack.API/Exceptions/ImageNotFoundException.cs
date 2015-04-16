@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ImageNotFoundException.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   Exception for signalling image not found errors.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 
 namespace Caas.OpenStack.API.Exceptions
 {

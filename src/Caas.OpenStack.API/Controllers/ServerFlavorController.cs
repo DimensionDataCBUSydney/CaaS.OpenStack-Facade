@@ -1,4 +1,17 @@
-﻿using System.Threading.Tasks;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerFlavorController.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A controller for handling flavors
+//   Dimension Data Cloud has no equivalent, so a 'default' flavor will be returned.
+//   .
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Threading.Tasks;
 using System.Web.Http;
 using Caas.OpenStack.API.Interfaces;
 using Caas.OpenStack.API.Models.server;
@@ -15,10 +28,18 @@ namespace Caas.OpenStack.API.Controllers
 	[RoutePrefix(Constants.ServerPrefix)]
     public class ServerFlavorController : ApiController, IOpenStackApiFlavorController
     {
-		/// <summary>	Gets the flavours. OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="tenantId">	Identifier for the tenant. </param>
-		/// <returns>	The flavours. </returns>
+		/// <summary>
+		/// 	Gets the flavours. OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="tenantId">
+		/// 	Identifier for the tenant. 
+		/// </param>
+		/// <returns>
+		/// 	The flavours. 
+		/// </returns>
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiFlavorController.GetFlavors(string)"/>
 		[HttpGet]
 		[Route("{tenantId}/flavors")]
@@ -34,10 +55,18 @@ namespace Caas.OpenStack.API.Controllers
 				});
 		}
 
-		/// <summary> Gets flavors details OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors/detail. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="tenantId">	Identifier for the tenant. </param>
-		/// <returns>	The flavors details. </returns>
+		/// <summary>
+		/// Gets flavors details OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors/detail. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="tenantId">
+		/// 	Identifier for the tenant. 
+		/// </param>
+		/// <returns>
+		/// 	The flavors details. 
+		/// </returns>
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiFlavorController.GetFlavorsDetails(string)"/>
 		[HttpGet]
 		[Route("{tenantId}/flavors/detail")]
@@ -53,11 +82,21 @@ namespace Caas.OpenStack.API.Controllers
 				});
 		}
 
-		/// <summary> Gets a flavor. OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors/{flavor_id} </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="tenantId">	Identifier for the tenant. </param>
-		/// <param name="flavorId">	Identifier for the flavor. </param>
-		/// <returns>	The flavor. </returns>
+		/// <summary>
+		/// Gets a flavor. OpenStack API Equivalent GET/v2/​{tenant_id}​/flavors/{flavor_id} 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="tenantId">
+		/// 	Identifier for the tenant. 
+		/// </param>
+		/// <param name="flavorId">
+		/// 	Identifier for the flavor. 
+		/// </param>
+		/// <returns>
+		/// 	The flavor. 
+		/// </returns>
 		/// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiFlavorController.GetFlavor(string,string)"/>
 		[HttpGet]
 		[Route("{tenantId}/flavors/{flavorId}")]

@@ -1,17 +1,26 @@
-﻿namespace Caas.OpenStack.API.Models.serviceCatalog
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="EndpointType.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   Values that represent endpoint types.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace Caas.OpenStack.API.Models.serviceCatalog
 {
 	/// <summary>	Values that represent endpoint types. </summary>
 	/// <remarks>	Anthony, 4/13/2015. </remarks>
 	public enum EndpointType
 	{
 		/// <summary>	An enum constant representing the compute option. </summary>
-		compute,
+		compute, 
 
 		/// <summary>	An enum constant representing the network option. </summary>
-		network,
+		network, 
 
 		/// <summary>	An enum constant representing the storage option. </summary>
-		storage,
+		storage, 
 
         /// <summary>	An enum constant representing the identity option. </summary>
         identity

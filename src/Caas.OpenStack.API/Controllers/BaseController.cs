@@ -1,4 +1,15 @@
-﻿using System.Web.Http;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="BaseController.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A controller for handling bases.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Web.Http;
 using Caas.OpenStack.API.Models.api;
 
 namespace Caas.OpenStack.API.Controllers

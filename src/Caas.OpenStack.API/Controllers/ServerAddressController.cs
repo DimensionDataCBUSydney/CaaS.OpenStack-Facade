@@ -1,10 +1,22 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerAddressController.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A controller for handling server address.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Caas.OpenStack.API.Interfaces;
 using Caas.OpenStack.API.Models.server;
 using DD.CBU.Compute.Api.Client.Interfaces;
+using DD.CBU.Compute.Api.Contracts.Server;
 
 namespace Caas.OpenStack.API.Controllers
 {
@@ -20,23 +32,38 @@ namespace Caas.OpenStack.API.Controllers
 		private readonly IComputeApiClient _computeClient;
 
 		/// <summary>
+		/// Initialises a new instance of the <see cref="ServerAddressController"/> class. 
 		/// Initializes a new instance of the <see cref="ServerController"/> class.
 		/// </summary>
-		/// <param name="apiClient">The API client.</param>
+		/// <param name="apiClient">
+		/// The API client.
+		/// </param>
 		public ServerAddressController(Func<Uri, IComputeApiClient> apiClient)
         {
             _computeClient = apiClient(ConfigurationHelpers.GetApiUri());
         }
 
-	    /// <summary>	Gets server addresses GET/v2/​{tenant_id}​/servers/​{server_id}​/ips. </summary>
-	    /// <remarks>	Anthony, 4/13/2015. </remarks>
-	    /// <param name="tenantId">	Identifier for the tenant. </param>
-	    /// <param name="serverId">	Identifier for the server. </param>
-	    /// <returns>	The server addresses. </returns>
+	    /// <summary>
+	    /// 	Gets server addresses GET/v2/​{tenant_id}​/servers/​{server_id}​/ips. 
+	    /// </summary>
+	    /// <remarks>
+	    /// 	Anthony, 4/13/2015. 
+	    /// </remarks>
+	    /// <param name="tenantId">
+	    /// 	Identifier for the tenant. 
+	    /// </param>
+	    /// <param name="serverId">
+	    /// 	Identifier for the server. 
+	    /// </param>
+	    /// <returns>
+	    /// 	The server addresses. 
+	    /// </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerAddressController.GetServerAddresses(string,string)"/>
+	    [HttpGet]
+		[Route("{tenantId}​/servers/​{serverId}​/ips")]
 	    public async Task<ServerAddressesResponse> GetServerAddresses(string tenantId, string serverId)
 	    {
-		    var server = (await _computeClient.GetDeployedServers()).First(serv => serv.id == serverId);
+		    ServerWithBackupType server = (await _computeClient.GetDeployedServers()).First(serv => serv.id == serverId);
 		    ServerAddressesResponse addressesResponse = new ServerAddressesResponse
 		    {
 			    Addresses = new IpAddressCollection
@@ -44,7 +71,7 @@ namespace Caas.OpenStack.API.Controllers
 				    PrivateAddresses = new[]
 				    {
 					    new IpAddress(server.privateIp)
-				    },
+				    }, 
 				    PublicAddresses = new[]
 				    {
 					    new IpAddress(server.publicIp)
@@ -54,18 +81,32 @@ namespace Caas.OpenStack.API.Controllers
 			return addressesResponse;
 	    }
 
-	    /// <summary> Gets server addresses by network
-	    /// 	GET/v2/​{tenant_id}​/servers/​{server_id}​/ips/​{network_label}​. </summary>
-	    /// <remarks>	Anthony, 4/13/2015. </remarks>
-	    /// <param name="tenantId"> 	Identifier for the tenant. </param>
-	    /// <param name="serverId"> 	Identifier for the server. </param>
-	    /// <param name="networkId">	Identifier for the network. </param>
-	    /// <returns>	The server addresses by network. </returns>
+	    /// <summary>
+	    /// Gets server addresses by network
+	    /// 	GET/v2/​{tenant_id}​/servers/​{server_id}​/ips/​{network_label}​. 
+	    /// </summary>
+	    /// <remarks>
+	    /// 	Anthony, 4/13/2015. 
+	    /// </remarks>
+	    /// <param name="tenantId">
+	    /// 	Identifier for the tenant. 
+	    /// </param>
+	    /// <param name="serverId">
+	    /// 	Identifier for the server. 
+	    /// </param>
+	    /// <param name="networkId">
+	    /// 	Identifier for the network. 
+	    /// </param>
+	    /// <returns>
+	    /// 	The server addresses by network. 
+	    /// </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerAddressController.GetServerAddressesByNetwork(string,string,string)"/>
-	    public async Task<ServerAddressesResponse> GetServerAddressesByNetwork(string tenantId, string serverId, string networkId)
+	    [HttpGet]
+		[Route("{tenantId}​/servers/​{serverId}​/ips/​{networkId}​")]
+		public async Task<ServerAddressesResponse> GetServerAddressesByNetwork(string tenantId, string serverId, string networkId)
 	    {
 			// TODO : Map to network domains in MCP 2.0
-			var server = (await _computeClient.GetDeployedServers()).First(serv => serv.id == serverId);
+			ServerWithBackupType server = (await _computeClient.GetDeployedServers()).First(serv => serv.id == serverId);
 			ServerAddressesResponse addressesResponse = new ServerAddressesResponse
 			{
 				Addresses = new IpAddressCollection
@@ -73,7 +114,7 @@ namespace Caas.OpenStack.API.Controllers
 					PrivateAddresses = new[]
 				    {
 					    new IpAddress(server.privateIp)
-				    },
+				    }, 
 					PublicAddresses = new[]
 				    {
 					    new IpAddress(server.publicIp)

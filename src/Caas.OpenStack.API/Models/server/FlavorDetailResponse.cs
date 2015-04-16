@@ -1,4 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="FlavorDetailResponse.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A flavour response.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.server
 {

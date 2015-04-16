@@ -1,4 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="AccessToken.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The access token.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Runtime.Serialization;
 using Caas.OpenStack.API.Models.serviceCatalog;
 
 namespace Caas.OpenStack.API.Models.identity

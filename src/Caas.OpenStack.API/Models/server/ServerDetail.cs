@@ -1,5 +1,17 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerDetail.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A server detail.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Runtime.Serialization;
+using Caas.OpenStack.API.Models.image;
 
 namespace Caas.OpenStack.API.Models.server
 {
@@ -42,7 +54,7 @@ namespace Caas.OpenStack.API.Models.server
 		/// <summary>	Gets or sets the image. </summary>
 		/// <value>	The image. </value>
 		[DataMember(Name = "image")]
-		public image.ServerImage Image { get; set; }
+		public ServerImage Image { get; set; }
 
 		/// <summary>	Gets or sets the metadata. </summary>
 		/// <value>	The metadata. </value>
@@ -73,6 +85,7 @@ namespace Caas.OpenStack.API.Models.server
 			{
 				return Status.ToString().ToUpper();
 			}
+
 			set
 			{
 				ServerStatus status;

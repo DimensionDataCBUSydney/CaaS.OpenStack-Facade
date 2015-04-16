@@ -1,4 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Extension.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   An extension.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.api
 {
@@ -45,11 +56,11 @@ namespace Caas.OpenStack.API.Models.api
 			{
 				return new Extension
 				{
-					Alias = "os-keypairs",
-					Description = "Keypair Support.",
-					Links = new RestLink[0],
-					Name = "Keypairs",
-					Namespace = "http://docs.openstack.org/compute/ext/keypairs/api/v1.1",
+					Alias = "os-keypairs", 
+					Description = "Keypair Support.", 
+					Links = new RestLink[0], 
+					Name = "Keypairs", 
+					Namespace = "http://docs.openstack.org/compute/ext/keypairs/api/v1.1", 
 					Updated = "2011-08-08T00:00:00+00:00"
 				};
 			}

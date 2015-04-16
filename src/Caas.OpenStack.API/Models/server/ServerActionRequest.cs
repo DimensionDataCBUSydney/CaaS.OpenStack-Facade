@@ -1,4 +1,15 @@
-﻿using System.Collections.Generic;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerActionRequest.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A server action request.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.server

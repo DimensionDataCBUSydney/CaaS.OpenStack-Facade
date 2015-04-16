@@ -1,4 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ApiVersionList.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   List of API versions.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.api
 {
@@ -11,9 +22,12 @@ namespace Caas.OpenStack.API.Models.api
 		private string _baseUrl;
 
 		/// <summary>
+		/// Initialises a new instance of the <see cref="ApiVersionList"/> class. 
 		/// Initializes a new instance of the <see cref="ApiVersionList"/> class.
 		/// </summary>
-		/// <param name="baseUrl">The base URL.</param>
+		/// <param name="baseUrl">
+		/// The base URL.
+		/// </param>
 		public ApiVersionList(string baseUrl)
 		{
 			_baseUrl = baseUrl;

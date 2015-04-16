@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ApiVersion.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   An API version.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.api
@@ -8,11 +19,22 @@ namespace Caas.OpenStack.API.Models.api
 	[DataContract]
 	public class ApiVersion
 	{
-		/// <summary> Initializes a new instance of the ApiVersion class. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="baseUrl">	URL of the base. </param>
-		/// <param name="status"> 	The status. </param>
-		/// <param name="id">	  	The identifier. </param>
+		/// <summary>
+		/// Initialises a new instance of the <see cref="ApiVersion"/> class. 
+		/// Initializes a new instance of the ApiVersion class. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="baseUrl">
+		/// 	URL of the base. 
+		/// </param>
+		/// <param name="status">
+		/// 	The status. 
+		/// </param>
+		/// <param name="id">
+		/// 	  	The identifier. 
+		/// </param>
 		public ApiVersion(string baseUrl, string status, string id)
 		{
 			Status = status;
@@ -21,7 +43,7 @@ namespace Caas.OpenStack.API.Models.api
 			Links  = new[]
 			{
 				new RestLink(
-					String.Format("{0}{1}/", baseUrl, Constants.CurrentApiVersion), RestLink.Self), 
+					string.Format("{0}{1}/", baseUrl, Constants.CurrentApiVersion), RestLink.Self), 
 			};
 		}
 

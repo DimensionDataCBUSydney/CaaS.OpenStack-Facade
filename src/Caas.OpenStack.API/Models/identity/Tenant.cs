@@ -1,4 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Tenant.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A tenant.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.identity
 {
@@ -7,11 +18,22 @@ namespace Caas.OpenStack.API.Models.identity
 	[DataContract]
 	public class Tenant
 	{
-		/// <summary>	TODO : Map to organization detail. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="description">	The description. </param>
-		/// <param name="name">		  	The name. </param>
-		/// <param name="id">		  	The identifier. </param>
+		/// <summary>
+		/// Initialises a new instance of the <see cref="Tenant"/> class. 
+		/// 	TODO : Map to organization detail. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="description">
+		/// 	The description. 
+		/// </param>
+		/// <param name="name">
+		/// 		  	The name. 
+		/// </param>
+		/// <param name="id">
+		/// 		  	The identifier. 
+		/// </param>
 		public Tenant(string description, string name, string id)
 		{
 			Description = description;
@@ -39,5 +61,12 @@ namespace Caas.OpenStack.API.Models.identity
 		/// <value>	The name. </value>
 		[DataMember(Name = "name")]
 		public string Name { get; set; }
+
+		/// <summary>	Gets the default tenant. </summary>
+		/// <value>	The default tenant. </value>
+		public static Tenant DefaultTenant
+		{
+			get { return new Tenant("Default Tenant", "Default", "10001"); }
+		}
 	}
 }

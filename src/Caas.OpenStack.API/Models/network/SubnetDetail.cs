@@ -1,4 +1,15 @@
-﻿using System.Collections.Generic;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="SubnetDetail.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   An allocation pool.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.network

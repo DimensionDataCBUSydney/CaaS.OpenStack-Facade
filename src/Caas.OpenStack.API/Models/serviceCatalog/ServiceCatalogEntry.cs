@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServiceCatalogEntry.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A service catalogue entry.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.serviceCatalog
@@ -27,6 +38,7 @@ namespace Caas.OpenStack.API.Models.serviceCatalog
             {
                 return Type.ToString();
             }
+
             set
 			{
                 EndpointType newtype;

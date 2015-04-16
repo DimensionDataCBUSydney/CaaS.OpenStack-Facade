@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerMetadataController.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A controller for handling server metadata.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Caas.OpenStack.API.Interfaces;
@@ -14,12 +25,22 @@ namespace Caas.OpenStack.API.Controllers
 	[RoutePrefix(Constants.ServerPrefix)]
     public class ServerMetadataController : ApiController, IOpenStackApiServerMetadataController
     {
-	    /// <summary> Gets server metadata. OpenStack API equivalent - >
-	    /// 	GET/v2/​{tenant_id}​/servers/​{server_id}​/metadata. </summary>
-	    /// <remarks>	Anthony, 4/13/2015. </remarks>
-	    /// <param name="tenantId">	Identifier for the tenant. </param>
-	    /// <param name="serverId">	Identifier for the server. </param>
-	    /// <returns>	The server metadata. </returns>
+	    /// <summary>
+	    /// Gets server metadata. OpenStack API equivalent - &gt;
+	    /// 	GET/v2/​{tenant_id}​/servers/​{server_id}​/metadata. 
+	    /// </summary>
+	    /// <remarks>
+	    /// 	Anthony, 4/13/2015. 
+	    /// </remarks>
+	    /// <param name="tenantId">
+	    /// 	Identifier for the tenant. 
+	    /// </param>
+	    /// <param name="serverId">
+	    /// 	Identifier for the server. 
+	    /// </param>
+	    /// <returns>
+	    /// 	The server metadata. 
+	    /// </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerMetadataController.GetServerMetadata(string,string)"/>
 	    [HttpGet]
 		[Route("{tenantId}​/servers/​{serverId}​/metadata")]
@@ -28,12 +49,22 @@ namespace Caas.OpenStack.API.Controllers
 		    throw new NotImplementedException();
 	    }
 
-	    /// <summary> Creates or update server metadata OpenStack API equivalent - >
-	    /// 	PUT/v2/​{tenant_id}​/servers/​{server_id}​/metadata. </summary>
-	    /// <remarks>	Anthony, 4/13/2015. </remarks>
-	    /// <param name="tenantId">	Identifier for the tenant. </param>
-	    /// <param name="serverId">	Identifier for the server. </param>
-	    /// <returns>	The new or update server metadata. </returns>
+	    /// <summary>
+	    /// Creates or update server metadata OpenStack API equivalent - &gt;
+	    /// 	PUT/v2/​{tenant_id}​/servers/​{server_id}​/metadata. 
+	    /// </summary>
+	    /// <remarks>
+	    /// 	Anthony, 4/13/2015. 
+	    /// </remarks>
+	    /// <param name="tenantId">
+	    /// 	Identifier for the tenant. 
+	    /// </param>
+	    /// <param name="serverId">
+	    /// 	Identifier for the server. 
+	    /// </param>
+	    /// <returns>
+	    /// 	The new or update server metadata. 
+	    /// </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerMetadataController.CreateOrUpdateServerMetadata(string,string)"/>
 		[HttpPut]
 		[Route("{tenantId}​/servers/​{serverId}​/metadata")]
@@ -42,12 +73,22 @@ namespace Caas.OpenStack.API.Controllers
 		    throw new NotImplementedException();
 	    }
 
-	    /// <summary> Updates the server metadata items OpenStack API equivalent - > POST
-	    /// 	/v2/​{tenant_id}​/servers/​{server_id}​/metadata. </summary>
-	    /// <remarks>	Anthony, 4/13/2015. </remarks>
-	    /// <param name="tenantId">	Identifier for the tenant. </param>
-	    /// <param name="serverId">	Identifier for the server. </param>
-	    /// <returns>	A Task&lt;ServerMetadataResponse&gt; </returns>
+	    /// <summary>
+	    /// Updates the server metadata items OpenStack API equivalent - &gt; POST
+	    /// 	/v2/​{tenant_id}​/servers/​{server_id}​/metadata. 
+	    /// </summary>
+	    /// <remarks>
+	    /// 	Anthony, 4/13/2015. 
+	    /// </remarks>
+	    /// <param name="tenantId">
+	    /// 	Identifier for the tenant. 
+	    /// </param>
+	    /// <param name="serverId">
+	    /// 	Identifier for the server. 
+	    /// </param>
+	    /// <returns>
+	    /// 	A Task&lt;ServerMetadataResponse&gt; 
+	    /// </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerMetadataController.UpdateServerMetadataItems(string,string)"/>
 		[HttpPost]
 		[Route("{tenantId}​/servers/​{serverId}​/metadata")]
@@ -56,13 +97,25 @@ namespace Caas.OpenStack.API.Controllers
 		    throw new NotImplementedException();
 	    }
 
-	    /// <summary> Gets metadata item details OpenStack API equivalent - >
-	    /// 	GET/v2/​{tenant_id}​/servers/​{server_id}​/metadata/{key}. </summary>
-	    /// <remarks>	Anthony, 4/13/2015. </remarks>
-	    /// <param name="tenantId">	Identifier for the tenant. </param>
-	    /// <param name="serverId">	Identifier for the server. </param>
-	    /// <param name="key">	   	The key. </param>
-	    /// <returns>	The metadata item details. </returns>
+	    /// <summary>
+	    /// Gets metadata item details OpenStack API equivalent - &gt;
+	    /// 	GET/v2/​{tenant_id}​/servers/​{server_id}​/metadata/{key}. 
+	    /// </summary>
+	    /// <remarks>
+	    /// 	Anthony, 4/13/2015. 
+	    /// </remarks>
+	    /// <param name="tenantId">
+	    /// 	Identifier for the tenant. 
+	    /// </param>
+	    /// <param name="serverId">
+	    /// 	Identifier for the server. 
+	    /// </param>
+	    /// <param name="key">
+	    /// 	   	The key. 
+	    /// </param>
+	    /// <returns>
+	    /// 	The metadata item details. 
+	    /// </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerMetadataController.GetMetadataItemDetails(string,string,string)"/>
 		[HttpGet]
 		[Route("{tenantId}​/servers/​{serverId}​/metadata/{key}")]
@@ -71,13 +124,25 @@ namespace Caas.OpenStack.API.Controllers
 		    throw new NotImplementedException();
 	    }
 
-	    /// <summary> Updates the metadata item details OpenStack API equivalent
-	    /// 	PUT/v2/​{tenant_id}​/servers/​{server_id}​/metadata/​{key}​. </summary>
-	    /// <remarks>	Anthony, 4/13/2015. </remarks>
-	    /// <param name="tenantId">	Identifier for the tenant. </param>
-	    /// <param name="serverId">	Identifier for the server. </param>
-	    /// <param name="key">	   	The key. </param>
-	    /// <returns>	A Task&lt;ServerMetadataResponse&gt; </returns>
+	    /// <summary>
+	    /// Updates the metadata item details OpenStack API equivalent
+	    /// 	PUT/v2/​{tenant_id}​/servers/​{server_id}​/metadata/​{key}​. 
+	    /// </summary>
+	    /// <remarks>
+	    /// 	Anthony, 4/13/2015. 
+	    /// </remarks>
+	    /// <param name="tenantId">
+	    /// 	Identifier for the tenant. 
+	    /// </param>
+	    /// <param name="serverId">
+	    /// 	Identifier for the server. 
+	    /// </param>
+	    /// <param name="key">
+	    /// 	   	The key. 
+	    /// </param>
+	    /// <returns>
+	    /// 	A Task&lt;ServerMetadataResponse&gt; 
+	    /// </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerMetadataController.UpdateMetadataItemDetails(string,string,string)"/>
 		[HttpPut]
 		[Route("{tenantId}​/servers/​{serverId}​/metadata/{key}")]
@@ -86,13 +151,25 @@ namespace Caas.OpenStack.API.Controllers
 		    throw new NotImplementedException();
 	    }
 
-	    /// <summary> Deletes the metadata item details OpenStack API equivalent
-	    /// 	DELETE/v2/​{tenant_id}​/servers/​{server_id}​/metadata/​{key}​. </summary>
-	    /// <remarks>	Anthony, 4/13/2015. </remarks>
-	    /// <param name="tenantId">	Identifier for the tenant. </param>
-	    /// <param name="serverId">	Identifier for the server. </param>
-	    /// <param name="key">	   	The key. </param>
-	    /// <returns>	A Task&lt;ServerMetadataResponse&gt; </returns>
+	    /// <summary>
+	    /// Deletes the metadata item details OpenStack API equivalent
+	    /// 	DELETE/v2/​{tenant_id}​/servers/​{server_id}​/metadata/​{key}​. 
+	    /// </summary>
+	    /// <remarks>
+	    /// 	Anthony, 4/13/2015. 
+	    /// </remarks>
+	    /// <param name="tenantId">
+	    /// 	Identifier for the tenant. 
+	    /// </param>
+	    /// <param name="serverId">
+	    /// 	Identifier for the server. 
+	    /// </param>
+	    /// <param name="key">
+	    /// 	   	The key. 
+	    /// </param>
+	    /// <returns>
+	    /// 	A Task&lt;ServerMetadataResponse&gt; 
+	    /// </returns>
 	    /// <seealso cref="M:Caas.OpenStack.API.Interfaces.IOpenStackApiServerMetadataController.DeleteMetadataItemDetails(string,string,string)"/>
 		[HttpDelete]
 		[Route("{tenantId}​/servers/​{serverId}​/metadata/{key}")]

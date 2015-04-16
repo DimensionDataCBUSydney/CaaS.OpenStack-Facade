@@ -1,4 +1,15 @@
-﻿using System.Net.Http;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Flavor.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A flavour.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System.Net.Http;
 using System.Runtime.Serialization;
 using Caas.OpenStack.API.UriFactories;
 
@@ -30,20 +41,30 @@ namespace Caas.OpenStack.API.Models.server
 		[DataMember(Name = "name")]
 		public string Name { get; set; }
 
-	    /// <summary>	Get a default flavor. </summary>
-	    /// <remarks>	Anthony, 4/13/2015. </remarks>
-	    /// <param name="request"> 	The request. </param>
-	    /// <param name="tenantId">	Identifier for the tenant. </param>
-	    /// <returns>	A Flavor. </returns>
+	    /// <summary>
+	    /// 	Get a default flavor. 
+	    /// </summary>
+	    /// <remarks>
+	    /// 	Anthony, 4/13/2015. 
+	    /// </remarks>
+	    /// <param name="request">
+	    /// 	The request. 
+	    /// </param>
+	    /// <param name="tenantId">
+	    /// 	Identifier for the tenant. 
+	    /// </param>
+	    /// <returns>
+	    /// 	A Flavor. 
+	    /// </returns>
 	    public static Flavor GenerateDefaultFlavor(HttpRequestMessage request, string tenantId)
 	    {
 		    return new Flavor
 		    {
-			    Id = DefaultFlavorId,
+			    Id = DefaultFlavorId, 
 			    Links = new[]
 			    {
 				    new RestLink(ServerUriFactory.GetFlavorUri(request.RequestUri.Host, tenantId, DefaultFlavorId), RestLink.Self)
-			    },
+			    }, 
 				Name = DefaultFlavorName
 		    };
 	    }

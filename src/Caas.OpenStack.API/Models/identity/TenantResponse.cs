@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="TokenIssueResponse.cs" company="">
+// <copyright file="TenantResponse.cs" company="">
 //   
 // </copyright>
 // <summary>
-//   A token issue response.
+//   A tenant response.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -13,14 +13,14 @@ using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.identity
 {
-	/// <summary>	A token issue response. </summary>
-	/// <remarks>	Anthony, 4/13/2015. </remarks>
+	/// <summary>	A tenant response. </summary>
+	/// <remarks>	Anthony, 4/16/2015. </remarks>
 	[DataContract]
-	public class TokenIssueResponse
+	public class TenantResponse
 	{
-		/// <summary>	Gets or sets the access token. </summary>
-		/// <value>	The access token. </value>
-		[DataMember(Name = "access")]
-		public AccessToken AccessToken { get; set; }
+		/// <summary>	Gets or sets the tenant. </summary>
+		/// <value>	The tenant. </value>
+		[DataMember(Name = "tenant")]
+		public Tenant Tenant { get; set; }
 	}
 }

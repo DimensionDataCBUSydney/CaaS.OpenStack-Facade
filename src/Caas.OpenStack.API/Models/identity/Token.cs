@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Token.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A token.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 using System.Runtime.Serialization;
 
 namespace Caas.OpenStack.API.Models.identity
@@ -8,17 +19,22 @@ namespace Caas.OpenStack.API.Models.identity
 	[DataContract]
 	public class Token
 	{
-		/// <summary> Initializes a new instance of the CAAS.OpenStack.API.Models.identity.Token class. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="tenantName">	Name of the tenant. </param>
-		/// <param name="tenantId">  	Identifier for the tenant. </param>
-		/// <param name="token">	 	The token. </param>
-		public Token(string tenantName, string tenantId, string token)
+		/// <summary>
+		/// Initialises a new instance of the <see cref="Token"/> class. 
+		/// Initializes a new instance of the CAAS.OpenStack.API.Models.identity.Token class. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="token">
+		/// 	 	The token. 
+		/// </param>
+		public Token(string token)
 		{
 			_issuedAt = DateTime.Now;
 			_expires = _issuedAt.AddMinutes(60);
 			Id = token;
-			Tenant = new Tenant(tenantName, tenantName, tenantId);
+			Tenant = Tenant.DefaultTenant;
 		}
 
 		/// <summary>	Gets the issued at date. </summary>

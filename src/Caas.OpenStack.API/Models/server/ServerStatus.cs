@@ -1,4 +1,13 @@
-﻿namespace Caas.OpenStack.API.Models.server
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerStatus.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   Values that represent server status.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace Caas.OpenStack.API.Models.server
 {
 	/// <summary>	Values that represent server status. </summary>
 	/// <remarks>	Anthony, 4/13/2015. </remarks>

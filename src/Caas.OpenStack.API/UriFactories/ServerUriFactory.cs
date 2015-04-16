@@ -1,4 +1,15 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServerUriFactory.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   A server URI factory.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+
+
+using System;
 
 namespace Caas.OpenStack.API.UriFactories
 {
@@ -6,36 +17,60 @@ namespace Caas.OpenStack.API.UriFactories
 	/// <remarks>	Anthony, 4/13/2015. </remarks>
 	public static class ServerUriFactory
 	{
-		/// <summary>	Gets the server URI. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="host">	   	The host. </param>
-		/// <param name="tenantId">	The tenant identifier. </param>
-		/// <param name="id">	   	The identifier. </param>
-		/// <returns>	The server URI. </returns>
+		/// <summary>
+		/// 	Gets the server URI. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="host">
+		/// 	   	The host. 
+		/// </param>
+		/// <param name="tenantId">
+		/// 	The tenant identifier. 
+		/// </param>
+		/// <param name="id">
+		/// 	   	The identifier. 
+		/// </param>
+		/// <returns>
+		/// 	The server URI. 
+		/// </returns>
 		public static string GetServerUri(string host, string tenantId, string id)
 		{
-			return String.Format(
-				"{0}{1}/{2}/servers/{3}",
-				ConfigurationHelpers.GetBaseUrl(host),
-				Constants.CurrentApiVersion,
-				tenantId,
+			return string.Format(
+				"{0}{1}/{2}/servers/{3}", 
+				ConfigurationHelpers.GetBaseUrl(host), 
+				Constants.CurrentApiVersion, 
+				tenantId, 
 				id
 				);
 		}
 
-		/// <summary>	Gets flavor URI. </summary>
-		/// <remarks>	Anthony, 4/13/2015. </remarks>
-		/// <param name="host">	   	The host. </param>
-		/// <param name="tenantId">	The tenant identifier. </param>
-		/// <param name="id">	   	The identifier. </param>
-		/// <returns>	The flavor URI. </returns>
+		/// <summary>
+		/// 	Gets flavor URI. 
+		/// </summary>
+		/// <remarks>
+		/// 	Anthony, 4/13/2015. 
+		/// </remarks>
+		/// <param name="host">
+		/// 	   	The host. 
+		/// </param>
+		/// <param name="tenantId">
+		/// 	The tenant identifier. 
+		/// </param>
+		/// <param name="id">
+		/// 	   	The identifier. 
+		/// </param>
+		/// <returns>
+		/// 	The flavor URI. 
+		/// </returns>
 		public static string GetFlavorUri(string host, string tenantId, int id)
 		{
-			return String.Format(
-				"{0}{1}/{2}/flavors/{3}",
-				ConfigurationHelpers.GetBaseUrl(host),
-				Constants.CurrentApiVersion,
-				tenantId,
+			return string.Format(
+				"{0}{1}/{2}/flavors/{3}", 
+				ConfigurationHelpers.GetBaseUrl(host), 
+				Constants.CurrentApiVersion, 
+				tenantId, 
 				id
 				);
 		}
