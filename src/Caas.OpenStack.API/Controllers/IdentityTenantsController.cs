@@ -33,6 +33,7 @@ namespace Caas.OpenStack.API.Controllers
 		[Route("tenants")]
 		[Route(Constants.CurrentApiVersion + "/tenants")]
 		[Route(Constants.CurrentApiVersionLong + "/tenants")]
+		[Route(Constants.IdentityPrefix + "/tenants")]
 	    public Task<TenantCollectionResponse> GetTenants()
 	    {
 		    return Task.FromResult(

@@ -121,6 +121,7 @@
     <Compile Include="Controllers\ServerAddressController.cs" />
     <Compile Include="Controllers\ServerController.cs" />
     <Compile Include="Controllers\ServerMetadataController.cs" />
+    <Compile Include="Controllers\ServerVolumesController.cs" />
     <Compile Include="Exceptions\ImageNotFoundException.cs" />
     <Compile Include="Exceptions\NetworkNotFoundException.cs" />
     <Compile Include="Exceptions\ServerProvisioningRequestFailedException.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Interfaces\IOpenStackApiServerAddressController.cs" />
     <Compile Include="Interfaces\IOpenStackApiServerController.cs" />
     <Compile Include="Interfaces\IOpenStackApiServerMetadataController.cs" />
+    <Compile Include="Interfaces\IOpenStackApiServerVolumesController.cs" />
     <Compile Include="Interfaces\IOpenStackApiTenantsController.cs" />
     <Compile Include="Models\identity\TenantCollectionResponse.cs" />
     <Compile Include="Models\identity\TenantResponse.cs" />
@@ -193,6 +195,10 @@
     <Compile Include="Models\server\ServerProvisioningRequest.cs" />
     <Compile Include="Models\server\ServerProvisioningResponse.cs" />
     <Compile Include="Models\server\ServerStatus.cs" />
+    <Compile Include="Models\server\ServerVolume.cs" />
+    <Compile Include="Models\server\ServerVolumeCollectionResponse.cs" />
+    <Compile Include="Models\server\ServerVolumeCreationRequest.cs" />
+    <Compile Include="Models\server\ServerVolumeResponse.cs" />
     <Compile Include="Models\serviceCatalog\Endpoint.cs" />
     <Compile Include="Models\serviceCatalog\EndpointType.cs" />
     <Compile Include="Models\serviceCatalog\ServiceCatalogEntry.cs" />

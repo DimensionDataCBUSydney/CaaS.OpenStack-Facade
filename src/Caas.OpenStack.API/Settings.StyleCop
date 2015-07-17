@@ -9,6 +9,7 @@
       <Value>keypair</Value>
       <Value>keypairs</Value>
       <Value>os-keypairs</Value>
+      <Value>os-volumes</Value>
     </CollectionProperty>
   </GlobalSettings>
 </StyleCopSettings>

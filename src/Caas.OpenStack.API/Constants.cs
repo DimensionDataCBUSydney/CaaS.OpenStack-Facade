@@ -29,6 +29,9 @@ namespace Caas.OpenStack.API
 		/// <summary>	The current images API version. </summary>
 		public const string CurrentImagesApiVersion = "v2";
 
+		/// <summary>	The current images API version. </summary>
+		public const string CurrentIdentityApiVersion = "v2";
+
 		/// <summary>	The current networking API version. </summary>
 		public const string CurrentNetworkingApiVersion = "v2.0";
 
@@ -40,5 +43,8 @@ namespace Caas.OpenStack.API
 
 		/// <summary>	The server prefix. </summary>
 		public const string ServerPrefix = "server/" + CurrentServerApiVersion;
+
+		/// <summary>	The server prefix. </summary>
+		public const string IdentityPrefix = "identity/" + CurrentIdentityApiVersion;
 	}
 }

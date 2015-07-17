@@ -77,6 +77,21 @@ namespace Caas.OpenStack.API
                 );
         }
 
+		/// <summary>	Gets identity URL. </summary>
+		/// <remarks>	Anthony, 4/20/2015. </remarks>
+		/// <param name="host">  	The host. </param>
+		/// <param name="tenant">	The tenant. </param>
+		/// <returns>	The identity URL. </returns>
+		public static string GetIdentityUrl(string host, string tenant)
+		{
+			return string.Format(
+				"{0}{1}/{2}",
+				ConfigurationHelpers.GetBaseUrl(host),
+				Constants.IdentityPrefix,
+				tenant
+				);
+		}
+
 		/// <summary>
 		/// 	Gets image URL. 
 		/// </summary>

@@ -27,7 +27,7 @@ namespace Caas.OpenStack.API.Models.serviceCatalog
 		/// <summary>	Gets or sets the endpoints links. </summary>
 		/// <value>	The endpoints links. </value>
 		[DataMember(Name = "endpoints_links")]
-		public string[] EndpointsLinks { get; set; }
+		public RestLink[] EndpointsLinks { get; set; }
 
         /// <summary>	Gets or sets the endpoint type string. </summary>
         /// <value>	The endpoint type string. </value>

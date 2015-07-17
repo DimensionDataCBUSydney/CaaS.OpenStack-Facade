@@ -77,6 +77,28 @@ namespace Caas.OpenStack.API.Controllers
 			});
 		}
 
+		/// <summary>	(An Action that handles HTTP GET requests) gets server list head. </summary>
+		/// <remarks>	Anthony, 4/20/2015. </remarks>
+		/// <param name="tenantId">	The tenantId. </param>
+		/// <returns>	The server list. </returns>
+		[Route("{tenantId}")]
+		[HttpHead]
+		public async Task<BaseServerResponse> GetServerListHead([FromUri] string tenantId)
+		{
+			ServerWithBackupType[] remoteServerCollection = (await _computeClient.GetDeployedServers()).ToArray();
+			List<BaseServer> servers = new List<BaseServer>();
+
+			for (int i = 0; i < servers.Count(); i++)
+			{
+				servers.Add(Request.CaaSServerToServer(remoteServerCollection[i], tenantId));
+			}
+
+			return new BaseServerResponse
+			{
+				Servers = servers.ToArray()
+			};
+		}
+
 		/// <summary>
 		/// 	(An Action that handles HTTP GET requests) gets server list. 
 		/// </summary>

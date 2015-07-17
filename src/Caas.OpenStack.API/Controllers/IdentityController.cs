@@ -15,6 +15,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Caas.OpenStack.API.Models;
 using Caas.OpenStack.API.Models.identity;
 using Caas.OpenStack.API.Models.serviceCatalog;
 using DD.CBU.Compute.Api.Client.Interfaces;
@@ -58,6 +59,7 @@ namespace Caas.OpenStack.API.Controllers
 		[Route("tokens")]
 		[Route(Constants.CurrentApiVersion + "/tokens")]
         [Route(Constants.CurrentApiVersionLong + "/tokens")]
+		[Route(Constants.IdentityPrefix + "/tokens")]
 		[HttpPost]
 		public async Task<TokenIssueResponse> IssueToken(TokenIssueRequest request)
 		{
@@ -78,8 +80,19 @@ namespace Caas.OpenStack.API.Controllers
 
             string loginTokenEncoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(loginToken));
 
-			List<Endpoint> endPoints = new List<Endpoint>();
-			endPoints.Add(new Endpoint
+			List<Endpoint> novaEndpoints = new List<Endpoint>();
+			List<Endpoint> keystoneEndpoints = new List<Endpoint>
+			{
+				new Endpoint 
+				{
+					Url = ConfigurationHelpers.GetIdentityUrl(Request.RequestUri.Host, request.Message.TenantName), 
+					Id = "AU1", // TODO: Map to cloud id?
+                    InternalUrl = ConfigurationHelpers.GetIdentityUrl(Request.RequestUri.Host, request.Message.TenantName), 
+                    PublicUrl = ConfigurationHelpers.GetIdentityUrl(Request.RequestUri.Host, request.Message.TenantName), 
+					Region = "RegionOne" 
+				}
+			};
+			novaEndpoints.Add(new Endpoint
 				{
 					Url = ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName), 
 					Id = "AU1", // TODO: Map to cloud id?
@@ -87,9 +100,10 @@ namespace Caas.OpenStack.API.Controllers
                     PublicUrl = ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName), 
 					Region = "RegionOne" 
 				});
+
 			foreach (DatacenterWithMaintenanceStatusType dataCenter in dataCenters)
 			{
-				endPoints.Add(new Endpoint
+				novaEndpoints.Add(new Endpoint
 				{
 					Url = ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName), 
 					Id = dataCenter.location, // TODO: Map to cloud id?
@@ -108,20 +122,20 @@ namespace Caas.OpenStack.API.Controllers
 					{
 						new ServiceCatalogEntry
 						{
-							Endpoints = endPoints.ToArray(), 
+							Endpoints = novaEndpoints.ToArray(), 
 							EndpointsLinks = new[]
                             {
-                                ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName)
+                                new RestLink(ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName), "self")
                             }, 
 							Name = "nova", 
 							Type = EndpointType.compute
 						}, 
                         new ServiceCatalogEntry
 						{
-							Endpoints = endPoints.ToArray(), 
+							Endpoints = keystoneEndpoints.ToArray(), 
 							EndpointsLinks = new[]
                             {
-                                ConfigurationHelpers.GetServerUrl(Request.RequestUri.Host, request.Message.TenantName)
+                                new RestLink(ConfigurationHelpers.GetIdentityUrl(Request.RequestUri.Host, request.Message.TenantName), "self")
                             }, 
 							Name = "keystone", 
 							Type = EndpointType.identity
@@ -141,7 +155,7 @@ namespace Caas.OpenStack.API.Controllers
 							}, 
 							EndpointsLinks = new[]
                             {
-                                ConfigurationHelpers.GetNetworkUrl(Request.RequestUri.Host)
+                                new RestLink(ConfigurationHelpers.GetNetworkUrl(Request.RequestUri.Host), "self")
                             }, 
 							Name = "neutron", 
 							Type = EndpointType.network
